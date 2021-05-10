@@ -91,12 +91,19 @@
 							<a href="#">Links</a> 
 							<div class="header-menu">
 								<ul>
-									<li><a href="login">Login </a></li>
+									@guest
+									<li><a href="login">Se connecter </a></li>
+									@endguest
+
+									@auth
+									<li><a href="#">{{auth()->user()->name}} </a></li>
+									<li><a href="{{route('logout')}} ">Se déconnecter </a></li>
+									@endauth
 									<li><a href="about">About</a></li>
-									<li><a href="category">Our Stores</a></li>
+								<!--	<li><a href="category">Our Stores</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="contact.html">Contact</a></li>
-									<li><a href="#">Help &amp; FAQs</a></li>
+									<li><a href="#">Help &amp; FAQs</a></li>-->
 								</ul>
 							</div><!-- End .header-menu -->
 						</div><!-- End .header-dropown -->

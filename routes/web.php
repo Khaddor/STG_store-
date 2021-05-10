@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\registerController;
+use App\Http\Controllers\homeController;
+use App\Http\Controllers\loginController;
+use App\Http\Controllers\logoutController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +17,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
 
+Route::get('/', [homeController::class,'index'])->name('home');
 
 Route::get('/category', function () {
     return view('category');
@@ -27,14 +29,15 @@ Route::get('/product', function(){
         return view('product');
 });
 
-Route::get('/login',function(){
-        return view('login');
-});
 
+Route::get('/register', [registerController::class,'index'])->name('register');
+Route::post('/register', [registerController::class, 'store']);
 
-Route::get('/register',function(){
-        return view('register');
-});
+Route::get('/login', [loginController::class,'index'])->name('login');
+Route::post('/login', [loginController::class, 'store']);
+
+Route::get('/logout', [logoutController::class,'store'])->name('logout');
+
 
 Route::get('/about', function(){
         return view('about');
