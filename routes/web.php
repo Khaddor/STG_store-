@@ -36,6 +36,10 @@ Route::get('/register',function(){
         return view('register');
 });
 
+Route::get('/about', function(){
+        return view('about');
+});
+
 
 
 

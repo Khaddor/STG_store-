@@ -3,7 +3,7 @@
 @section('content')
     
 
-<div class="col-md-6">
+<div class="col-md-8"style="padding-left:30%">
 						<div class="heading">
 							<h2 class="title">Create An Account</h2>
 							<p>By creating an account with our store, you will be able to move through the checkout process faster, store multiple shipping addresses, view and track your orders in your account and more.</p>

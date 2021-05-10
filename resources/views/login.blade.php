@@ -6,7 +6,7 @@
 			<nav aria-label="breadcrumb" class="breadcrumb-nav">
 				<div class="container">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
+						<li class="breadcrumb-item"><a href="/"><i class="icon-home"></i></a></li>
 						<li class="breadcrumb-item"><a href="#">Pages</a></li>
 						<li class="breadcrumb-item active" aria-current="page">Login</li>
 					</ol>
@@ -15,7 +15,7 @@
 
 			<div class="container">
 				<div class="row">
-					<div class="col-md-6 ">
+					<div class="col-md-8 " style="padding-left:30%">
 						<div class="heading">
 							<h2 class="title">Login</h2>
 							<p>If you have an account with us, please log in.</p>
@@ -28,8 +28,8 @@
 							<div class="form-footer">
 								<button type="submit" class="btn btn-primary">LOGIN</button>
                                 <ul>
-                                    <li><a href="register" class="forget-pass"> Creé un compte </a></li>
-                                    <li><a href="#" class="forget-pass"> Mot de passe oublié ?</a></li>
+                                    <li style="padding-top:20px; padding-left:40px;"><a href="register" class="forget-pass"> Creé un compte </a></li>
+                                    <li><a href="#" class="forget-pass" style="padding-left: 40px;"> Mot de passe oublié ?</a></li>
                                 </ul>
                             </div><!-- End .form-footer -->
 						</form>

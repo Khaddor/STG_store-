@@ -92,7 +92,7 @@
 							<div class="header-menu">
 								<ul>
 									<li><a href="login">Login </a></li>
-									<li><a href="about.html">About</a></li>
+									<li><a href="about">About</a></li>
 									<li><a href="category">Our Stores</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="contact.html">Contact</a></li>
@@ -424,7 +424,7 @@
                                 <li><a href="checkout-review.html">Checkout Review</a></li>
                             </ul>
                         </li>
-                        <li><a href="about.html">About</a></li>
+                        <li><a href="about">About</a></li>
                         <li><a href="#" class="login-link">Login</a></li>
                         <li><a href="forgot-password.html">Forgot Password</a></li>
                     </ul>
