@@ -97,7 +97,7 @@
 
 									@auth
 									<li><a href="#">{{auth()->user()->name}} </a></li>
-									<li><a href="{{route('logout')}} ">Se déconnecter </a></li>
+									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
 									@endauth
 									<li><a href="about">About</a></li>
 								<!--	<li><a href="category">Our Stores</a></li>

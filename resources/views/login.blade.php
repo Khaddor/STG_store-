@@ -23,9 +23,13 @@
 
 						<form action="{{route('login')}}" method="post">
 							@csrf
+							
 							<input type="email" class="form-control" placeholder="Email Address" name="email">
+					
+
 							<input type="password" class="form-control" placeholder="Password" name="password">
-						
+							
+
 						@if (session('status'))
 							<div style="color: red">	{{session('status')}}</div>
 						@endif
