@@ -7,8 +7,8 @@
 			<div class="container">
 				<nav aria-label="breadcrumb" class="breadcrumb-nav">
 					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-						<li class="breadcrumb-item"><a href="#">Shoes</a></li>
+						<li class="breadcrumb-item"><a href="/">Home</a></li>
+						<li class="breadcrumb-item"><a href="category/{{$product->category->name}} "> {{$product->category->name}} </a></li>
 					</ol>
 				</nav>
 				<div class="product-single-container product-single-default">
@@ -17,16 +17,16 @@
 							<div class="product-slider-container">
 								<div class="product-single-carousel owl-carousel owl-theme">
 									<div class="product-item">
-										<img class="product-single-image" src="assets/images/products/zoom/product-1.jpg" data-zoom-image="assets/images/products/zoom/product-1-big.jpg"/>
+										<img class="product-single-image" src="{{asset('assets/images/products/zoom/product-1.jpg')}}" data-zoom-image="{{asset('assets/images/products/zoom/product-1-big.jpg')}}"/>
 									</div>
 									<div class="product-item">
-										<img class="product-single-image" src="assets/images/products/zoom/product-2.jpg" data-zoom-image="assets/images/products/zoom/product-2-big.jpg"/>
+										<img class="product-single-image" src="{{asset('assets/images/products/zoom/product-2.jpg')}}" data-zoom-image="{{asset('assets/images/products/zoom/product-2-big.jpg')}}"/>
 									</div>
 									<div class="product-item">
-										<img class="product-single-image" src="assets/images/products/zoom/product-3.jpg" data-zoom-image="assets/images/products/zoom/product-3-big.jpg"/>
+										<img class="product-single-image" src="{{asset('assets/images/products/zoom/product-3.jpg')}}" data-zoom-image="{{asset('assets/images/products/zoom/product-3-big.jpg')}}"/>
 									</div>
 									<div class="product-item">
-										<img class="product-single-image" src="assets/images/products/zoom/product-4.jpg" data-zoom-image="assets/images/products/zoom/product-4-big.jpg"/>
+										<img class="product-single-image" src="{{asset('assets/images/products/zoom/product-4.jpg')}}" data-zoom-image="{{asset('assets/images/products/zoom/product-4-big.jpg')}}"/>
 									</div>
 								</div>
 								<!-- End .product-single-carousel -->
@@ -36,22 +36,22 @@
 							</div>
 							<div class="prod-thumbnail owl-dots" id='carousel-custom-dots'>
 								<div class="owl-dot">
-									<img src="assets/images/products/zoom/product-1.jpg"/>
+									<img src="{{asset('assets/images/products/zoom/product-1.jpg')}}"/>
 								</div>
 								<div class="owl-dot">
-									<img src="assets/images/products/zoom/product-2.jpg"/>
+									<img src="{{asset('assets/images/products/zoom/product-2.jpg"/>
+								</div>')}}
+								<div class="owl-dot">
+									<img src="{{asset('assets/images/products/zoom/product-3.jpg')}}"/>
 								</div>
 								<div class="owl-dot">
-									<img src="assets/images/products/zoom/product-3.jpg"/>
-								</div>
-								<div class="owl-dot">
-									<img src="assets/images/products/zoom/product-4.jpg"/>
+									<img src="{{asset('assets/images/products/zoom/product-4.jpg')}}"/>
 								</div>
 							</div>
 						</div><!-- End .product-single-gallery -->
 
 						<div class="col-md-7 product-single-details">
-							<h1 class="product-title">Product Long Name</h1>
+							<h1 class="product-title">{{$product->name}}</h1>
 
 							<div class="ratings-container">
 								<div class="product-ratings">
@@ -64,7 +64,7 @@
 							<hr class="short-divider">
 
 							<div class="price-box">
-								<span class="product-price">$49</span>
+								<span class="product-price">$ {{$product->price}} </span>
 							</div><!-- End .price-box -->
 
 							<div class="product-desc">
@@ -171,7 +171,7 @@
 										<ol class="comment-list">
 											<li class="comment-container">
 												<div class="comment-avatar">
-													<img src="assets/images/avatar/avatar1.jpg" width="65" height="65" alt="avatar"/>
+													<img src="{{asset('assets/images/avatar/avatar1.jpg')}}" width="65" height="65" alt="avatar"/>
 												</div><!-- End .comment-avatar-->
 
 												<div class="comment-box">
@@ -193,7 +193,7 @@
 
 											<li class="comment-container">
 												<div class="comment-avatar">
-													<img src="assets/images/avatar/avatar2.jpg" width="65" height="65" alt="avatar"/>
+													<img src="{{asset('assets/images/avatar/avatar2.jpg')}}" width="65" height="65" alt="avatar"/>
 												</div><!-- End .comment-avatar-->
 
 												<div class="comment-box">
@@ -215,7 +215,7 @@
 												
 											<li class="comment-container">
 												<div class="comment-avatar">
-													<img src="assets/images/avatar/avatar3.jpg" width="65" height="65" alt="avatar"/>
+													<img src="{{asset('assets/images/avatar/avatar3.jpg')}}" width="65" height="65" alt="avatar"/>
 												</div><!-- End .comment-avatar-->
 
 												<div class="comment-box">
@@ -301,7 +301,7 @@
 						<div class="product-default inner-quickview inner-icon">
 							<figure>
 								<a href="product.html">
-									<img src="assets/images/products/product-15.jpg">
+									<img src="{{asset('assets/images/products/product-15.jpg')}}">
 								</a>
 								<div class="label-group">
 									<span class="product-label label-sale">-20%</span>
@@ -335,7 +335,7 @@
 						<div class="product-default inner-quickview inner-icon">
 							<figure>
 								<a href="product.html">
-									<img src="assets/images/products/product-16.jpg">
+									<img src="{{asset('assets/images/products/product-16.jpg')}}">
 								</a>
 								<div class="btn-icon-group">
 									<button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
@@ -366,7 +366,7 @@
 						<div class="product-default inner-quickview inner-icon">
 							<figure>
 								<a href="product.html">
-									<img src="assets/images/products/product-17.jpg">
+									<img src="{{asset('assets/images/products/product-17.jpg')}}">
 								</a>
 								<div class="btn-icon-group">
 									<button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
@@ -397,41 +397,7 @@
 						<div class="product-default inner-quickview inner-icon">
 							<figure>
 								<a href="product.html">
-									<img src="assets/images/products/product-18.jpg">
-								</a>
-								<div class="label-group">
-									<span class="product-label label-hot">HOT</span>
-								</div>
-								<div class="btn-icon-group">
-									<button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
-								</div>
-								<a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a> 
-							</figure>
-							<div class="product-details">
-								<div class="category-wrap">
-									<div class="category-list">
-										<a href="category.html" class="product-category">category</a>
-									</div>
-								</div>
-								<h3 class="product-title">
-									<a href="product.html">Product Short Name</a>
-								</h3>
-								<div class="ratings-container">
-									<div class="product-ratings">
-										<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-										<span class="tooltiptext tooltip-top"></span>
-									</div><!-- End .product-ratings -->
-								</div><!-- End .ratings-container -->
-								<div class="price-box">
-									<span class="old-price">$59.00</span>
-									<span class="product-price">$49.00</span>
-								</div><!-- End .price-box -->
-							</div><!-- End .product-details -->
-						</div>
-						<div class="product-default inner-quickview inner-icon">
-							<figure>
-								<a href="product.html">
-									<img src="assets/images/products/product-5.jpg">
+									<img src="{{asset('assets/images/products/product-18.jpg')}}">
 								</a>
 								<div class="label-group">
 									<span class="product-label label-hot">HOT</span>
@@ -465,7 +431,41 @@
 						<div class="product-default inner-quickview inner-icon">
 							<figure>
 								<a href="product.html">
-									<img src="assets/images/products/product-6.jpg">
+									<img src="{{asset('assets/images/products/product-5.jpg')}}">
+								</a>
+								<div class="label-group">
+									<span class="product-label label-hot">HOT</span>
+								</div>
+								<div class="btn-icon-group">
+									<button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
+								</div>
+								<a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a> 
+							</figure>
+							<div class="product-details">
+								<div class="category-wrap">
+									<div class="category-list">
+										<a href="category.html" class="product-category">category</a>
+									</div>
+								</div>
+								<h3 class="product-title">
+									<a href="product.html">Product Short Name</a>
+								</h3>
+								<div class="ratings-container">
+									<div class="product-ratings">
+										<span class="ratings" style="width:100%"></span><!-- End .ratings -->
+										<span class="tooltiptext tooltip-top"></span>
+									</div><!-- End .product-ratings -->
+								</div><!-- End .ratings-container -->
+								<div class="price-box">
+									<span class="old-price">$59.00</span>
+									<span class="product-price">$49.00</span>
+								</div><!-- End .price-box -->
+							</div><!-- End .product-details -->
+						</div>
+						<div class="product-default inner-quickview inner-icon">
+							<figure>
+								<a href="product.html">
+									<img src="{{asset('assets/images/products/product-6.jpg')}}">
 								</a>
 								<div class="label-group">
 									<span class="product-label label-sale">-30%</span>
@@ -499,7 +499,7 @@
 						<div class="product-default inner-quickview inner-icon">
 							<figure>
 								<a href="product.html">
-									<img src="assets/images/products/product-1.jpg">
+									<img src="{{asset('assets/images/products/product-1.jpg')}}">
 								</a>
 								<div class="label-group">
 									<span class="product-label label-sale">-20%</span>

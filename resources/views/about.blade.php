@@ -61,7 +61,7 @@
 					<div class="row">
 						<div class="col-sm-6 col-lg-3">
 							<div class="member">
-								<img src="assets/images/team/member-1.jpg" alt="member">
+								<img src="{{asset('assets/images/team/member-1.jpg')}}" alt="member">
 
 								<h3 class="member-title">JANE DOE</h3>
 							</div><!-- End .member -->
@@ -69,7 +69,7 @@
 
 						<div class="col-sm-6 col-lg-3">
 							<div class="member">
-								<img src="assets/images/team/member-2.jpg" alt="member">
+								<img src="{{asset('assets/images/team/member-2.jpg')}}" alt="member">
 
 								<h3 class="member-title">John DOE</h3>
 							</div><!-- End .member -->
@@ -77,7 +77,7 @@
 
 						<div class="col-sm-6 col-lg-3">
 							<div class="member">
-								<img src="assets/images/team/member-3.jpg" alt="member">
+								<img src="{{asset('assets/images/team/member-3.jpg')}}" alt="member">
 
 								<h3 class="member-title">John DOE</h3>
 							</div><!-- End .member -->
@@ -85,7 +85,7 @@
 
 						<div class="col-sm-6 col-lg-3">
 							<div class="member">
-								<img src="assets/images/team/member-4.jpg" alt="member">
+								<img src="{{asset('assets/images/team/member-4.jpg')}}" alt="member">
 
 								<h3 class="member-title">JANE DOE</h3>
 							</div><!-- End .member -->
@@ -106,7 +106,7 @@
 						<div class="col-lg-6">
 							<div class="history-item">
 								<figure class="history-image">
-									<img src="assets/images/about/history-1.jpg" alt="history">
+									<img src="{{asset('assets/images/about/history-1.jpg')}}" alt="history">
 									<span>2000</span>
 								</figure>
 
@@ -119,7 +119,7 @@
 						<div class="col-lg-6">
 							<div class="history-item">
 								<figure class="history-image">
-									<img src="assets/images/about/history-2.jpg" alt="history">
+									<img src="{{asset('assets/images/about/history-2.jpg')}}" alt="history">
 									<span>2010</span>
 								</figure>
 
@@ -132,7 +132,7 @@
 						<div class="col-lg-6">
 							<div class="history-item">
 								<figure class="history-image">
-									<img src="assets/images/about/history-3.jpg" alt="history">
+									<img src="{{asset('assets/images/about/history-3.jpg')}}" alt="history">
 									<span>2015</span>
 								</figure>
 
@@ -145,7 +145,7 @@
 						<div class="col-lg-6">
 							<div class="history-item">
 								<figure class="history-image">
-									<img src="assets/images/about/history-4.jpg" alt="history">
+									<img src="{{asset('assets/images/about/history-4.jpg')}}" alt="history">
 									<span>2018</span>
 								</figure>
 

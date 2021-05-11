@@ -4,6 +4,8 @@ use App\Http\Controllers\registerController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\logoutController;
+use App\Http\Controllers\categoryController;
+use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,14 +22,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [homeController::class,'index'])->name('home');
 
-Route::get('/category', function () {
-    return view('category');
-});
 
 
-Route::get('/product', function(){
-        return view('product');
-});
+
+Route::get('/product/{product:slug}',[productController::class,'index']);
+
+Route::get('/category/{category:slug}',[categoryController::class,'index'])->name('category');
+
 
 
 Route::get('/register', [registerController::class,'index'])->name('register');
