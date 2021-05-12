@@ -58,7 +58,7 @@
             <div class="col-5 col-sm-4">
                 <div class="product-default inner-quickview inner-icon">
                     <figure>
-                        <a href="product">
+                        <a href="/product/{{$product->id}} ">
                             <img src="{{asset('assets/images/products/product-12.jpg')}}">
                         </a>
                         <div class="label-group">
@@ -72,12 +72,12 @@
                     <div class="product-details">
                         <div class="category-wrap">
                             <div class="category-list">
-                                <a href="category" class="product-category">{{$product->category}}</a>
+                                <a href="category" class="product-category">{{$product->category->name}}</a>
                             </div>
                             <a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
                         </div>
                         <h2 class="product-title">
-                            <a href="/product/{{$product->slug}} ">  {{$product->name}} </a>
+                            <a href="/product/{{$product->id}} ">  {{$product->name}} </a>
                         </h2>
                         <div class="ratings-container">
                             <div class="product-ratings">
@@ -147,7 +147,7 @@
 
                          @foreach ($categories as $category)
 
-                            <li><a href="/category/{{$category->slug}}">{{$category->name}}</a></li>
+                            <li><a href="/category/{{$category->id}}">{{$category->name}}</a></li>
                              
                          @endforeach   
                             

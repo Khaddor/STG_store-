@@ -78,7 +78,9 @@
 							<div class="col-6 col-sm-4">
 								<div class="product-default inner-quickview inner-icon">
 									<figure>
-										<a href="product">
+
+										<!-----------img-------------->
+										<a href="/product/{{$product->id}}">
 											<img src="assets/images/products/product-12.jpg">
 										</a>
 										<div class="label-group">
@@ -92,12 +94,14 @@
 									<div class="product-details">
 										<div class="category-wrap">
 											<div class="category-list">
+												<!---------CATEGORY_NAME------------->
 												<a href="category" class="product-category">{{$product->category->name}}</a>
 											</div>
 											<a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
 										</div>
 										<h2 class="product-title">
-											<a href="/product/{{$product->slug}} ">  {{$product->name}} </a>
+											<!--------------PRODUCT_NAME----------->
+											<a href="/product/{{$product->id}} ">  {{$product->name}} </a>
 										</h2>
 										<div class="ratings-container">
 											<div class="product-ratings">
@@ -107,6 +111,7 @@
 										</div><!-- End .product-container -->
 										<div class="price-box">
 											<span class="old-price">$90.00</span>
+											<!---------PRICE------------->
 											<span class="product-price">$ {{$product->price}} </span>
 										</div><!-- End .price-box -->
 									</div><!-- End .product-details -->
@@ -165,7 +170,7 @@
 									<div class="widget-body">
 										<ul class="cat-list">
 											@foreach ($categories as $category)
-												<li><a href="/category/{{$category->slug}} "> {{$category->name}} </a></li>
+												<li><a href="/category/{{$category->id}} "> {{$category->name}} </a></li>
 											@endforeach
 										
 										</ul>

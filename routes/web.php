@@ -1,9 +1,10 @@
 <?php
 
+use App\Http\Controllers\adminController;
 use App\Http\Controllers\registerController;
-use App\Http\Controllers\homeController;
 use App\Http\Controllers\loginController;
 use App\Http\Controllers\logoutController;
+use App\Http\Controllers\homeController;
 use App\Http\Controllers\categoryController;
 use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\Route;
@@ -25,9 +26,9 @@ Route::get('/', [homeController::class,'index'])->name('home');
 
 
 
-Route::get('/product/{product:slug}',[productController::class,'index']);
+Route::get('/product/{product:id}',[productController::class,'index'])->name('product');
 
-Route::get('/category/{category:slug}',[categoryController::class,'index'])->name('category');
+Route::get('/category/{category:id}',[categoryController::class,'index'])->name('category');
 
 
 
@@ -45,7 +46,7 @@ Route::get('/about', function(){
 });
 
 
-
+Route::get('/admin',[adminController::class,'index'])->name('admin');
 
 
 
