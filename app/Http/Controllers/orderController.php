@@ -15,6 +15,9 @@ class orderController extends Controller
         $id = Auth::user()->id;
         $orders = order::where('user_id',$id)->get();
         return view('cart')->with('orders', $orders);
+
+        
+        
     }
 
 

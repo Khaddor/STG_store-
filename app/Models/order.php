@@ -38,4 +38,5 @@ class order extends Model
         return $this->belongsTo(product::class);
     }
     
+
 }

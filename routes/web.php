@@ -46,7 +46,7 @@ Route::get('/about', function(){
 });
 
 
-Route::get('/admin',[adminContproller::class,'index'])->name('admin');
+Route::get('/admin',[adminController::class,'index'])->name('admin');
 
 
 Route::get('/cart',[orderController::class, 'index'])->name('cart')->middleware(['auth']);

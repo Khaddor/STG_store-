@@ -191,7 +191,6 @@ use App\Models\order;
 						
 						<!-------------MINI-ADDTOCART-------------------->
 						<div class="header-right">
-							<a href="#" class="header-icon"><i class="icon-wishlist-2"></i> 2</a>
 							
 							<div class="dropdown cart-dropdown">
 								<a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
