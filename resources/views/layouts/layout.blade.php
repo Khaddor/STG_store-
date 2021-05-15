@@ -100,9 +100,10 @@ use App\Models\order;
 									@endguest
 
 									@auth
-									<li><a href="#">{{auth()->user()->name}} </a></li>
+									<li><a href="{{route('dashboard')}}">{{auth()->user()->name}} </a></li>
 									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
 									@endauth
+									<!--test-->
 									<li><a href="about">About</a></li>
 								<!--	<li><a href="category">Our Stores</a></li>
 									<li><a href="blog.html">Blog</a></li>
