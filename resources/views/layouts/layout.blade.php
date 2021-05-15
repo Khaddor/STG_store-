@@ -1,3 +1,7 @@
+<?php
+use App\Models\order;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -177,34 +181,45 @@
 								</ul>
 							</nav>
 						</div><!-- .header-left -->
-
+				@auth
+			
+		
+						@php
+							$id = Auth::user()->id;
+							$orders = order::where('user_id',$id)->get();
+						@endphp	
+						
+						<!-------------MINI-ADDTOCART-------------------->
 						<div class="header-right">
 							<a href="#" class="header-icon"><i class="icon-wishlist-2"></i> 2</a>
 							
 							<div class="dropdown cart-dropdown">
 								<a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
 									<i class="icon-bag-2"></i>
-									<span class="cart-count">2</span>
+									<span class="cart-count"> {{$orders->count()}} </span>
 								</a>
 
 								<div class="dropdown-menu">
 									<div class="dropdownmenu-wrapper">
 										<div class="dropdown-cart-header">
-											<span>2 Items</span>
+											<span>{{$orders->count()}} Items</span>
 											
-											<a href="cart.html" class="float-right">View Cart</a>
+											<a href="/cart" class="float-right">View Cart</a>
 										</div><!-- End .dropdown-cart-header -->
-										
+								
+
+						@foreach ($orders as $order)
+						
 										<div class="dropdown-cart-products">
 											<div class="product">
 												<div class="product-details">
 													<h4 class="product-title">
-														<a href="product.html">Woman Ring</a>
+														<a href="product">{{$order->product->name}} </a>
 													</h4>
 													
 													<span class="cart-product-info">
 														<span class="cart-product-qty">1</span>
-														x $99.00
+														x {{$order->product->price}}
 													</span>
 												</div><!-- End .product-details -->
 													
@@ -215,32 +230,14 @@
 													<a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
 												</figure>
 											</div><!-- End .product -->
-											
-											<div class="product">
-												<div class="product-details">
-													<h4 class="product-title">
-														<a href="product.html">Woman Necklace</a>
-													</h4>
-													
-													<span class="cart-product-info">
-														<span class="cart-product-qty">1</span>
-														x $35.00
-													</span>
-												</div><!-- End .product-details -->
-												
-												<figure class="product-image-container">
-													<a href="product.html" class="product-image">
-														<img src="{{asset('assets/images/products/cart/product-2.jpg')}}" alt="product" width="80" height="80">
-													</a>
-													<a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
-												</figure>
-											</div><!-- End .product -->
+						@endforeach
+			
 										</div><!-- End .cart-product -->
 										
 										<div class="dropdown-cart-total">
 											<span>Total</span>
-											
-											<span class="cart-total-price float-right">$134.00</span>
+							
+											<span class="cart-total-price float-right">$ XXX </span>
 										</div><!-- End .dropdown-cart-total -->
 										
 										<div class="dropdown-cart-action">
@@ -250,6 +247,14 @@
 								</div><!-- End .dropdown-menu -->
 							</div><!-- End .dropdown -->
 						</div><!-- End .header-right -->
+				@endauth
+				@guest
+				<a href="{{route('login')}} " class="dropdown-toggle" role="button">
+					<i class="icon-bag-2"></i>
+					<span class="cart-count">0</span>
+				</a>
+				@endguest
+				
 					</div><!-- End .container-->
 				</div><!-- End .header-bottom -->
 			</div>
@@ -422,7 +427,7 @@
                 <li>
                     <a href="#">Pages<span class="tip tip-hot">Hot!</span></a>
                     <ul>
-                        <li><a href="cart.html">Shopping Cart</a></li>
+                        <li><a href="cart">Shopping Cart</a></li>
                         <li>
                             <a href="#">Checkout</a>
                             <ul>
@@ -487,7 +492,7 @@
         <h4 id="productTitle"></h4>
         <img src="#" id="productImage" width="100" height="100" alt="adding cart image">
         <div class="btn-actions">
-            <a href="cart.html"><button class="btn-primary">Go to cart page</button></a>
+            <a href="cart"><button class="btn-primary">Go to cart page</button></a>
             <a href="#"><button class="btn-primary" data-dismiss="modal">Continue</button></a>
         </div>
       </div>

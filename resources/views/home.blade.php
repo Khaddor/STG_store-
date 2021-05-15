@@ -73,7 +73,7 @@
 <!-- ------------------------------PRODUCTS--------------------------->
 						<div class="row">
 @foreach ($products as $product)
-	
+							
 						
 							<div class="col-6 col-sm-4">
 								<div class="product-default inner-quickview inner-icon">
@@ -86,16 +86,24 @@
 										<div class="label-group">
 											<div class="product-label label-hot">HOT</div>
 										</div>
+
+									<!----------------ADD-TO-CART-BTN---------------------->
+									<form action="/cart/{{$product->id}}" method="POST">
+										@csrf
 										<div class="btn-icon-group">
-											<button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
+											<button class="btn-icon btn-add-cart" data-toggle="modal"
+											 data-target="#addCartModal"  type="submit" ><i class="icon-shopping-cart"></i></button>
 										</div>
+									</form>
+
+
 										<a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a> 
 									</figure>
 									<div class="product-details">
 										<div class="category-wrap">
 											<div class="category-list">
 												<!---------CATEGORY_NAME------------->
-												<a href="category" class="product-category">{{$product->category->name}}</a>
+												<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
 											</div>
 											<a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
 										</div>

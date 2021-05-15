@@ -21,6 +21,7 @@ class CreateOrdersTable extends Migration
             $table->string('user_address');
             $table->string('user_phone');
             $table->foreignId('user_id');
+            $table->foreignId('product_id');
             $table->integer('price');
             $table->integer('quantity');
             $table->foreignId('status_id');   

@@ -72,7 +72,7 @@
                     <div class="product-details">
                         <div class="category-wrap">
                             <div class="category-list">
-                                <a href="category" class="product-category">{{$product->category->name}}</a>
+                                <a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
                             </div>
                             <a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
                         </div>

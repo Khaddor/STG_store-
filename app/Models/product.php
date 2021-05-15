@@ -14,4 +14,9 @@ class product extends Model
         
         return $this->belongsTo(category::class); 
     }
+
+    public function orders(){
+
+        return $this->belongsTo(order::class);
+    }
 }
