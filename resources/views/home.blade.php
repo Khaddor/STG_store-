@@ -68,13 +68,22 @@
 								</div><!-- End .layout-modes -->
 							</div><!-- End .toolbox-right -->
 						</nav>
-
+						@if (Session::has('success'))
+						<div class="alert alert-success" role="alert">
+							{{Session::get('success')}}
+						</div>
+						@endif
+					
+						@if (Session::has('inCart'))
+						<div class="alert alert-danger" role="alert">
+							{{Session::get('inCart')}}
+						</div>
+						@endif
 
 <!-- ------------------------------PRODUCTS--------------------------->
 						<div class="row">
 @foreach ($products as $product)
 							
-						
 							<div class="col-6 col-sm-4">
 								<div class="product-default inner-quickview inner-icon">
 									<figure>
@@ -103,13 +112,13 @@
 										<div class="category-wrap">
 											<div class="category-list">
 												<!---------CATEGORY_NAME------------->
-												<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
+												<a href="category/{{$product->category->id ?? ""}}" class="product-category">{{$product->category->name ?? ""}}</a>
 											</div>
 											<a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
 										</div>
 										<h2 class="product-title">
 											<!--------------PRODUCT_NAME----------->
-											<a href="/product/{{$product->id}} ">  {{$product->name}} </a>
+											<a href="/product/{{$product->id}} "> {{$product->name}} </a>
 										</h2>
 										<div class="ratings-container">
 											<div class="product-ratings">

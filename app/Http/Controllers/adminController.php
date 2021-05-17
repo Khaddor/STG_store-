@@ -42,7 +42,7 @@ class adminController extends Controller
             'category_id' => $req->category,
         ]);
 
-        return redirect()->back();
+        return redirect()->back()->with('success',"Product added with success");
 
     }
 }
