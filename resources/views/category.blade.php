@@ -59,7 +59,7 @@
                 <div class="product-default inner-quickview inner-icon">
                     <figure>
                         <a href="/product/{{$product->id}} ">
-                            <img src="{{asset('assets/images/products/product-12.jpg')}}">
+                            <img src="{{asset('productsImages/'.$product->image)}}">
                         </a>
                         <div class="label-group">
                             <div class="product-label label-hot">HOT</div>

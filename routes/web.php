@@ -6,6 +6,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\categoryController;
+use App\Http\Controllers\layoutController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\productController;
 use Illuminate\Support\Facades\Route;
@@ -46,12 +47,15 @@ Route::get('/about', function(){
 });
 
 
-Route::get('/admin',[adminContproller::class,'index'])->name('admin');
+Route::get('/admin',[adminController::class,'index'])->name('admin');
+Route::post('/admin',[adminController::class,'add']);
 
 
 Route::get('/cart',[orderController::class, 'index'])->name('cart')->middleware(['auth']);
 Route::post('/cart/{product:id}',[orderController::class, 'store']);
 	
+Route::post('/layout/{order:id}' , [layoutController::class, 'delete'])->name('layout');
+
 Route::get('/client', function(){
         return view('client');
 })->name('dashboard');

@@ -100,7 +100,7 @@ use App\Models\order;
 									@endguest
 
 									@auth
-									<li><a href="{{route('dashboard')}}">{{auth()->user()->name}} </a></li>
+									<li><a href="{{route('dashboard')}}">{{auth()->user()->firstname}} </a></li>
 									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
 									@endauth
 									<!--test-->
@@ -214,7 +214,7 @@ use App\Models\order;
 											<div class="product">
 												<div class="product-details">
 													<h4 class="product-title">
-														<a href="product">{{$order->product->name}} </a>
+														<a href="{{route('product',[$order->product->id])}}">{{$order->product->name}} </a>
 													</h4>
 													
 													<span class="cart-product-info">
@@ -224,25 +224,42 @@ use App\Models\order;
 												</div><!-- End .product-details -->
 													
 												<figure class="product-image-container">
-													<a href="product.html" class="product-image">
-														<img src="{{asset('assets/images/products/cart/product-1.jpg')}}" alt="product" width="80" height="80">
+													<a href="{{route('product',[$order->product->id])}}" class="product-image">
+														<img src="{{asset('productsImages/'.$order->product->image)}}" alt="product" width="80" height="80">
 													</a>
-													<a href="#" class="btn-remove icon-cancel" title="Remove Product"></a>
+											<!--DELETE BTN ----->
+													<form action="/layout/{{$order->id}}" method="post">
+													@csrf
+													<button type="submit">
+														<i class="btn-remove icon-cancel"></i>
+													</button>
+													</form>
 												</figure>
 											</div><!-- End .product -->
 						@endforeach
 			
 										</div><!-- End .cart-product -->
 										
+
+						@php
+								$total=0;
+								foreach ($orders as $order) {
+								$total = $total + $order->product->price;
+								}
+						@endphp
+						
+								@if ($orders->count()!=0)
+									
 										<div class="dropdown-cart-total">
 											<span>Total</span>
-							
-											<span class="cart-total-price float-right">$ XXX </span>
+									<span class="cart-total-price float-right">$ {{$total}} </span>
 										</div><!-- End .dropdown-cart-total -->
 										
 										<div class="dropdown-cart-action">
 											<a href="checkout-shipping.html" class="btn btn-primary btn-block">Checkout</a>
 										</div><!-- End .dropdown-cart-total -->
+								@endif	
+								
 									</div><!-- End .dropdownmenu-wrapper -->
 								</div><!-- End .dropdown-menu -->
 							</div><!-- End .dropdown -->

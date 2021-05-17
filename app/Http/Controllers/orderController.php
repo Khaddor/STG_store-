@@ -14,7 +14,17 @@ class orderController extends Controller
         
         $id = Auth::user()->id;
         $orders = order::where('user_id',$id)->get();
-        return view('cart')->with('orders', $orders);
+
+        $total=0;
+        foreach ($orders as $order) {
+                 $total = $total + $order->product->price;						
+        }
+
+        
+        return view('cart',[
+                'orders' => $orders,
+                'total' => $total,
+        ]);
 
         
         
@@ -34,12 +44,12 @@ class orderController extends Controller
                     'user_id' => Auth::user()->id,
                     'product_id' => $product->id,
                     'label' => 5,
-                    'user_firstname' => "null",
-                    'user_lastname' => "null",
+                    'user_firstname' => Auth::user()->firstname,
+                    'user_lastname' => Auth::user()->lastname,
                     'user_address' => "null",
-                    'user_phone' => "null",
-                    'price' => 50,
-                    'quantity' => 2,
+                    'user_phone' => Auth::user()->phone,
+                    'price' => $product->price,
+                    'quantity' => 1,
                     'status_id' => 0
                 ]);
                 return redirect()->back()->with('success', 'Product added to cart successfully!');

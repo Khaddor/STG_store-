@@ -17,16 +17,16 @@
 							<div class="product-slider-container">
 								<div class="product-single-carousel owl-carousel owl-theme">
 									<div class="product-item">
-										<img class="product-single-image" src="{{asset('assets/images/products/zoom/product-1.jpg')}}" data-zoom-image="{{asset('assets/images/products/zoom/product-1-big.jpg')}}"/>
+										<img class="product-single-image" src="{{asset('productsImages/'.$product->image)}}" /> <!-- data-zoom-image=" -->
 									</div>
 									<div class="product-item">
-										<img class="product-single-image" src="{{asset('assets/images/products/zoom/product-2.jpg')}}" data-zoom-image="{{asset('assets/images/products/zoom/product-2-big.jpg')}}"/>
+										<img class="product-single-image" src="{{asset('productsImages/'.$product->image)}}" />
 									</div>
 									<div class="product-item">
-										<img class="product-single-image" src="{{asset('assets/images/products/zoom/product-3.jpg')}}" data-zoom-image="{{asset('assets/images/products/zoom/product-3-big.jpg')}}"/>
+										<img class="product-single-image" src="{{asset('productsImages/'.$product->image)}}" />
 									</div>
 									<div class="product-item">
-										<img class="product-single-image" src="{{asset('assets/images/products/zoom/product-4.jpg')}}" data-zoom-image="{{asset('assets/images/products/zoom/product-4-big.jpg')}}"/>
+										<img class="product-single-image" src="{{asset('productsImages/'.$product->image)}}" />
 									</div>
 								</div>
 								<!-- End .product-single-carousel -->
@@ -36,16 +36,16 @@
 							</div>
 							<div class="prod-thumbnail owl-dots" id='carousel-custom-dots'>
 								<div class="owl-dot">
-									<img src="{{asset('assets/images/products/zoom/product-1.jpg')}}"/>
+									<img src="{{asset('productsImages/'.$product->image)}}"/>
 								</div>
 								<div class="owl-dot">
-									<img src="{{asset('assets/images/products/zoom/product-2.jpg"/>
-								</div>')}}
-								<div class="owl-dot">
-									<img src="{{asset('assets/images/products/zoom/product-3.jpg')}}"/>
+									<img src="{{asset('productsImages/'.$product->image)}}"/>
 								</div>
 								<div class="owl-dot">
-									<img src="{{asset('assets/images/products/zoom/product-4.jpg')}}"/>
+									<img src="{{asset('productsImages/'.$product->image)}}"/>
+								</div>
+								<div class="owl-dot">
+									<img src="{{asset('productsImages/'.$product->image)}}"/>
 								</div>
 							</div>
 						</div><!-- End .product-single-gallery -->

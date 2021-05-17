@@ -81,7 +81,7 @@
 
 										<!-----------img-------------->
 										<a href="/product/{{$product->id}}">
-											<img src="assets/images/products/product-12.jpg">
+											<img src="{{asset('productsImages/'.$product->image)}}">
 										</a>
 										<div class="label-group">
 											<div class="product-label label-hot">HOT</div>

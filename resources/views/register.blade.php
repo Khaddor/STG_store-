@@ -11,8 +11,19 @@
 
 						<form action="{{route('register')}}" method="post">
 							@csrf
-							<input type="text" class="form-control" placeholder="First Name"  name="name" value="{{old('name')}}">
-							@error('name')
+							<input type="text" class="form-control" placeholder="First Name"  name="firstname" value="{{old('firstname')}}">
+							@error('firstname')
+							<div style="color:red;">	{{$message}}</div>
+
+							@enderror
+							<input type="text" class="form-control" placeholder="Last Name"  name="lastname" value="{{old('lastname')}}">
+							@error('lastname')
+							<div style="color:red;">	{{$message}}</div>
+
+							@enderror
+
+							<input type="text" class="form-control" placeholder="Phone number"  name="phone" value="{{old('phone')}}">
+							@error('phone')
 							<div style="color:red;">	{{$message}}</div>
 
 							@enderror
