@@ -52,13 +52,10 @@
 									</tr>
 									<tr class="product-action-row">
 										<td colspan="4" class="clearfix">
-<<<<<<< HEAD
 											
-=======
-											<div class="float-left">
-												<a href="#" class="btn-move">Move to Wishlist</a>
-											</div><!-- End .float-left -->
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
+
+											
+
 											
 											<div class="float-right">
 												<a href="#" title="Edit product" class="btn-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a>
@@ -75,11 +72,8 @@
 									<tr>
 										<td colspan="4" class="clearfix">
 											<div class="float-left">
-<<<<<<< HEAD
-												<a href="/" class="btn btn-outline-secondary">Continue Shopping</a>
-=======
+												
 												<a href="category.html" class="btn btn-outline-secondary">Continue Shopping</a>
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 											</div><!-- End .float-left -->
 
 											<div class="float-right">
