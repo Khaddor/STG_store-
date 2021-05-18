@@ -221,8 +221,8 @@ use App\Models\order;
 
 											<!-- <a href="/cart" class="float-right">View Cart</a>-->
 
-											<a href="/cart" class="float-right">View Cart</a>
-
+<!-- 											<a href="/cart" class="float-right">View Cart</a>
+ -->
 										</div><!-- End .dropdown-cart-header -->
 								
 
@@ -277,7 +277,7 @@ use App\Models\order;
 
 											<a href="/cart" class="btn btn-primary btn-block">View cart</a>
 
-											<a href="checkout-shipping.html" class="btn btn-primary btn-block">Checkout</a>
+											
 
 										</div><!-- End .dropdown-cart-total -->
 								@endif	
