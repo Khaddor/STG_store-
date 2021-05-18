@@ -3,16 +3,33 @@
 @section('content')
 	
 		<main class="main">
-			<div class="category-banner-container bg-gray">
-				<div class="container">
-					<div class="category-banner home-slide1" style="background: no-repeat right bottom/contain url('assets/images/banners/category-banner.jpg');">
-						<h2 class="ls-n-20 m-b-2 line-height-1">Spring / Summer Season</h3>
-						<h3 class="mb-1 line-height-1"><em class="text-center ls-0">up<br>to</em>50% OFF</h3>
-						<h4 class="text-uppercase d-inline-block mb-0 align-top line-height-1">Starting at <span class="text-primary ml-2">$<em>19</em>99</span></h5>
-						<a href="category.html" class="btn btn-dark btn-outline btn-xl">Shop Now</a>
-					</div>
-				</div>
-			</div>
+			<div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
+                    
+                    <div class="col-lg-6 col-md-12 heading-item x1bleu-desc s30-home-desc">
+                        <div class="inner-heading"style="margin-top: 150px">
+                            <div class="stg-phone-title"align="center" >
+                            	<h1 align="center" style="color: white">stg</h1>
+                                <span>
+                                    <picture>
+                                        <img src="https://stgtelecom.com/asstes/images/s30/stg-s30.png" align="align-items-center" id="s30">
+                                    </picture>
+                                </span>
+                            </div>
+                            <h2 align="center" style="color: white">Never Lose Sight </h2>
+                            <p align="center" style="color: white">Triplez votre expérience</p>
+                            <a href="/product/6" style="margin-left: 285px;" class="btn btn-dark btn-outline btn-xl">Shop Now</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-12 img-item x1bleu-img s30-home-img">
+                        <div class="inner-img-item">
+                            <picture>
+                                <img src="https://stgtelecom.com/asstes/images/s30/stg-s30-homepage.png" alt="">
+                            </picture>
+                        </div>
+                    </div>
+                <div>
+                </div>
+            </div>
 
 			<div class="container">
 				<nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -68,22 +85,13 @@
 								</div><!-- End .layout-modes -->
 							</div><!-- End .toolbox-right -->
 						</nav>
-						@if (Session::has('success'))
-						<div class="alert alert-success" role="alert">
-							{{Session::get('success')}}
-						</div>
-						@endif
-					
-						@if (Session::has('inCart'))
-						<div class="alert alert-danger" role="alert">
-							{{Session::get('inCart')}}
-						</div>
-						@endif
+
 
 <!-- ------------------------------PRODUCTS--------------------------->
 						<div class="row">
 @foreach ($products as $product)
 							
+						
 							<div class="col-6 col-sm-4">
 								<div class="product-default inner-quickview inner-icon">
 									<figure>
@@ -112,13 +120,13 @@
 										<div class="category-wrap">
 											<div class="category-list">
 												<!---------CATEGORY_NAME------------->
-												<a href="category/{{$product->category->id ?? ""}}" class="product-category">{{$product->category->name ?? ""}}</a>
+												<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
 											</div>
 											<a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
 										</div>
 										<h2 class="product-title">
 											<!--------------PRODUCT_NAME----------->
-											<a href="/product/{{$product->id}} "> {{$product->name}} </a>
+											<a href="/product/{{$product->id}} ">  {{$product->name}} </a>
 										</h2>
 										<div class="ratings-container">
 											<div class="product-ratings">
