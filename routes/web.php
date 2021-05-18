@@ -56,15 +56,15 @@ Route::post('/cart/{product:id}',[orderController::class, 'store']);
 	
 Route::post('/layout/{order:id}' , [layoutController::class, 'delete'])->name('layout');
 
-<<<<<<< HEAD
+
 Route::get('/profile', function(){
         return view('profile');
     })->name('profile');
-=======
+
 Route::get('/client', function(){
         return view('client');
 })->name('dashboard');
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
+
 
 
 
