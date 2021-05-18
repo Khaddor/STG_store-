@@ -9,7 +9,7 @@ use App\Models\order;
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>Porto - Bootstrap eCommerce Template</title>
+	<title>STG Telecom | Smartphones | Accessoires | Robotics</title>
 
 	<meta name="keywords" content="HTML5 Template" />
 	<meta name="description" content="Porto - Bootstrap eCommerce Template">
@@ -87,7 +87,7 @@ use App\Models\order;
 			<div class="header-top">
 				<div class="container">
 					<div class="header-left d-none d-sm-block " >
-						<h6 class="telephone mb-0">Call Us (123) 456 7890</h6>
+						<h6 class="telephone mb-0">APPELEZ-NOUS (123) 456 7890</h6>
 					</div><!-- End .header-left -->
 
 					<div class="header-right w-sm-100">
@@ -104,7 +104,7 @@ use App\Models\order;
 									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
 									@endauth
 									<!--test-->
-									<li><a href="about">About</a></li>
+									<li><a href="about">À propos</a></li>
 								<!--	<li><a href="category">Our Stores</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="contact.html">Contact</a></li>
