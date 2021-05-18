@@ -3,7 +3,6 @@
 @section('content')
 	
 		<main class="main">
-<<<<<<< HEAD
 			<div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
                     
                     <div class="col-lg-6 col-md-12 heading-item x1bleu-desc s30-home-desc">
@@ -31,18 +30,6 @@
                 <div>
                 </div>
             </div>
-=======
-			<div class="category-banner-container bg-gray">
-				<div class="container">
-					<div class="category-banner home-slide1" style="background: no-repeat right bottom/contain url('assets/images/banners/category-banner.jpg');">
-						<h2 class="ls-n-20 m-b-2 line-height-1">Spring / Summer Season</h3>
-						<h3 class="mb-1 line-height-1"><em class="text-center ls-0">up<br>to</em>50% OFF</h3>
-						<h4 class="text-uppercase d-inline-block mb-0 align-top line-height-1">Starting at <span class="text-primary ml-2">$<em>19</em>99</span></h5>
-						<a href="category.html" class="btn btn-dark btn-outline btn-xl">Shop Now</a>
-					</div>
-				</div>
-			</div>
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 
 			<div class="container">
 				<nav aria-label="breadcrumb" class="breadcrumb-nav">

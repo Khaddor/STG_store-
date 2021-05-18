@@ -9,11 +9,7 @@ use App\Models\order;
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<<<<<<< HEAD
-	<title>STG Telecom | Smartphones | Accessoires | Robotics</title>
-=======
 	<title>Porto - Bootstrap eCommerce Template</title>
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 
 	<meta name="keywords" content="HTML5 Template" />
 	<meta name="description" content="Porto - Bootstrap eCommerce Template">
@@ -91,11 +87,7 @@ use App\Models\order;
 			<div class="header-top">
 				<div class="container">
 					<div class="header-left d-none d-sm-block " >
-<<<<<<< HEAD
-						<h6 class="telephone mb-0">APPELEZ-NOUS (123) 456 7890</h6>
-=======
 						<h6 class="telephone mb-0">Call Us (123) 456 7890</h6>
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 					</div><!-- End .header-left -->
 
 					<div class="header-right w-sm-100">
@@ -108,19 +100,11 @@ use App\Models\order;
 									@endguest
 
 									@auth
-<<<<<<< HEAD
 									<li><a href="{{route('profile')}}">{{auth()->user()->firstname}} </a></li>
 									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
 									@endauth
 									<!--test-->
-									<li><a href="about">À propos</a></li>
-=======
-									<li><a href="{{route('dashboard')}}">{{auth()->user()->firstname}} </a></li>
-									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
-									@endauth
-									<!--test-->
 									<li><a href="about">About</a></li>
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 								<!--	<li><a href="category">Our Stores</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="contact.html">Contact</a></li>
@@ -164,13 +148,8 @@ use App\Models\order;
 								<i class="icon-menu"></i>
 							</button>
 
-<<<<<<< HEAD
 							<a href="/" class="llogo">
 								<img src="{{asset('assets/images/logo.png')}}" height="100" width="100" alt="stg Logo">
-=======
-							<a href="/" class="logo">
-								<img src="{{asset('assets/images/logo.png')}}" alt="Porto Logo">
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 							</a>
 						</div><!-- End .headeer-center -->
 
@@ -225,11 +204,7 @@ use App\Models\order;
 										<div class="dropdown-cart-header">
 											<span>{{$orders->count()}} Items</span>
 											
-<<<<<<< HEAD
 											<!-- <a href="/cart" class="float-right">View Cart</a>-->
-=======
-											<a href="/cart" class="float-right">View Cart</a>
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 										</div><!-- End .dropdown-cart-header -->
 								
 
@@ -281,11 +256,7 @@ use App\Models\order;
 										</div><!-- End .dropdown-cart-total -->
 										
 										<div class="dropdown-cart-action">
-<<<<<<< HEAD
 											<a href="/cart" class="btn btn-primary btn-block">View cart</a>
-=======
-											<a href="checkout-shipping.html" class="btn btn-primary btn-block">Checkout</a>
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 										</div><!-- End .dropdown-cart-total -->
 								@endif	
 								
@@ -316,11 +287,7 @@ use App\Models\order;
 				<div class="footer-middle">
 					<div class="row">
 						<div class="col-lg-5 m-b-4">
-<<<<<<< HEAD
 							<img src="assets/images/logo.png" height="110" width="110" alt="Logo" class="m-b-4">
-=======
-							<img src="assets/images/logo-black.png" alt="Logo" class="m-b-4">
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pulvinar feugiat quam, vitae aliquam urna egestas nec. sit amet</p>
 
@@ -384,11 +351,7 @@ use App\Models\order;
 				</div><!-- End .footer-middle -->
 
 				<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
-<<<<<<< HEAD
 					<p class="footer-copyright py-3 pr-4 mb-0">&copy; Copyright 2021 - STGTelecom -</p>
-=======
-					<p class="footer-copyright py-3 pr-4 mb-0">&copy; Porto eCommerce. 2020. All Rights Reserved</p>
->>>>>>> ed18b5b087b29ef7dc5056274a5a3590946082d0
 
 					<div class="social-icons py-3">
 						<a href="#" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>
