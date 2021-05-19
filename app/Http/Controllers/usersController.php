@@ -16,15 +16,20 @@ class usersController extends Controller
         $this->middleware(['auth']);
     }
   
+    public function index(){
+        return view('profile');
+    }
 
-        public function update($id, UserFormRequest $request)
-{
-    $user = User::findOrFail($id);
 
-    $user->firstname = $request->get('firstname');
-    $user->lastname = $request->get('lastname');
-    $user->email = $request->get('email');
-    $user->password = $request->get('password');
+    public function update(Request $request)
+    {
+    
+    $user = User::findOrFail($request->id);
+
+    $user->firstname = $request->firstname;
+    $user->lastname = $request->lastname;    
+    $user->email = $request->email;
+    $user->password = $request->password;
 
     $user->save();
 

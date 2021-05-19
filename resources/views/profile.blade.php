@@ -19,14 +19,22 @@
 			<div class="col-lg-9 order-lg-last dashboard-content">
 				<h2>Edit Account Information</h2>
 				
-				<form action="#">
+				@if (Session::has('message'))
+						<div class="alert alert-success" role="alert">
+							{{Session::get('message')}}
+						</div>
+				@endif
+
+				<form action="{{route('profile')}}" method="POST">
+					@csrf
 					<div class="row">
+						<input type="hidden" value="{{auth()->user()->id}}" name="id">
 						<div class="col-sm-11">
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group required-field">
 										<label for="acc-name">First Name</label>
-										<input type="text" class="form-control" id="acc-name" name="acc-name" required="">
+										<input type="text" class="form-control" id="acc-name" name="firstname" required="">
 									</div><!-- End .form-group -->
 								</div><!-- End .col-md-4 -->
 
@@ -35,7 +43,7 @@
 								<div class="col-md-4">
 									<div class="form-group required-field">
 										<label for="acc-lastname">Last Name</label>
-										<input type="text" class="form-control" id="acc-lastname" name="acc-lastname" required="">
+										<input type="text" class="form-control" id="acc-lastname" name="lastname" required="">
 									</div><!-- End .form-group -->
 								</div><!-- End .col-md-4 -->
 							</div><!-- End .row -->
@@ -44,12 +52,12 @@
 
 					<div class="form-group required-field">
 						<label for="acc-email">Email</label>
-						<input type="email" class="form-control" id="acc-email" name="acc-email" required="">
+						<input type="email" class="form-control" id="acc-email" name="email" required="">
 					</div><!-- End .form-group -->
 
 					<div class="form-group required-field">
 						<label for="acc-password">Password</label>
-						<input type="password" class="form-control" id="acc-password" name="acc-password" required="">
+						<input type="password" class="form-control" id="acc-password" name="password" required="">
 					</div><!-- End .form-group -->
 
 					<div class="mb-2"></div><!-- margin -->
