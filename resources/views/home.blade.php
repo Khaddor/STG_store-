@@ -4,7 +4,6 @@
 	
 		<main class="main">
 
-
 			<div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
                     
                     <div class="col-lg-6 col-md-12 heading-item x1bleu-desc s30-home-desc">

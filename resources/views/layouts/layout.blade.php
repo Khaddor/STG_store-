@@ -220,8 +220,8 @@ use App\Models\order;
 
 											<!-- <a href="/cart" class="float-right">View Cart</a>-->
 
-											<a href="/cart" class="float-right">View Cart</a>
-
+<!-- 											<a href="/cart" class="float-right">View Cart</a>
+ -->
 										</div><!-- End .dropdown-cart-header -->
 								
 
@@ -276,7 +276,7 @@ use App\Models\order;
 
 											<a href="/cart" class="btn btn-primary btn-block">View cart</a>
 
-											<a href="checkout-shipping.html" class="btn btn-primary btn-block">Checkout</a>
+											
 
 										</div><!-- End .dropdown-cart-total -->
 								@endif	
@@ -375,8 +375,8 @@ use App\Models\order;
 				</div><!-- End .footer-middle -->
 
 				<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
-					<p class="footer-copyright py-3 pr-4 mb-0">&copy; Copyright 2021 - STGTelecom -</p>
 
+					<p class="footer-copyright py-3 pr-4 mb-0">&copy; Copyright 2021 - STGTelecom -</p>
 
 					
 

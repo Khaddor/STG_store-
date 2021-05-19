@@ -57,7 +57,6 @@ Route::post('/cart/{product:id}',[orderController::class, 'store']);
 Route::post('/layout/{order:id}' , [layoutController::class, 'delete'])->name('layout');
 
 
-
 Route::get('/profile', function(){
         return view('profile');
     })->name('profile');

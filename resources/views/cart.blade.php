@@ -52,8 +52,7 @@
 									</tr>
 									<tr class="product-action-row">
 										<td colspan="4" class="clearfix">
-<<<<<<< 
-											
+
 
  
 											
@@ -62,6 +61,10 @@
 												<a href="#" class="btn-move">Move to Wishlist</a>
 											</div><!-- End .float-left -->
 
+
+											
+
+											
 
 											
 											<div class="float-right">
@@ -84,6 +87,7 @@
 
 
 												<a href="/" class="btn btn-outline-secondary">Continue Shopping</a>
+
 
 												<a href="category.html" class="btn btn-outline-secondary">Continue Shopping</a>
 
