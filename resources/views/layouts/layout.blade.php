@@ -9,7 +9,11 @@ use App\Models\order;
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-	<title>STG Telecom | Smartphones | Accessoires | Robotics </title>
+
+	<title>STG Telecom | Smartphones | Accessoires | Robotics</title>
+
+	<title>Porto - Bootstrap eCommerce Template</title>
+
 
 	<meta name="keywords" content="HTML5 Template" />
 	<meta name="description" content="Porto - Bootstrap eCommerce Template">
@@ -87,7 +91,8 @@ use App\Models\order;
 			<div class="header-top">
 				<div class="container">
 					<div class="header-left d-none d-sm-block " >
-						<h6 class="telephone mb-0">Call Us (123) 456 7890</h6>
+						<h6 class="telephone mb-0">APPELEZ-NOUS (123) 456 7890</h6>
+
 					</div><!-- End .header-left -->
 
 					<div class="header-right w-sm-100">
@@ -104,7 +109,10 @@ use App\Models\order;
 									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
 									@endauth
 									<!--test-->
-									<li><a href="about">About</a></li>
+									<li><a href="about">À propos</a></li>
+
+									
+
 								<!--	<li><a href="category">Our Stores</a></li>
 									<li><a href="blog.html">Blog</a></li>
 									<li><a href="contact.html">Contact</a></li>
@@ -148,9 +156,14 @@ use App\Models\order;
 								<i class="icon-menu"></i>
 							</button>
 
+
 							<a href="/" class="llogo">
 								<img src="{{asset('assets/images/logo.png')}}" height="100" width="100" alt="stg Logo">
-							</a>
+
+							<!-- <a href="/" class="logo">
+								<img src="{{asset('assets/images/logo.png')}}" alt="Porto Logo">
+
+							</a> -->
 						</div><!-- End .headeer-center -->
 
 						<div class="header-right">
@@ -204,7 +217,11 @@ use App\Models\order;
 										<div class="dropdown-cart-header">
 											<span>{{$orders->count()}} Items</span>
 											
+
 											<!-- <a href="/cart" class="float-right">View Cart</a>-->
+
+											<a href="/cart" class="float-right">View Cart</a>
+
 										</div><!-- End .dropdown-cart-header -->
 								
 
@@ -256,7 +273,11 @@ use App\Models\order;
 										</div><!-- End .dropdown-cart-total -->
 										
 										<div class="dropdown-cart-action">
+
 											<a href="/cart" class="btn btn-primary btn-block">View cart</a>
+
+											<a href="checkout-shipping.html" class="btn btn-primary btn-block">Checkout</a>
+
 										</div><!-- End .dropdown-cart-total -->
 								@endif	
 								
@@ -288,6 +309,9 @@ use App\Models\order;
 					<div class="row">
 						<div class="col-lg-5 m-b-4">
 							<img src="assets/images/logo.png" height="110" width="110" alt="Logo" class="m-b-4">
+
+							
+
 
 							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pulvinar feugiat quam, vitae aliquam urna egestas nec. sit amet</p>
 
@@ -352,6 +376,10 @@ use App\Models\order;
 
 				<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
 					<p class="footer-copyright py-3 pr-4 mb-0">&copy; Copyright 2021 - STGTelecom -</p>
+
+
+					
+
 
 					<div class="social-icons py-3">
 						<a href="#" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>

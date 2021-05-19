@@ -3,6 +3,8 @@
 @section('content')
 	
 		<main class="main">
+
+
 			<div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
                     
                     <div class="col-lg-6 col-md-12 heading-item x1bleu-desc s30-home-desc">
@@ -30,6 +32,18 @@
                 <div>
                 </div>
             </div>
+
+			<!-- <div class="category-banner-container bg-gray">
+				<div class="container">
+					<div class="category-banner home-slide1" style="background: no-repeat right bottom/contain url('assets/images/banners/category-banner.jpg');">
+						<h2 class="ls-n-20 m-b-2 line-height-1">Spring / Summer Season</h3>
+						<h3 class="mb-1 line-height-1"><em class="text-center ls-0">up<br>to</em>50% OFF</h3>
+						<h4 class="text-uppercase d-inline-block mb-0 align-top line-height-1">Starting at <span class="text-primary ml-2">$<em>19</em>99</span></h5>
+						<a href="category.html" class="btn btn-dark btn-outline btn-xl">Shop Now</a>
+					</div>
+				</div>
+			</div> -->
+
 
 			<div class="container">
 				<nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -228,39 +242,9 @@
 								</div><!-- End .collapse -->
 							</div><!-- End .widget -->
 
-							<div class="widget">
-								<h3 class="widget-title">
-									<a data-toggle="collapse" href="#widget-body-4" role="button" aria-expanded="true" aria-controls="widget-body-4">Size</a>
-								</h3>
+							
 
-								<div class="collapse show" id="widget-body-4">
-									<div class="widget-body">
-										<ul class="cat-list">
-											<li><a href="#">Small</a></li>
-											<li><a href="#">Medium</a></li>
-											<li><a href="#">Large</a></li>
-											<li><a href="#">Extra Large</a></li>
-										</ul>
-									</div><!-- End .widget-body -->
-								</div><!-- End .collapse -->
-							</div><!-- End .widget -->
-
-							<div class="widget">
-								<h3 class="widget-title">
-									<a data-toggle="collapse" href="#widget-body-5" role="button" aria-expanded="true" aria-controls="widget-body-5">Brand</a>
-								</h3>
-
-								<div class="collapse show" id="widget-body-5">
-									<div class="widget-body">
-										<ul class="cat-list">
-											<li><a href="#">Adidas</a></li>
-											<li><a href="#">Calvin Klein (26)</a></li>
-											<li><a href="#">Diesel (3)</a></li>
-											<li><a href="#">Lacoste (8)</a></li>
-										</ul>
-									</div><!-- End .widget-body -->
-								</div><!-- End .collapse -->
-							</div><!-- End .widget -->
+							
 
 							<div class="widget">
 								<h3 class="widget-title">
