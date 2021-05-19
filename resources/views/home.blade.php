@@ -98,8 +98,17 @@
 								</div><!-- End .layout-modes -->
 							</div><!-- End .toolbox-right -->
 						</nav>
+						@if (Session::has('success'))
+							<div class="alert alert-success" role="alert">
+								{{Session::get('succes')}}
+						  	</div>
+						@endif
 
-
+						@if (Session::has('inCart'))
+							<div class="alert alert-danger" role="alert">
+								{{Session::get('inCart')}}
+						  	</div>
+						@endif
 <!-- ------------------------------PRODUCTS--------------------------->
 						<div class="row">
 @foreach ($products as $product)

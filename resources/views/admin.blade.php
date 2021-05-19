@@ -18,6 +18,12 @@
 		<div class="row">
 			<div class="col-lg-9 order-lg-last dashboard-content">
 				<h2>Add Product</h2>
+
+				@if (Session::has('success'))
+					<div class="alert alert-success" role="alert">
+						{{Session::get('success')}}
+					</div>
+				@endif
 				
 				<form action="{{route('admin')}}" method="POST" enctype="multipart/form-data">
                     @csrf

@@ -105,7 +105,6 @@ use App\Models\order;
 									@endguest
 
 									@auth
-
 									<li><a href="{{route('profile')}}">{{auth()->user()->firstname}} </a></li>
 									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
 									@endauth

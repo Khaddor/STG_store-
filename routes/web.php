@@ -9,6 +9,7 @@ use App\Http\Controllers\categoryController;
 use App\Http\Controllers\layoutController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\usersController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -57,9 +58,9 @@ Route::post('/cart/{product:id}',[orderController::class, 'store']);
 Route::post('/layout/{order:id}' , [layoutController::class, 'delete'])->name('layout');
 
 
-Route::get('/profile', function(){
-        return view('profile');
-    })->name('profile');
+Route::get('/profile' , [usersController::class,'index'])->name('profile');
+Route::post('/profile' , [usersController::class,'update']);
+
 
 Route::get('/client', function(){
         return view('client');
