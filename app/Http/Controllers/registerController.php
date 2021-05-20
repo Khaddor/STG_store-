@@ -26,7 +26,7 @@ class registerController extends Controller
         $this->validate($request,[
             'firstname' => ['required', 'string', 'max:255'],
             'lastname' => ['required', 'string', 'max:255'],
-            'phone' => ['required', 'string', 'min:8','max:12'],
+            'phone' => ['required', 'digits:10'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
            ]);

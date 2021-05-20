@@ -101,7 +101,7 @@ use App\Models\order;
 							<div class="header-menu">
 								<ul>
 									@guest
-									<li><a href="login">Se connecter </a></li>
+									<li><a href=" {{route('login')}} ">Se connecter </a></li>
 									@endguest
 
 									@auth
@@ -308,7 +308,7 @@ use App\Models\order;
 				<div class="footer-middle">
 					<div class="row">
 						<div class="col-lg-5 m-b-4">
-							<img src="assets/images/logo.png" height="110" width="110" alt="Logo" class="m-b-4">
+							<img src="{{asset('assets/images/logo.png')}}" height="110" width="110" alt="Logo" class="m-b-4">
 
 							
 

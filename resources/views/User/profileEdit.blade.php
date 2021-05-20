@@ -3,7 +3,7 @@
 
 
 @section('content')
-
+	
 <main class="main">
 	<nav aria-label="breadcrumb" class="breadcrumb-nav">
 		<div class="container">
@@ -19,28 +19,36 @@
 			<div class="col-lg-9 order-lg-last dashboard-content">
 				<h2>Edit Account Information</h2>
 				
-				<form action="#">
+				@if (Session::has('message'))
+						<div class="alert alert-success" role="alert">
+							{{Session::get('message')}}
+						</div>
+				@endif
+
+				<form action="{{route('profile')}}" method="POST">
+					@csrf
+					
+					@foreach ($errors->all() as $error)
+                            <p class="text-danger">{{ $error }}</p>
+                         @endforeach 
+
 					<div class="row">
+						<input type="hidden" value="{{auth()->user()->id}}" name="id">
 						<div class="col-sm-11">
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group required-field">
 										<label for="acc-name">First Name</label>
-										<input type="text" class="form-control" id="acc-name" name="acc-name" required="">
+										<input type="text" class="form-control" id="acc-name" name="firstname" required="">
 									</div><!-- End .form-group -->
 								</div><!-- End .col-md-4 -->
 
-								<div class="col-md-4">
-									<div class="form-group">
-										<label for="acc-mname">First Name</label>
-										<input type="text" class="form-control" id="acc-mname" name="acc-mname">
-									</div><!-- End .form-group -->
-								</div><!-- End .col-md-4 -->
+								
 
 								<div class="col-md-4">
 									<div class="form-group required-field">
 										<label for="acc-lastname">Last Name</label>
-										<input type="text" class="form-control" id="acc-lastname" name="acc-lastname" required="">
+										<input type="text" class="form-control" id="acc-lastname" name="lastname" required="">
 									</div><!-- End .form-group -->
 								</div><!-- End .col-md-4 -->
 							</div><!-- End .row -->
@@ -49,12 +57,12 @@
 
 					<div class="form-group required-field">
 						<label for="acc-email">Email</label>
-						<input type="email" class="form-control" id="acc-email" name="acc-email" required="">
+						<input type="email" class="form-control" id="acc-email" name="email" required="">
 					</div><!-- End .form-group -->
 
 					<div class="form-group required-field">
 						<label for="acc-password">Password</label>
-						<input type="password" class="form-control" id="acc-password" name="acc-password" required="">
+						<input type="password" class="form-control" id="acc-password" name="password" required="">
 					</div><!-- End .form-group -->
 
 					<div class="mb-2"></div><!-- margin -->
@@ -70,14 +78,14 @@
 							<div class="col-md-6">
 								<div class="form-group required-field">
 									<label for="acc-pass2">Password</label>
-									<input type="password" class="form-control" id="acc-pass2" name="acc-pass2">
+									<input type="password" class="form-control" id="acc-pass2" name="passwordConf">
 								</div><!-- End .form-group -->
 							</div><!-- End .col-md-6 -->
 
 							<div class="col-md-6">
 								<div class="form-group required-field">
 									<label for="acc-pass3">Confirm Password</label>
-									<input type="password" class="form-control" id="acc-pass3" name="acc-pass3">
+									<input type="password" class="form-control" id="acc-pass3" name="passwordConf">
 								</div><!-- End .form-group -->
 							</div><!-- End .col-md-6 -->
 						</div><!-- End .row -->
@@ -85,7 +93,7 @@
 
 					<div class="required text-right">* Required Field</div>
 					<div class="form-footer">
-						<a href="#"><i class="icon-angle-double-left"></i>Back</a>
+						<a href=" {{route('profile')}} "><i class="icon-angle-double-left"></i>Back</a>
 
 						<div class="form-footer-right">
 							<button type="submit" class="btn btn-primary">Save</button>
@@ -99,18 +107,10 @@
 					<h3 class="widget-title">My Account</h3>
 
 					<ul class="list">
-						<li class="active"><a href="#">Account Dashboard</a></li>
-						<li><a href="#">Account Information</a></li>
-						<li><a href="#">Address Book</a></li>
+						<li><a href=" {{route('profile')}} ">Account Information</a></li>
+						<li class="active"><a href=" {{route('profile_edit')}} ">Edit Information</a></li>
 						<li><a href="#">My Orders</a></li>
-						<li><a href="#">Billing Agreements</a></li>
-						<li><a href="#">Recurring Profiles</a></li>
-						<li><a href="#">My Product Reviews</a></li>
-						<li><a href="#">My Tags</a></li>
-						<li><a href="#">My Wishlist</a></li>
-						<li><a href="#">My Applications</a></li>
-						<li><a href="#">Newsletter Subscriptions</a></li>
-						<li><a href="#">My Downloadable Products</a></li>
+				
 					</ul>
 				</div><!-- End .widget -->
 			</aside><!-- End .col-lg-3 -->

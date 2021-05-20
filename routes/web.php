@@ -58,13 +58,9 @@ Route::post('/cart/{product:id}',[orderController::class, 'store']);
 Route::post('/layout/{order:id}' , [layoutController::class, 'delete'])->name('layout');
 
 
+Route::get('/profile/edit' , [usersController::class,'edit'])->name('profile_edit');
 Route::get('/profile' , [usersController::class,'index'])->name('profile');
 Route::post('/profile' , [usersController::class,'update']);
-
-
-Route::get('/client', function(){
-        return view('client');
-})->name('dashboard');
 
 
 

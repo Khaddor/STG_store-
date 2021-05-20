@@ -17,13 +17,26 @@ class usersController extends Controller
     }
   
     public function index(){
-        return view('profile');
+        return view('User.profile');
+    }
+
+    public function edit(){
+        return view('User.profileEdit');
     }
 
 
     public function update(Request $request)
     {
     
+    $request->validate([
+        'firstname' => ['required', 'string', 'max:255'],
+        'lastname' => ['required', 'string', 'max:255'],
+        'email' => ['required','unique:users'],
+        'password' => ['required'],
+    ]);
+
+
+
     $user = User::findOrFail($request->id);
 
     $user->firstname = $request->firstname;
