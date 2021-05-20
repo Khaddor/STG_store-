@@ -38,21 +38,21 @@ class orderController extends Controller
      if(!Auth::check()){
          return redirect()->route('login');
      }
-            if(!order::where('product_id','=',$product->id)->exists())
-            {
-                order::create([
-                    'user_id' => Auth::user()->id,
-                    'product_id' => $product->id,
-                    'label' => 5,
-                    'user_firstname' => Auth::user()->firstname,
-                    'user_lastname' => Auth::user()->lastname,
-                    'user_address' => "null",
-                    'user_phone' => Auth::user()->phone,
-                    'price' => $product->price,
-                    'quantity' => 1,
-                    'status_id' => 0
-                ]);
-                return redirect()->back()->with('success', 'Product added to cart successfully!');
+          
+     $condition = ['product_id' => $product->id,
+                    'user_id'=> auth()->user()->id];
+
+             if(!order::where($condition)->exists()){
+                    order::create([
+                        'user_id' => Auth::user()->id,
+                        'product_id' => $product->id,
+                        'price' => $product->price,
+                        'quantity' => 1,
+                        
+                    ]);
+                    return redirect()->back()->with('success', 'Product added to cart successfully!');
+                
+                
             }else{
                 return redirect()->back()->with('inCart', 'Product already in Cart');
             }

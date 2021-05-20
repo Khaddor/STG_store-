@@ -6,6 +6,7 @@ use App\Http\Controllers\loginController;
 use App\Http\Controllers\logoutController;
 use App\Http\Controllers\homeController;
 use App\Http\Controllers\categoryController;
+use App\Http\Controllers\checkoutController;
 use App\Http\Controllers\layoutController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\productController;
@@ -65,10 +66,13 @@ Route::post('/profile' , [usersController::class,'update']);
 
 
 
+Route::get('/checkout' , [checkoutController::class,'index'])->name('checkout');
 
+//Route::get('/confirm_chekout',[checkoutController::class,'confirm'])->name('confirm_checkout');
+Route::post('/confirm_checkout',[checkoutController::class,'store'])->name('confirm_checkout');
 
-
-
+Route::get('/confirm_checkout',[checkoutController::class,'index_place_order'])->name('place_order');
+Route::post('/place_order',[checkoutController::class,'place_order'])->name('place_order');
 
 
 
