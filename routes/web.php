@@ -24,17 +24,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
+//Home
 Route::get('/', [homeController::class,'index'])->name('home');
 
 
-
+//Products
 Route::get('/product/{product:id}',[productController::class,'index'])->name('product');
 
 Route::get('/category/{category:id}',[categoryController::class,'index'])->name('category');
 
 
-
+//Auth
 Route::get('/register', [registerController::class,'index'])->name('register');
 Route::post('/register', [registerController::class, 'store']);
 
@@ -49,30 +49,39 @@ Route::get('/about', function(){
 });
 
 
-Route::get('/admin',[adminController::class,'index'])->name('admin');
-Route::post('/admin',[adminController::class,'add']);
+//Admin
+Route::get('/admin',[adminController::class,'index'])->name('adminIndex');
+Route::get('/admin_manage' , [adminController::class, 'manage'])->name('admin_manage');
+Route::get('/admin_manage_orders' , [adminController::class, 'manage_orders'])->name('admin_manageOrders');
+
+Route::post('/admin_product',[adminController::class,'add_product'])->name('adminAddProduct');
+Route::post('/admin_product_del',[adminController::class,'delete_product'])->name('adminDeleteProduct');
+
+Route::post('/admin_category',[adminController::class,'add_category'])->name('adminAddCategory');
 
 
+
+
+//Orders
 Route::get('/cart',[orderController::class, 'index'])->name('cart')->middleware(['auth']);
 Route::post('/cart/{product:id}',[orderController::class, 'store']);
-	
+
+Route::get('/checkout' , [checkoutController::class,'index'])->name('checkout');
+//Route::get('/confirm_chekout',[checkoutController::class,'confirm'])->name('confirm_checkout');
+Route::post('/confirm_checkout',[checkoutController::class,'store'])->name('confirm_checkout');
+
+Route::get('/confirm_checkout',[checkoutController::class,'index_place_order'])->name('place_order');
+Route::post('/place_order',[checkoutController::class,'place_order'])->name('place_order');
+
 Route::post('/layout/{order:id}' , [layoutController::class, 'delete'])->name('layout');
 
-
+//User 
 Route::get('/profile/edit' , [usersController::class,'edit'])->name('profile_edit');
 Route::get('/profile' , [usersController::class,'index'])->name('profile');
 Route::post('/profile' , [usersController::class,'update']);
 
 
 
-
-Route::get('/checkout' , [checkoutController::class,'index'])->name('checkout');
-
-//Route::get('/confirm_chekout',[checkoutController::class,'confirm'])->name('confirm_checkout');
-Route::post('/confirm_checkout',[checkoutController::class,'store'])->name('confirm_checkout');
-
-Route::get('/confirm_checkout',[checkoutController::class,'index_place_order'])->name('place_order');
-Route::post('/place_order',[checkoutController::class,'place_order'])->name('place_order');
 
 
 

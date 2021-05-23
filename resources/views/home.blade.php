@@ -98,9 +98,10 @@
 								</div><!-- End .layout-modes -->
 							</div><!-- End .toolbox-right -->
 						</nav>
+
 						@if (Session::has('success'))
 							<div class="alert alert-success" role="alert">
-								{{Session::get('succes')}}
+								{{Session::get('success')}}
 						  	</div>
 						@endif
 

@@ -135,7 +135,7 @@
 							<input type="hidden" name="phone" value="{{$req->phone ?? ""}}" >
 						
 							<div class="clearfix">
-							<button class="btn btn-primary float-right" type="submit"> Place Order</button>	
+								<button class="btn btn-primary float-right" type="submit"> Place Order</button>	
 							</div><!-- End .clearfix -->
 
 						</form>

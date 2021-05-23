@@ -49,9 +49,11 @@ class checkoutController extends Controller
                     'user_address' => $req->address1 && $req->address2,
                     'user_phone' => $req->phone,
                     'product_id' => $order->product->id,
+                    'quantity' => $order->quantity,
                     'status_id' => 0,
                 ]);
     }
+      $orders = order::where('user_id',auth()->user()->id)->delete();
       return redirect()->back()->with('success' , 'Order placed successfully');
     }
 

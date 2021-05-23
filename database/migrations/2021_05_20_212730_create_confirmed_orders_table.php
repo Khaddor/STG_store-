@@ -21,6 +21,7 @@ class CreateConfirmedOrdersTable extends Migration
             $table->string('user_lastname');
             $table->string('user_address');
             $table->string('user_phone');
+            $table->integer('quantity');
             $table->foreignId('product_id');
             $table->foreignId('status_id');   
             $table->timestamps();

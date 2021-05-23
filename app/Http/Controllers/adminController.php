@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\category;
+use App\Models\confirmedOrder;
+use App\Models\order;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Console\PruneBatchesCommand;
@@ -16,11 +19,17 @@ class adminController extends Controller
 
 
     public function index (){
-        return view('admin');
+        return view('admin.admin_add');
     }
 
+    public function manage(){
+        $products = product::get();
+        $categories = category::get();
+        return view('admin.admin_manage')->with([ 'products' => $products,
+                                                    'categories' => $categories]);
+    }
 
-    public function add(Request $req){
+    public function add_product(Request $req){
 
         $req->validate([
             'name' => 'required',
@@ -45,4 +54,40 @@ class adminController extends Controller
         return redirect()->back()->with('success',"Product added with success");
 
     }
+
+
+    public function add_category(Request $req){
+
+        $req->validate([
+            'name' => ['required', 'string','unique:categories'],
+            
+        ]);
+
+        category::create([
+            'name' => $req->name,
+        ]);
+        return redirect()->back()->with('success',"Category added with success");
+
+    }
+
+    public function delete_product(Request $req){
+        
+        product::where('id',$req->id)->delete();
+
+        return redirect()->back();
+    }
+
+    public function manage_orders(){
+
+       $orders = confirmedOrder::get();
+
+        return view('admin.admin_orders')->with('orders' , $orders);
+    }
 }
+
+
+
+
+
+
+
