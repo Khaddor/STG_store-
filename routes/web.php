@@ -49,18 +49,6 @@ Route::get('/about', function(){
 });
 
 
-//Admin
-Route::get('/admin',[adminController::class,'index'])->name('adminIndex');
-Route::get('/admin_manage' , [adminController::class, 'manage'])->name('admin_manage');
-Route::get('/admin_manage_orders' , [adminController::class, 'manage_orders'])->name('admin_manageOrders');
-
-Route::post('/admin_product',[adminController::class,'add_product'])->name('adminAddProduct');
-Route::post('/admin_product_del',[adminController::class,'delete_product'])->name('adminDeleteProduct');
-
-Route::post('/admin_category',[adminController::class,'add_category'])->name('adminAddCategory');
-
-
-
 
 //Orders
 Route::get('/cart',[orderController::class, 'index'])->name('cart')->middleware(['auth']);
@@ -84,7 +72,19 @@ Route::post('/profile' , [usersController::class,'update']);
 
 
 
+//ADMIN
+Route::get('/admin',[adminController::class,'dashboard_index'])->name('admin_dashboard');
+Route::get('/admin_products',[adminController::class,'products_index'])->name('admin_products');
+Route::get('/admin_categories',[adminController::class,'categories_index'])->name('admin_categories');
+Route::get('/admin_orders',[adminController::class,'orders_index'])->name('admin_orders');
 
+Route::get('/admin_clients',[adminController::class,'clients_index'])->name('admin_clients');
 
+Route::get('/admin_add_product',[adminController::class,'add_product_index'])->name('admin_add_product');
+Route::post('/admin_add_product',[adminController::class,'add_product'])->name('admin_add_product');
+Route::post('/admin_delete_product',[adminController::class,'delete_product'])->name('admin_delete_product');
+
+Route::get('/admin_add_category',[adminController::class,'add_category_index'])->name('admin_add_category');
+Route::post('/admin_add_category',[adminController::class,'add_category'])->name('admin_add_category');
 
 

@@ -28,4 +28,8 @@ class product extends Model
 
         return $this->belongsTo(order::class);
     }
+
+    public function confirmedOrder(){
+        return $this->belongsTo(confirmedOrder::class);
+    }
 }

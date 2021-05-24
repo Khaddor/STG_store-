@@ -19,4 +19,8 @@ class confirmedOrder extends Model
                             'product_id',
                             'status_id',
                           'user_firstname'];
+
+    public function product(){
+        return $this->hasOne(product::class);
+    }
 }
