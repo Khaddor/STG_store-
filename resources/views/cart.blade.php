@@ -1,5 +1,8 @@
 @extends('layouts.layout')
-
+@php
+        use App\Htpp\Controllers\cartController;
+        
+    @endphp
 
 
 @section('content')
@@ -25,6 +28,8 @@
 										<th class="price-col">Price</th>
 										<th class="qty-col">Qty</th>
 										<th>Subtotal</th>
+										<th>Action</th>
+
 									</tr>
 								</thead>
 
@@ -49,28 +54,29 @@
 											<input class="vertical-quantity form-control" type="text" name="q">
 										</td>
 										<td>{{$order->quantity  *  $order->product->price}}</td>
+										<td>
+											<form action="/layout/{{$order->id}}" method="post">
+													@csrf
+													<button type="submit" class="btn btn-danger btn-sm">
+														Delete
+												</button>
+											</form>
+											
+										</td>
+
+																		
 									</tr>
+
 									<tr class="product-action-row">
 										<td colspan="4" class="clearfix">
 
 
- 
-											
 
-											<div class="float-left">
-												<a href="#" class="btn-move">Move to Wishlist</a>
-											</div><!-- End .float-left -->
-
-
-											
-
-											
-
-											
+											<!-- 
 											<div class="float-right">
 												<a href="#" title="Edit product" class="btn-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a>
 												<a href="#" title="Remove product" class="btn-remove"><span class="sr-only">Remove</span></a>
-											</div><!-- End .float-right -->
+											</div><!-- End .float-right --> 
 										</td>
 									</tr>
 							@endforeach
@@ -86,17 +92,9 @@
 												<a href="/" class="btn btn-outline-secondary">Continue Shopping</a>
 
 
-												<a href="/" class="btn btn-outline-secondary">Continue Shopping</a>
-
-
-												<a href="category.html" class="btn btn-outline-secondary">Continue Shopping</a>
 
 											</div><!-- End .float-left -->
 
-											<div class="float-right">
-												<a href="#" class="btn btn-outline-secondary btn-clear-cart">Clear Shopping Cart</a>
-												<a href="#" class="btn btn-outline-secondary btn-update-cart">Update Shopping Cart</a>
-											</div><!-- End .float-right -->
 										</td>
 									</tr>
 								</tfoot>

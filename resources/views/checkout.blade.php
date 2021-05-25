@@ -46,7 +46,7 @@
 									<div class="form-group required-field">
 										<label>Street Address </label>
 										<input type="text" class="form-control" required name="address1">
-										<input type="text" class="form-control" required name="address2">
+										<input type="text" class="form-control"  name="address2">
 									</div><!-- End .form-group -->
 
 									<div class="form-group required-field">

@@ -1,5 +1,7 @@
 <?php
 use App\Models\order;
+use App\Models\product;
+use App\Controllers\cartController;
 ?>
 
 <!DOCTYPE html>

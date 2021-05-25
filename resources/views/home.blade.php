@@ -18,7 +18,7 @@
                             </div>
                             <h2 align="center" style="color: white">Never Lose Sight </h2>
                             <p align="center" style="color: white">Triplez votre expérience</p>
-                            <a href="/product/6" style="margin-left: 285px;" class="btn btn-dark btn-outline btn-xl">Shop Now</a>
+                            <a href="http://127.0.0.1:8000/product/4" style="margin-left: 285px;" class="btn btn-dark btn-outline btn-xl">Shop Now</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 img-item x1bleu-img s30-home-img">
@@ -123,21 +123,18 @@
 										<a href="/product/{{$product->id}}">
 											<img src="{{asset('productsImages/'.$product->image)}}">
 										</a>
-										<div class="label-group">
-											<div class="product-label label-hot">HOT</div>
-										</div>
+										
 
 									<!----------------ADD-TO-CART-BTN---------------------->
 									<form action="/cart/{{$product->id}}" method="POST">
 										@csrf
 										<div class="btn-icon-group">
-											<button class="btn-icon btn-add-cart" data-toggle="modal"
-											 data-target="#addCartModal"  type="submit" ><i class="icon-shopping-cart"></i></button>
+											<button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>
 										</div>
 									</form>
 
 
-										<a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a> 
+										<!-- <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>  -->
 									</figure>
 									<div class="product-details">
 										<div class="category-wrap">
@@ -145,7 +142,6 @@
 												<!---------CATEGORY_NAME------------->
 												<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
 											</div>
-											<a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
 										</div>
 										<h2 class="product-title">
 											<!--------------PRODUCT_NAME----------->

@@ -74,17 +74,7 @@
 								</p>
 							</div><!-- End .product-desc -->
 
-							<div class="product-filters-container">
-								<div class="product-single-filter mb-2">
-									<label>Sizes:</label>
-									<ul class="config-size-list">
-										<li class="active"><a href="#">S</a></li>
-										<li><a href="#">M</a></li>
-										<li><a href="#">L</a></li>
-										<li><a href="#">X</a></li>
-									</ul>
-								</div><!-- End .product-single-filter -->
-							</div><!-- End .product-filters-container -->
+							
 
 							<hr class="divider">
 
@@ -92,8 +82,13 @@
 								<div class="product-single-qty">
 									<input class="horizontal-quantity form-control" type="text">
 								</div><!-- End .product-single-qty -->
-
-								<a href="cart.html" class="btn btn-dark add-cart icon-shopping-cart" title="Add to Cart">Add to Cart</a>
+								<form action="/cart/{{$product->id}}" method="POST">
+										@csrf
+										<div class="btn-icon-group">
+											<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Add to cart</button>
+										</div>
+									</form>
+								
 							</div><!-- End .product-action -->
 
 							<hr class="divider mb-1">
@@ -109,7 +104,6 @@
 									<a href="#" class="social-icon social-mail icon-mail-alt" target="_blank" title="Mail"></a>
 								</div><!-- End .social-icons -->
 
-								<a href="#" class="add-wishlist" title="Add to Wishlist">Add to Wishlist</a>
 							</div><!-- End .product single-share -->
 						</div><!-- End .product-single-details -->
 					</div><!-- End .row -->
