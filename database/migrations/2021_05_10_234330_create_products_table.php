@@ -20,7 +20,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->string('image');
             $table->integer('reduction');
-            $table->foreignId('category_id');
+            $table->foreignId('category_id')->onDelete('set null');
             $table->timestamps();
             $table->softDeletes('deleted_at');
         });

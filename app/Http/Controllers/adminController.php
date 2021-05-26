@@ -49,7 +49,8 @@ class adminController extends Controller
     public function clients_index(){
 
         $users = User::get();
-        return view('admin.clients')->with(['users' => $users]);
+        $orders = confirmedOrder::get();
+        return view('admin.clients')->with(['users' => $users , 'orders' => $orders]);
     }
 
 

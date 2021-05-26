@@ -46,7 +46,7 @@ class checkoutController extends Controller
                     'user_firstname' => $req->firstname,
                     'user_lastname' => $req->lastname,
                     'user_id' => $req->user_id,
-                    'user_address' => $req->address1 && $req->address2,
+                    'user_address' => $req->address1,
                     'user_phone' => $req->phone,
                     'product_id' => $order->product->id,
                     'quantity' => $order->quantity,

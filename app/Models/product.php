@@ -26,10 +26,10 @@ class product extends Model
 
     public function orders(){
 
-        return $this->belongsTo(order::class);
+        return $this->hasMany(order::class);
     }
 
     public function confirmedOrder(){
-        return $this->belongsTo(confirmedOrder::class);
+        return $this->hasMany(confirmedOrder::class);
     }
 }

@@ -19,6 +19,7 @@
     <div>
             <h2>Products</h2>
             <div class="float-right"><a href=" {{route('admin_add_product')}} " class="btn btn-primary mb-2">New Product</a></div>
+          
             <table class="table table-striped">
                 <thead>
                 <tr>
@@ -34,14 +35,14 @@
                    @foreach ($products as $product)
                     <tr>
                         <th scope="row"> {{$product->name}} </th>
-                        <td> {{$product->price}} </td>
+                        <td> {{$product->price}} <span class="badge badge-info">DH</span></td>
                         <td> {{$product->image}} </td>
                         <td>{{$product->category_id}}   ({{$product->category->name}}) </td>
                     <form action=" {{route('admin_delete_product')}} " method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{$product->id }}">
-                        <td ><button type="button" class="btn btn-primary btn-sm">Edit</button>
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button></td>
+                        <td ><button type="button" class="btn btn-info btn-sm"> <i class="fa fa-edit fa-md"></i></button>
+                            <button type="submit" class="btn btn-danger btn-sm "><i class="fa fa-trash fa-lg"></i></button></td>
                     </form>
                     </tr>
                 @endforeach	

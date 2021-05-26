@@ -21,6 +21,10 @@ class confirmedOrder extends Model
                           'user_firstname'];
 
     public function product(){
-        return $this->hasOne(product::class);
+        return $this->belongsTo(product::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(user::class);
     }
 }

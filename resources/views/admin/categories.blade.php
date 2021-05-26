@@ -19,8 +19,8 @@
                     <tr>
                         <th scope="row"> {{$category->id}} </th>
                         <td> {{$category->name}} </td>
-                        <td ><button type="button" class="btn btn-primary btn-sm">Edit</button>
-                            <button type="button" class="btn btn-danger btn-sm">Delete</button></td>
+                        <td ><button type="button" class="btn btn-primary btn-sm"><i class="fa fa-edit fa-md"></i> </button>
+                            <button type="button" class="btn btn-danger btn-sm"> <i class="fa fa-trash fa-lg"></i></button></td>
                     </tr>
             @endforeach	
                 </table>
