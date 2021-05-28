@@ -8,8 +8,9 @@ use Illuminate\Support\Facades\Auth;
 
 class loginController extends Controller
 {
+
     public function __construct(){
-        $this->middleware(['guest']);
+        $this->middleware(['guest'])->except('logout');;
     }
 
     public function index(){
@@ -24,11 +25,23 @@ class loginController extends Controller
                 'password' => 'required',
             ]);
 
-    if (!Auth::attempt($request->only('email','password'))){
+  /*  if (!Auth::attempt($request->only('email','password'))){
         return back()->with('status' , 'Données incorrectes');
     }
 
-    return redirect()->route('home');
-       
+    return redirect()->route('home');*/
+    $input = $request->all();
+
+    if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+        {
+            if (auth()->user()->is_admin == 1) {
+                return redirect()->route('admin_dashboard');
+            }else{
+                return redirect()->route('home');
+            }
+        }else{
+            return redirect()->route('login')
+                ->with('status','Données incorrectes');
+        }
     }
 }

@@ -16,8 +16,9 @@
               </tr>
             </thead>
             <tbody>
-            @foreach ($users as $user)
-           
+         @foreach ($users as $user)
+            @if ($user->is_admin !== 1)
+               
                 <tr>
                     <td> {{$user->id}} </td>
                     <td><i class="fa fa-user fa-lg"></i> - {{$user->firstname}} {{$user->lastname}} </td>
@@ -26,7 +27,8 @@
                     <td> XXXX</td>
 
                 </tr>
-            @endforeach
+             @endif
+         @endforeach
              
 
             </tbody>
