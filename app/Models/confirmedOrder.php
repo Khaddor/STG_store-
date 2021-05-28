@@ -27,4 +27,7 @@ class confirmedOrder extends Model
     public function user(){
         return $this->belongsTo(user::class);
     }
+    public function status(){
+        return $this->belongsTo(status::class);
+    }
 }

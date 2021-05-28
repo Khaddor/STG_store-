@@ -37,14 +37,16 @@
                                  <div class="container">
                                     <div class="row">
                                         <div class="col-md-8">
-                                        <select class=" custom-select custom-select-sm">
-                                            <option selected>En attend</option>
+                                            <span class="badge badge-primary ">{{$order->status->state}} </span>
+                                        <select class=" custom-select custom-select-sm" style="display:none">
+                                            <option selected> {{$order->status->state}} </option>
                                             <option value="1">confirmé</option>
                                             <option value="2">envoyé</option>
                                           </select>  
                                         </div>
                                           <div class="col-md-4">
-                                           <button class="btn btn-success btn-sm"> <i class="fa fa-check fa-sm"></i> </button>  
+                                           <button class="btn btn-success btn-sm mb-1"> <i class="fa fa-check fa-sm"></i> </button> 
+                                           <button class="btn btn-primary btn-sm"> <i class="fa fa-edit fa-sm"></i> </button>  
                                           </div>
                                     </div>     
                                 </div>   

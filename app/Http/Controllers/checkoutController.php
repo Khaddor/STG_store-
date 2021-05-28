@@ -50,7 +50,7 @@ class checkoutController extends Controller
                     'user_phone' => $req->phone,
                     'product_id' => $order->product->id,
                     'quantity' => $order->quantity,
-                    'status_id' => 0,
+                    'status_id' => 1,
                 ]);
     }
       $orders = order::where('user_id',auth()->user()->id)->delete();

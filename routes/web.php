@@ -70,24 +70,23 @@ Route::get('/profile' , [usersController::class,'index'])->name('profile');
 Route::post('/profile' , [usersController::class,'update']);
 
 
-
-Route::middleware(['auth','is_admin'])->group(function(){
 //ADMIN
-Route::get('/admin',[adminController::class,'dashboard_index'])->name('admin_dashboard');
-Route::get('/admin_products',[adminController::class,'products_index'])->name('admin_products');
-Route::get('/admin_categories',[adminController::class,'categories_index'])->name('admin_categories');
-Route::get('/admin_orders',[adminController::class,'orders_index'])->name('admin_orders');
+Route::middleware(['auth','is_admin'])->group(function(){
+        
+        Route::get('/admin',[adminController::class,'dashboard_index'])->name('admin_dashboard');
+        Route::get('/admin_products',[adminController::class,'products_index'])->name('admin_products');
+        Route::get('/admin_categories',[adminController::class,'categories_index'])->name('admin_categories');
+        Route::get('/admin_orders',[adminController::class,'orders_index'])->name('admin_orders');
 
-Route::get('/admin_clients',[adminController::class,'clients_index'])->name('admin_clients');
+        Route::get('/admin_clients',[adminController::class,'clients_index'])->name('admin_clients');
 
-Route::get('/admin_add_product',[adminController::class,'add_product_index'])->name('admin_add_product');
-Route::post('/admin_add_product',[adminController::class,'add_product'])->name('admin_add_product');
-Route::post('/admin_delete_product',[adminController::class,'delete_product'])->name('admin_delete_product');
+        Route::get('/admin_add_product',[adminController::class,'add_product_index'])->name('admin_add_product');
+        Route::post('/admin_add_product',[adminController::class,'add_product'])->name('admin_add_product');
+        Route::post('/admin_delete_product',[adminController::class,'delete_product'])->name('admin_delete_product');
 
-Route::get('/admin_add_category',[adminController::class,'add_category_index'])->name('admin_add_category');
-Route::post('/admin_add_category',[adminController::class,'add_category'])->name('admin_add_category');
-
-
+        Route::get('/admin_add_category',[adminController::class,'add_category_index'])->name('admin_add_category');
+        Route::post('/admin_add_category',[adminController::class,'add_category'])->name('admin_add_category');
 });
+
 //Search
 Route::get('/search', [productController::class, 'search']);

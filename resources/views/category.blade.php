@@ -134,13 +134,22 @@
     <div class="sidebar-toggle"><i class="fas fa-sliders-h"></i></div>
     <aside class="sidebar-shop col-lg-3 order-lg-first mobile-sidebar">
         <div class="sidebar-wrapper" style=" margin-left: 50px;" style="width: 250px;">
+<!-----------------------CATEGORIES-------------------------------------------->
+
             <div class="widget">
                 <h3 class="widget-title">
                     <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true" aria-controls="widget-body-2">Categories</a>
                 </h3>
+    
+                <div class="widget-body">
+                    <ul class="cat-list">
+@foreach ($categories as $category)
 
+                        <li><a href="/category/{{$category->id}} ">{{$category->name}}</a></li>
+@endforeach
 
-<!-----------------------CATEGORIES-------------------------------------------->
+                    </ul>
+                </div><!-- End .widget-body -->
 
                 
             </div><!-- End .widget -->

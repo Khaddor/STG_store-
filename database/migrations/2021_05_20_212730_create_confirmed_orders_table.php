@@ -23,7 +23,7 @@ class CreateConfirmedOrdersTable extends Migration
             $table->string('user_phone');
             $table->integer('quantity');
             $table->foreignId('product_id')->onDelete('cascade');
-            $table->foreignId('status_id');   
+            $table->foreignId('status_id'); 
             $table->timestamps();
         });
     }
