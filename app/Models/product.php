@@ -32,4 +32,5 @@ class product extends Model
     public function confirmedOrder(){
         return $this->hasMany(confirmedOrder::class);
     }
+    
 }
