@@ -108,6 +108,10 @@ use App\Controllers\cartController;
 									@endguest
 
 									@auth
+									@if (Auth::user()->is_admin==1)
+									<li><a href="{{route('admin_dashboard')}}">Admin Dashboard </a></li>
+									@endif
+									
 									<li><a href="{{route('profile')}}">{{auth()->user()->firstname}} </a></li>
 									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
 									@endauth

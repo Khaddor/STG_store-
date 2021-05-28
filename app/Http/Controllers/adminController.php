@@ -13,10 +13,10 @@ use Illuminate\Queue\Console\PruneBatchesCommand;
 class adminController extends Controller
 {
 
-    public function __construct()
+   /* public function __construct()
     {
         $this->middleware(['auth']);
-    }
+    }*/
 
 
     public function dashboard_index(){

@@ -97,12 +97,15 @@
                 <div class="c-avatar"><img class="c-avatar-img" src="{{asset('assets/images/icons/favicon.ico')}}" ></div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right pt-0">
-                <div class="dropdown-header bg-light py-2"><strong>Account</strong></div><a class="dropdown-item" href="#">
-                    
-                   
+                <div class="dropdown-header bg-light py-2"><strong>Account</strong></div>
+                <a class="dropdown-item" href=" {{route('home')}} ">
                     <svg class="c-icon mr-2">
                         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
-                    </svg> Logout</a>
+                    </svg> Back to Store</a>
+                    <a class="dropdown-item" href=" {{route('logout')}} ">
+                        <svg class="c-icon mr-2">
+                            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-account-logout"></use>
+                        </svg> Logout</a>
                 </div>
                 </li>
             </ul>

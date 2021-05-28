@@ -71,8 +71,7 @@ Route::post('/profile' , [usersController::class,'update']);
 
 
 
-
-
+Route::middleware(['auth','is_admin'])->group(function(){
 //ADMIN
 Route::get('/admin',[adminController::class,'dashboard_index'])->name('admin_dashboard');
 Route::get('/admin_products',[adminController::class,'products_index'])->name('admin_products');
@@ -88,5 +87,7 @@ Route::post('/admin_delete_product',[adminController::class,'delete_product'])->
 Route::get('/admin_add_category',[adminController::class,'add_category_index'])->name('admin_add_category');
 Route::post('/admin_add_category',[adminController::class,'add_category'])->name('admin_add_category');
 
+
+});
 //Search
 Route::get('/search', [productController::class, 'search']);
