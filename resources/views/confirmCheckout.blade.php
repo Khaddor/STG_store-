@@ -1,6 +1,5 @@
 @extends('layouts.layout')
 
-
 @section('content')
     
 <main class="main">
@@ -26,31 +25,42 @@
 					<div class="col-lg-4">
 						<div class="order-summary">
 							<h3>Summary</h3>
-
+@foreach ($orders as $order)
 							<h4>
-								<a data-toggle="collapse" href="#order-cart-section" class="collapsed" role="button" aria-expanded="false" aria-controls="order-cart-section">2 products in Cart</a>
+								<a data-toggle="collapse" href="#order-cart-section" class="collapsed" role="button" aria-expanded="false" aria-controls="order-cart-section">{{$orders->count()}} product(s) in Cart</a>
 							</h4>
 
 							<div class="collapse" id="order-cart-section">
 								<table class="table table-mini-cart">
 									<tbody>
-										<tr>
-											<td class="product-col">
+						
+										<div class="dropdown-cart-products">
+											<div class="product">
+												<div class="product-details">
+													<h4 class="product-title">
+														<a href="{{route('product',[$order->product->id])}}">{{$order->product->name}} </a>
+													</h4>
+													
+													<span class="cart-product-info">
+														<span class="cart-product-qty">1</span>
+														x {{$order->product->price}}
+													</span>
+												</div><!-- End .product-details -->
+													
 												<figure class="product-image-container">
-													<a href="product.html" class="product-image">
-														<img src="assets/images/products/product-1.jpg" alt="product">
+													<a href="{{route('product',[$order->product->id])}}" class="product-image">
+														<img src="{{asset('productsImages/'.$order->product->image)}}" alt="product" width="80" height="80">
 													</a>
+											<!--DELETE BTN ----->
+													<form action="/layout/{{$order->id}}" method="post">
+													@csrf
+													<button type="submit">
+														<i class="btn-remove icon-cancel"></i>
+													</button>
+													</form>
 												</figure>
-												<div>
-													<h2 class="product-title">
-														<a href="product.html">Reason Logo Snapback</a>
-													</h2>
-
-													<span class="product-qty">Qty: 4</span>
-												</div>
-											</td>
-											<td class="price-col">$112.00</td>
-										</tr>
+											</div><!-- End .product -->
+@endforeach
 
 										<tr>
 											<td class="product-col">
@@ -72,9 +82,9 @@
 									</tbody>	
 								</table>
 							</div><!-- End #order-cart-section -->
-						</div><!-- End .order-summary -->
+						 </div><!-- End .order-summary  -->
 
-						<div class="checkout-info-box">
+						<!-- <div class="checkout-info-box">
 							<h3 class="step-title">Ship To:
 								<a href="#" title="Edit" class="step-title-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a>
 							</h3>
@@ -86,7 +96,7 @@
 								United States <br>
 								(123) 456-7890
 							</address>
-						</div><!-- End .checkout-info-box -->
+						</div><!-- End .checkout-info-box --> -->
 
 						<div class="checkout-info-box">
 							<h3 class="step-title">Shipping Method: 
@@ -112,7 +122,7 @@
 						
 								
 							
-							<div >
+							<div>
 								<address>
 									{{$req->firstname ?? ""}} {{$req->lastname ?? ""}}<br>
 									{{$req->address1 ?? ""}} <br>
@@ -122,23 +132,24 @@
 								</address>
 							</div><!-- End #checkout-shipping-address -->
 							
-						<form action=" {{route('place_order')}} " method="POST">
-							@csrf
+							<form action=" {{route('place_order')}} " method="POST">
+								@csrf
+								
+								<input type="hidden" name="firstname"  value="{{$req->firstname ?? ""}}">
+								<input type="hidden" name="lastname" value="{{$req->lastname ?? ""}}">
+								<input type="hidden" name="user_id"  value = "{{auth()->user()->id ?? ""}}" >
+
+								<input type="hidden" name="address1" value="{{$req->address1 ?? ""}} " >
+								<input type="hidden" name="address2"  value="{{$req->address2 ?? ""}}">
+								<input type="hidden" name="city" value="{{$req->city ?? ""}}" >
+								<input type="hidden" name="phone" value="{{$req->phone ?? ""}}" >
 							
-							<input type="hidden" name="firstname"  value="{{$req->firstname ?? ""}}">
-							<input type="hidden" name="lastname" value="{{$req->lastname ?? ""}}">
-							<input type="hidden" name="user_id"  value = "{{auth()->user()->id ?? ""}}" >
+								<div class="clearfix">
+									<button class="btn btn-primary float-right" type="submit"> Place Order</button>	
+								</div><!-- End .clearfix -->
 
-							<input type="hidden" name="address1" value="{{$req->address1 ?? ""}} " >
-							<input type="hidden" name="address2"  value="{{$req->address2 ?? ""}}">
-							<input type="hidden" name="city" value="{{$req->city ?? ""}}" >
-							<input type="hidden" name="phone" value="{{$req->phone ?? ""}}" >
-						
-							<div class="clearfix">
-								<button class="btn btn-primary float-right" type="submit"> Place Order</button>	
-							</div><!-- End .clearfix -->
+							</form>
 
-						</form>
 						</div><!-- End .checkout-payment -->
 						<div class="checkout-discount">
 							<h4>
@@ -157,7 +168,5 @@
 			</div><!-- End .container -->
 
 			<div class="mb-6"></div><!-- margin -->
-		</main><!-- End .main -->
-
-
+</main><!-- End .main -->
 @endsection

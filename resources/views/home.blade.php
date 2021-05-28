@@ -44,14 +44,8 @@
 			</div> -->
 
 
-			<div class="container">
-				<nav aria-label="breadcrumb" class="breadcrumb-nav">
-					<ol class="breadcrumb">
-						<li class="breadcrumb-item"><a href="index.html">Home</a></li>
-						<li class="breadcrumb-item"><a href="#">Men</a></li>
-						<li class="breadcrumb-item active" aria-current="page">Accessories</li>
-					</ol>
-				</nav>
+			<div class="container" style="margin-top: 15px">
+				
 
 				<div class="row">
 					<div class="col-lg-9 main-content">

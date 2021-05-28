@@ -88,4 +88,5 @@ Route::post('/admin_delete_product',[adminController::class,'delete_product'])->
 Route::get('/admin_add_category',[adminController::class,'add_category_index'])->name('admin_add_category');
 Route::post('/admin_add_category',[adminController::class,'add_category'])->name('admin_add_category');
 
-
+//Search
+Route::get('/search', [productController::class, 'search']);
