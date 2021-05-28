@@ -4751,8 +4751,9 @@ a:focus {
   flex: 1 1 auto; }
 
 .row {
-  margin-left: -10px;
-  margin-right: -10px; }
+  margin-left: 10px !important;
+  margin-right: -10px;
+}
 
 [class*="col-"] {
   padding-left: 10px;

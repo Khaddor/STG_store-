@@ -25,7 +25,7 @@
                 </div><!-- End .toolbox-item -->
             </div><!-- End .toolbox-left -->
 
-            <div class="toolbox-right">
+            <div class="toolbox-right" style="margin-right: 50px;">
                 <div class="toolbox-item toolbox-show">
                     <label>Show:</label>
 
@@ -55,18 +55,19 @@
 @foreach ($products as $product)
 
         
-            <div class="col-5 col-sm-4">
+            <div class="col-5 col-sm-4" style="margin-right: 30px;">
                 <div class="product-default inner-quickview inner-icon">
                     <figure>
                         <a href="/product/{{$product->id}} ">
                             <img src="{{asset('productsImages/'.$product->image)}}">
                         </a>
-                        <div class="label-group">
-                            <div class="product-label label-hot">HOT</div>
-                        </div>
-                        <div class="btn-icon-group">
-                            <button class="btn-icon btn-add-cart" data-toggle="modal" data-target="#addCartModal"><i class="icon-shopping-cart"></i></button>
-                        </div>
+                        
+                        <form action="/cart/{{$product->id}}" method="POST">
+                                        @csrf
+                                        <div class="btn-icon-group">
+                                            <button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>
+                                        </div>
+                                    </form>
                         <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a> 
                     </figure>
                     <div class="product-details">
@@ -132,7 +133,7 @@
     <div class="sidebar-overlay"></div>
     <div class="sidebar-toggle"><i class="fas fa-sliders-h"></i></div>
     <aside class="sidebar-shop col-lg-3 order-lg-first mobile-sidebar">
-        <div class="sidebar-wrapper">
+        <div class="sidebar-wrapper" style=" margin-left: 50px;" style="width: 250px;">
             <div class="widget">
                 <h3 class="widget-title">
                     <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true" aria-controls="widget-body-2">Categories</a>
@@ -141,19 +142,7 @@
 
 <!-----------------------CATEGORIES-------------------------------------------->
 
-                <div class="collapse show" id="widget-body-2">
-                    <div class="widget-body">
-                        <ul class="cat-list">
-
-                         @foreach ($categories as $category)
-
-                            <li><a href="/category/{{$category->id}}">{{$category->name}}</a></li>
-                             
-                         @endforeach   
-                            
-                        </ul>
-                    </div><!-- End .widget-body -->
-                </div><!-- End .collapse -->
+                
             </div><!-- End .widget -->
 
             <div class="widget">

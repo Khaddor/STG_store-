@@ -54,7 +54,8 @@ class checkoutController extends Controller
                 ]);
     }
       $orders = order::where('user_id',auth()->user()->id)->delete();
-      return redirect()->back()->with('success' , 'Order placed successfully');
+     /* return redirect()->back()->with('success' , 'Order placed successfully');*/
+     return redirect()->route('home');
     }
 
  

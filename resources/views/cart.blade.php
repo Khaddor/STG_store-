@@ -1,8 +1,5 @@
 @extends('layouts.layout')
-@php
-        use App\Htpp\Controllers\cartController;
-        
-    @endphp
+
 
 
 @section('content')

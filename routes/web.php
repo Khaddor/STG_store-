@@ -89,5 +89,5 @@ Route::post('/admin_add_category',[adminController::class,'add_category'])->name
 
 
 });
-
-
+//Search
+Route::get('/search', [productController::class, 'search']);

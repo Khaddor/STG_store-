@@ -1,6 +1,7 @@
 <?php
 use App\Models\order;
 use App\Models\product;
+use App\Controllers\orderController;
 use App\Controllers\cartController;
 ?>
 
@@ -175,9 +176,10 @@ use App\Controllers\cartController;
 						<div class="header-right">
 							<div class="header-search header-search-inline header-icon">
 								<a href="#" class="search-toggle" role="button"><i class="icon-search-3"></i></a>
-								<form action="#" method="get">
+								<form action="{{ url('/search')}}" method="GET" role="search">
+									
 									<div class="header-search-wrapper">
-										<input type="search" class="form-control" name="q" id="q" placeholder="Search..." required>
+										<input type="search" class="form-control" name="query"  placeholder="Search..."  required>
 										<button class="btn icon-search-3" type="submit"></button>
 									</div><!-- End .header-search-wrapper -->
 								</form>
