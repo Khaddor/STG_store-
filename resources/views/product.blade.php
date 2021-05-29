@@ -68,7 +68,7 @@
 
 							<div class="product-desc">
 								<p>
-									Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolre eu fugiat nulla pariatur excepteur sint occaecat cupidatat non. Duis aute irure dolor in reprehenderit in voluptate velit esse.
+									{{$product->description}}
 									<a href="#">(read more)</a>
 								</p>
 							</div><!-- End .product-desc -->

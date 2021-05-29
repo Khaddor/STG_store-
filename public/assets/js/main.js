@@ -1,6 +1,22 @@
 /* ================================================
 ---------------------- Main.js ----------------- */
 (function ($) {
+
+
+	function editOrder(){
+		alert("hello");
+	}
+
+	$("#editBtnOrders").click(function(){
+		$("#statusBadge").hide();
+	});
+	$(document).ready(function(){
+		$('#show1').click(function(){
+			$('#textOK').hide();
+		});
+	
+	});
+
 	'use strict';
 	var Porto = {
 		initialised: false,

@@ -74,6 +74,7 @@ class adminController extends Controller
             'image' => $newImageName,
             'label' => 'null',
             'reduction' => $req->input('reduced_price'),
+            'description' => $req->description,
             'category_id' => $req->category,
         ]);
 
@@ -101,6 +102,17 @@ class adminController extends Controller
         product::where('id',$req->id)->delete();
 
         return redirect()->back()->with('deleted',"Product Deleted successfully");
+    }
+
+    public function change_status(Request $req){
+
+
+        $id = $req->order_id;
+        $order = confirmedOrder::find($id);
+        $order->status_id = $req->selectedStatus;
+        $order->save();
+
+        return redirect()->back()->with('success' , 'status updated successfully');
     }
 
     

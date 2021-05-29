@@ -54,9 +54,8 @@
 										<td>
 											<form action="/layout/{{$order->id}}" method="post">
 													@csrf
-													<button type="submit" class="btn btn-danger btn-sm">
-														Delete
-												</button>
+													<button type="submit" class="btn btn-danger btn-sm mt-4 "><i class="fa fa-trash fa-md"></i></button></td>
+
 											</form>
 											
 										</td>
@@ -73,7 +72,7 @@
 											<div class="float-right">
 												<a href="#" title="Edit product" class="btn-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a>
 												<a href="#" title="Remove product" class="btn-remove"><span class="sr-only">Remove</span></a>
-											</div><!-- End .float-right --> 
+											</div> End .float-right --> 
 										</td>
 									</tr>
 							@endforeach

@@ -25,7 +25,6 @@
 					<div class="col-lg-4">
 						<div class="order-summary">
 							<h3>Summary</h3>
-@foreach ($orders as $order)
 							<h4>
 								<a data-toggle="collapse" href="#order-cart-section" class="collapsed" role="button" aria-expanded="false" aria-controls="order-cart-section">{{$orders->count()}} product(s) in Cart</a>
 							</h4>
@@ -35,50 +34,35 @@
 									<tbody>
 						
 										<div class="dropdown-cart-products">
-											<div class="product">
-												<div class="product-details">
-													<h4 class="product-title">
-														<a href="{{route('product',[$order->product->id])}}">{{$order->product->name}} </a>
-													</h4>
-													
-													<span class="cart-product-info">
-														<span class="cart-product-qty">1</span>
-														x {{$order->product->price}}
-													</span>
-												</div><!-- End .product-details -->
-													
-												<figure class="product-image-container">
-													<a href="{{route('product',[$order->product->id])}}" class="product-image">
-														<img src="{{asset('productsImages/'.$order->product->image)}}" alt="product" width="80" height="80">
-													</a>
-											<!--DELETE BTN ----->
-													<form action="/layout/{{$order->id}}" method="post">
-													@csrf
-													<button type="submit">
-														<i class="btn-remove icon-cancel"></i>
-													</button>
-													</form>
-												</figure>
-											</div><!-- End .product -->
-@endforeach
+
+@foreach ($orders as $order)
 
 										<tr>
 											<td class="product-col">
 												<figure class="product-image-container">
-													<a href="product.html" class="product-image">
-														<img src="assets/images/products/product-2.jpg" alt="product">
+													<a href="{{route('product',[$order->product->id])}}" class="product-image">
+														<img src="{{asset('productsImages/'.$order->product->image)}}" alt="product" width="80" height="80">
 													</a>
 												</figure>
 												<div>
 													<h2 class="product-title">
-														<a href="product.html">Leather Crisscross Slides</a>
+														<a href="{{route('product',[$order->product->id])}}">{{$order->product->name}} </a>
 													</h2>
 
-													<span class="product-qty">Qty: 4</span>
+													<span class="product-qty"> X  {{$order->quantity}} </span>
+
+
 												</div>
 											</td>
-											<td class="price-col">$7.90</td>
+										<td >
+											<span class="cart-product-info">
+												<span class="cart-product-qty"></span>
+												 {{$order->product->price}} DH
+											</span>
+										</td>
 										</tr>
+@endforeach
+
 									</tbody>	
 								</table>
 							</div><!-- End #order-cart-section -->

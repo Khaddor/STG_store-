@@ -8,12 +8,12 @@
     @endphp
 
     	<!-------ADDING PRODUCTS-------->
-    <div class="m-3 ml-4" >
+    <div class="m-3 ml-4 mb-5" >
         <form action="{{route('admin_add_product')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="col-sm-11">
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="form-group required-field">
                                 <label for="acc-name">Product Name <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="acc-name" name="name" required="" placeholder="Nom de produit">
@@ -23,7 +23,17 @@
                                             @enderror
                         </div><!-- End .col-md-4 -->
 
-                        <div class="col-md-5">
+                        <div class="col-md-6">
+                            <div class="form-group required-field">
+                                <label for="acc-name">Product Description <span class="text-danger">*</span></label>
+                                <textarea type="text" class="form-control" rows="6" id="acc-name" name="description" required="" placeholder="Tapez la description du produit" ></textarea>
+                            </div><!-- End .form-group -->
+                                            @error('description')
+                                                <div style="color:red;">{{$message}}</div>
+                                            @enderror
+                        </div><!-- End .col-md-4 -->
+
+                        <div class="col-md-6">
                             <div class="form-group">
                                 <label for="acc-mname">Product Price <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="acc-mname" name="price" placeholder="Prix du produit">
@@ -33,7 +43,7 @@
                                             @enderror
                         </div><!-- End .col-md-4 -->
 
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="form-group required-field">
                                 <label for="acc-lastname">Reduced Price <span class="text-danger">*</span></label>
                                 <input type="text" class="form-control" id="acc-lastname" name="reduced_price" required="" placeholder="Prix promotionnel">
@@ -42,7 +52,7 @@
                                                 <div style="color:red;">{{$message}}</div>
                                             @enderror									
                         </div><!-- End .col-md-4 -->
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="form-group required-field">
                                 <label for="categories">Category <span class="text-danger">*</span></label>
                                  <select  name="category" >
@@ -58,7 +68,7 @@
                                             @error('category')
                                                 <div style="color:red;">{{$message}}</div>
                                             @enderror
-                        <div class="col-md-5">
+                        <div class="col-md-6">
                             <div class="form-group required-field">
                                 <label for="acc-lastname">Upload image <span class="text-danger">*</span> </label>
                                 <input type="file" class="form-control" id="acc-lastname" name="image" required="">
@@ -77,8 +87,8 @@
             
     
             <div class="required mb-2 text-danger float-left">* Required Field</div>
-            
-            <div class="text-center">
+            <br><br>
+            <div class="text-center mb-5">
 
                       <a href=" {{route('admin_products')}} " class="btn btn-secondary mr-3" >Cancel</a>
                     <button type="submit" class="btn btn-primary  ">Add Product</button>

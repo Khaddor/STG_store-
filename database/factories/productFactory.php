@@ -29,6 +29,7 @@ class productFactory extends Factory
             'label' => $this->faker->name(),
             'price' => rand(100,1000),
             'reduction' => rand(50,500),
+            'description' => $this->faker->text(),
             'image' => $images[rand(0,3)],
             'category_id' => rand(1,5),
 
