@@ -41,7 +41,7 @@
                     <form action=" {{route('admin_delete_product')}} " method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{$product->id }}">
-                        <td ><button type="button" class="btn btn-info btn-sm"> <i class="fa fa-edit fa-md"></i></button>
+                        <td ><a href=" {{route('admin_edit_product',$product->id)}} " type="button" class="btn btn-info btn-sm"> <i class="fa fa-edit fa-md"></i></a>
                             <button type="submit" class="btn btn-danger btn-sm "><i class="fa fa-trash fa-lg"></i></button></td>
                     </form>
                     </tr>

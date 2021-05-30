@@ -85,6 +85,10 @@ Route::middleware(['auth','is_admin'])->group(function(){
         Route::post('/admin_add_product',[adminController::class,'add_product'])->name('admin_add_product');
         Route::post('/admin_delete_product',[adminController::class,'delete_product'])->name('admin_delete_product');
 
+        Route::get('/admin_edit_product/{product:id}',[adminController::class,'edit_product_index'])->name('admin_edit_product');
+        Route::post('/admin_edit_product',[adminController::class,'edit_product'])->name('admin_edit_product_post');
+
+
         Route::get('/admin_add_category',[adminController::class,'add_category_index'])->name('admin_add_category');
         Route::post('/admin_add_category',[adminController::class,'add_category'])->name('admin_add_category');
 });

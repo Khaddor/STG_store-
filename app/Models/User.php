@@ -16,6 +16,11 @@ class User extends Authenticatable
      *
      * @var array
      */
+
+    public function orders(){
+        return $this->hasMany(confirmedOrder::class);
+    }
+
     protected $fillable = [
         'firstname',
         'lastname',

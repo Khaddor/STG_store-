@@ -17,15 +17,13 @@
             </thead>
             <tbody>
          @foreach ($users as $user)
-            @if ($user->is_admin !== 1)
-               
+            @if ($user->is_admin !== 1)      
                 <tr>
                     <td> {{$user->id}} </td>
                     <td><i class="fa fa-user fa-lg"></i> - {{$user->firstname}} {{$user->lastname}} </td>
                     <td> {{$user->phone}} </td>
                     <td> {{$user->email}} </td>
-                    <td> XXXX</td>
-
+                    <td> {{$user->orders->count()}} </td>
                 </tr>
              @endif
          @endforeach

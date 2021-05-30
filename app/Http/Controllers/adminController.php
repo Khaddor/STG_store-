@@ -46,6 +46,10 @@ class adminController extends Controller
         return view ('admin.add_category');
     }
 
+    public function edit_product_index(product $product){
+        return view('admin.edit_product')->with(['product' => $product]);
+    }
+
     public function clients_index(){
 
         $users = User::get();
@@ -115,7 +119,24 @@ class adminController extends Controller
         return redirect()->back()->with('success' , 'status updated successfully');
     }
 
-    
+    public function edit_product(Request $req){
+
+        $product = product::find($req->id);
+        $product->name = $req->name;
+        $product->price = $req->price;
+        $product->reduction = $req->reduced_price;
+        $product->description = $req->description;
+
+        $newImageName = time() .'_'.$req->name .'.'.$req->image->extension();
+         $req->image->move(\public_path('productsImages'),$newImageName);
+
+
+        $product->image = $newImageName;
+
+        $product->save();
+
+        return redirect()->route('admin_products')->with('success', 'Product Updated Successfully   ');
+    }
 
 
 
