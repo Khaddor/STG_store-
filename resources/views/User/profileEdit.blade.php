@@ -109,7 +109,7 @@
 					<ul class="list">
 						<li><a href=" {{route('profile')}} ">Account Information</a></li>
 						<li class="active"><a href=" {{route('profile_edit')}} ">Edit Information</a></li>
-						<li><a href="#">My Orders</a></li>
+						<li><a href=" {{route('user_orders')}} ">My Orders</a></li>
 				
 					</ul>
 				</div><!-- End .widget -->

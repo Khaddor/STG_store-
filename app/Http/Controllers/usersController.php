@@ -6,6 +6,7 @@ use App\Models\product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Console\PruneBatchesCommand;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 
 class usersController extends Controller
@@ -48,6 +49,13 @@ class usersController extends Controller
 
     return Redirect::route('profile', [$user->id])->with('message', 'User has been updated!');
 }
+
+
+    public function orders_index(){
+
+        $user = Auth::user();
+        return view('User.user_orders')->with('user' , $user);
+    }
 
      
 

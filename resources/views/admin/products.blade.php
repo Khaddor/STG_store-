@@ -32,6 +32,7 @@
                 </tr>
                 </thead>
                 <tbody>
+                    
                    @foreach ($products as $product)
                     <tr>
                         <th scope="row"> {{$product->name}} </th>

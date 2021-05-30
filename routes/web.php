@@ -68,6 +68,8 @@ Route::post('/layout/{order:id}' , [layoutController::class, 'delete'])->name('l
 Route::get('/profile/edit' , [usersController::class,'edit'])->name('profile_edit');
 Route::get('/profile' , [usersController::class,'index'])->name('profile');
 Route::post('/profile' , [usersController::class,'update']);
+Route::get('/user_porders',[usersController::class,'orders_index'])->name('user_orders');
+
 
 
 //ADMIN
@@ -91,6 +93,11 @@ Route::middleware(['auth','is_admin'])->group(function(){
 
         Route::get('/admin_add_category',[adminController::class,'add_category_index'])->name('admin_add_category');
         Route::post('/admin_add_category',[adminController::class,'add_category'])->name('admin_add_category');
+        Route::post('/admin_delete_category', [adminController::class,'delete_category'])->name('admin_delete_category');
+        Route::get('/admin_edit_category/{category:id}',[adminController::class,'edit_category_index'])->name('admin_edit_category');
+        Route::post('/admin_edit_category',[adminController::class,'edit_category'])->name('admin_edit_category_post');
+
+
 });
 
 //Search

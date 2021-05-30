@@ -56,6 +56,9 @@ class adminController extends Controller
         $orders = confirmedOrder::get();
         return view('admin.clients')->with(['users' => $users , 'orders' => $orders]);
     }
+    public function edit_category_index(category $category){
+        return view('admin.edit_category')->with(['category' => $category]);
+    }
 
 
 
@@ -97,7 +100,7 @@ class adminController extends Controller
         category::create([
             'name' => $req->name,
         ]);
-        return redirect()->back()->with('success',"Category added with success");
+        return redirect()->route('admin_categories')->with('success',"Category added with success");
 
     }
 
@@ -138,6 +141,26 @@ class adminController extends Controller
         return redirect()->route('admin_products')->with('success', 'Product Updated Successfully   ');
     }
 
+    public function delete_category(Request $req){
+        $category = category::find($req->category_id);
+        $category->delete();
+
+        return redirect()->back()->with('success' , 'Category deleted successfully');
+    }
+
+    public function edit_category(Request $req){
+
+        $req->validate([
+            'name' => ['required', 'string','unique:categories'],
+            
+        ]);
+
+        $category = category::find($req->category_id);
+        $category->name = $req->name;
+        $category->save();
+
+        return redirect()->route('admin_categories')->with('success' , 'Category edited successfully');
+    }
 
 
 }

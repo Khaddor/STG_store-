@@ -30,7 +30,7 @@ class product extends Model
         return $this->hasMany(order::class);
     }
 
-    public function confirmedOrder(){
+    public function confirmedOrders(){
         return $this->hasMany(confirmedOrder::class);
     }
     
