@@ -61,7 +61,7 @@
         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
         </svg> Clients</a>
     </li>
-    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#">
+    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href=" {{route('admin_stats')}} ">
         <svg class="c-sidebar-nav-icon">
     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
     </svg> Statistiques</a>
@@ -119,7 +119,6 @@
  @yield('content')
             </main>
         </div>
-
 
  <!-- Optional JavaScript -->
  <!-- Popper.js first, then CoreUI JS -->

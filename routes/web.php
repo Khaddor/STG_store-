@@ -10,6 +10,7 @@ use App\Http\Controllers\checkoutController;
 use App\Http\Controllers\layoutController;
 use App\Http\Controllers\orderController;
 use App\Http\Controllers\productController;
+use App\Http\Controllers\statsController;
 use App\Http\Controllers\usersController;
 use Illuminate\Support\Facades\Route;
 
@@ -97,6 +98,8 @@ Route::middleware(['auth','is_admin'])->group(function(){
         Route::get('/admin_edit_category/{category:id}',[adminController::class,'edit_category_index'])->name('admin_edit_category');
         Route::post('/admin_edit_category',[adminController::class,'edit_category'])->name('admin_edit_category_post');
 
+
+        Route::get('/statistiques',[adminController::class,'stats_index'])->name('admin_stats');
 
 });
 

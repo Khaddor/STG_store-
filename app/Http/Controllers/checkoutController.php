@@ -49,6 +49,7 @@ class checkoutController extends Controller
                     'user_address' => $req->address1,
                     'user_phone' => $req->phone,
                     'product_id' => $order->product->id,
+                    'city' => $req->city,
                     'quantity' => $order->quantity,
                     'status_id' => 1,
                 ]);

@@ -7,6 +7,8 @@ use App\Models\confirmedOrder;
 use App\Models\order;
 use App\Models\product;
 use App\Models\User;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Console\PruneBatchesCommand;
 
@@ -163,6 +165,28 @@ class adminController extends Controller
     }
 
 
+
+    public function stats_index(){
+
+        $orders = confirmedOrder::get();
+        $orders_onHold = confirmedOrder::where('status_id',1);
+        $orders_accepted = confirmedOrder::where('status_id',2);
+        $orders_rejected = confirmedOrder::where('status_id',3);
+        $orders_done = confirmedOrder::where('status_id',4);
+        
+       
+        $orders_today = confirmedOrder::whereDate('created_at', Carbon::today())->get();
+        $users_today = User::whereDate('created_at', Carbon::today())->get();
+
+
+        return view('admin.stats')->with([ 'orders_onHold' => $orders_onHold,
+                                                'orders_accepted' => $orders_accepted,
+                                                'orders_rejected' => $orders_rejected,
+                                                'orders_done' => $orders_done,
+                                               'orders_today' => $orders_today,
+                                                'orders' => $orders,
+                                                'users_today' => $users_today,]);
+    }
 }
 
 

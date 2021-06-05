@@ -21,6 +21,7 @@ class CreateConfirmedOrdersTable extends Migration
             $table->string('user_lastname');
             $table->string('user_address');
             $table->string('user_phone');
+            $table->string('city');
             $table->integer('quantity');
             $table->foreignId('product_id')->onDelete('cascade');
             $table->foreignId('status_id'); 

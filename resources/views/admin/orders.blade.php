@@ -33,7 +33,7 @@
                                 <td >  {{$order->product->name}}   <span class="badge badge-info">x {{$order->quantity}}</span></td>
                               
                                 <td >  <i class="fas fa-user"></i> {{$order->user->firstname}} <br><i class="fa fa-home"></i> 
-                                        {{$order->user_address}} <br>
+                                      {{$order->city}} , {{$order->user_address}} <br>
                                     <i class="fas fa-phone"></i> {{$order->user_phone}} </td>
 
                                 <td > {{$order->product->price * $order->quantity}} <span class="badge badge-info">DH</span> </td>

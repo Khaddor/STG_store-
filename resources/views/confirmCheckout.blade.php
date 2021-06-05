@@ -80,7 +80,7 @@
 								United States <br>
 								(123) 456-7890
 							</address>
-						</div><!-- End .checkout-info-box --> -->
+						</div> End .checkout-info-box --> 
 
 						<div class="checkout-info-box">
 							<h3 class="step-title">Shipping Method: 

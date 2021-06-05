@@ -16,6 +16,7 @@ class confirmedOrder extends Model
                             'user_address',
                             'user_phone',
                             'quantity',
+                            'city',
                             'product_id',
                             'status_id',
                           'user_firstname'];

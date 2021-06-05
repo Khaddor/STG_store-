@@ -51,7 +51,12 @@
 
 									<div class="form-group required-field">
 										<label>City  </label>
-										<input type="text" class="form-control" required name="city">
+										<select id="cars" name="city" required>
+											<option value="Tanger">Tanger</option>
+											<option value="Casablanca">Casablanca</option>
+											<option value="Rabat">Rabat</option>
+											<option value="Tetuan">Tetuan</option>
+										  </select>
 									</div><!-- End .form-group -->
 
 								
