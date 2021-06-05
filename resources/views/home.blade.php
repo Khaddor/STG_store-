@@ -52,7 +52,7 @@
 						<nav class="toolbox">
 							<div class="toolbox-left">
 								<div class="toolbox-item toolbox-sort">
-									<label>Sort By:</label>
+									<!-- <label>Sort By:</label>
 
 									<div class="select-custom">
 										<select name="orderby" class="form-control">
@@ -63,8 +63,7 @@
 											<option value="price">Sort by price: low to high</option>
 											<option value="price-desc">Sort by price: high to low</option>
 										</select>
-									</div><!-- End .select-custom -->
-
+									</div> End .select-custom --> 
 									
 								</div><!-- End .toolbox-item -->
 							</div><!-- End .toolbox-left -->
@@ -148,9 +147,9 @@
 											</div><!-- End .product-ratings -->
 										</div><!-- End .product-container -->
 										<div class="price-box">
-											<span class="old-price">$90.00</span>
+											<span class="old-price">DH {{$product->price}} </span>
 											<!---------PRICE------------->
-											<span class="product-price">$ {{$product->price}} </span>
+											<span class="product-price">DH {{$product->price}} </span>
 										</div><!-- End .price-box -->
 									</div><!-- End .product-details -->
 								</div>
@@ -245,52 +244,9 @@
 
 							
 
-							<div class="widget">
-								<h3 class="widget-title">
-									<a data-toggle="collapse" href="#widget-body-6" role="button" aria-expanded="true" aria-controls="widget-body-6">Color</a>
-								</h3>
-
-								<div class="collapse show" id="widget-body-6">
-									<div class="widget-body">
-										<ul class="config-swatch-list">
-											<li class="active">
-												<a href="#" style="background-color: #000;"></a>
-												<span>Black</span>
-											</li>
-											<li>
-												<a href="#" style="background-color: #0188cc;"></a>
-												<span>Blue</span>
-											</li>
-											<li>
-												<a href="#" style="background-color: #81d742;"></a>
-												<span>Green</span>
-											</li>
-											<li>
-												<a href="#" style="background-color: #6085a5;"></a>
-												<span>Indigo</span>
-											</li>
-											<li>
-												<a href="#" style="background-color: #ab6e6e;"></a>
-												<span>Red</span>
-											</li>
-											<li>
-												<a href="#" style="background-color: #ddb373;"></a>
-												<span>Brown</span>
-											</li>
-											<li>
-												<a href="#" style="background-color: #6b97bf;"></a>
-												<span>Light-Blue</span>
-											</li>
-											<li>
-												<a href="#" style="background-color: #eded68;"></a>
-												<span>Yellow</span>
-											</li>
-										</ul>
-									</div><!-- End .widget-body -->
-								</div><!-- End .collapse -->
-							</div><!-- End .widget -->
-
+							
 							<div class="widget widget-featured">
+
 								<h3 class="widget-title">Featured</h3>
 								
 								<div class="widget-body">

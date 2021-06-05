@@ -23,7 +23,7 @@
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
         <div class="c-sidebar-brand d-lg-down-none">
             <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-                <use xlink:href="assets/brand/coreui.svg#full"></use>
+                <img style=" height: 50px; padding-right: 100px; margin-top: 5px;" src="http://127.0.0.1:8000/assets/images/icons/favicon.ico">
             </svg>
             <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
                 <use xlink:href="assets/brand/coreui.svg#signet"></use>
