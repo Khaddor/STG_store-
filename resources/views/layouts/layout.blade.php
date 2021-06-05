@@ -277,7 +277,7 @@ use App\Controllers\cartController;
 									
 										<div class="dropdown-cart-total">
 											<span>Total</span>
-									<span class="cart-total-price float-right">$ {{$total}} </span>
+									<span class="cart-total-price float-right">DH {{$total}} </span>
 										</div><!-- End .dropdown-cart-total -->
 										
 										<div class="dropdown-cart-action">
@@ -340,7 +340,7 @@ use App\Controllers\cartController;
 								<h4 class="widget-title">Account</h4>
 
 								<ul class="links">
-									<li><a href="my-account.html">My Account</a></li>
+									<li><a href="{{route('profile')}}">My Account</a></li>
 									<li><a href="#">Track Your Order</a></li>
 									<li><a href="#">Payment Methods</a></li>
 									<li><a href="#">Shipping Guide</a></li>

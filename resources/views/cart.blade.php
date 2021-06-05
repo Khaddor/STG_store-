@@ -123,7 +123,7 @@
 								<tfoot>
 									<tr>
 										<td>Order Total</td>
-										<td>$ {{$total}} </td>
+										<td>DH {{$total}} </td>
 									</tr>
 								</tfoot>
 							</table>

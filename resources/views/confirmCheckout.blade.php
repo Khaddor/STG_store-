@@ -80,15 +80,15 @@
 								United States <br>
 								(123) 456-7890
 							</address>
-						</div> End .checkout-info-box --> 
+						</div>End .checkout-info-box --> 
 
-						<div class="checkout-info-box">
+					<!-- 	<div class="checkout-info-box">
 							<h3 class="step-title">Shipping Method: 
 								<a href="#" title="Edit" class="step-title-edit"><span class="sr-only">Edit</span><i class="icon-pencil"></i></a>
 							</h3>
 
 							<p>Flat Rate - Fixed</p>
-						</div><!-- End .checkout-info-box -->
+						</div>End .checkout-info-box -->
 					</div><!-- End .col-lg-4 -->
 
 					<div class="col-lg-8 order-lg-first">

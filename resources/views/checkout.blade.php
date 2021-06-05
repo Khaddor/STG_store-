@@ -116,7 +116,7 @@
 													<span class="product-qty"> X  {{$order->quantity}} </span>
 												</div>
 											</td>
-											<td class="price-col">$ {{$order->product->price}} </td>
+											<td class="price-col">DH {{$order->product->price}} </td>
 										</tr>
                                     @endforeach
 
