@@ -31,7 +31,11 @@ class OrdersChart extends BaseChart
         $rabat = confirmedOrder::where('city','Rabat');
         $casablanca = confirmedOrder::where('city','Casablanca');
         $tetuan = confirmedOrder::where('city','Tetuan');
-        
+        $Marrakech = confirmedOrder::where('city','Marrakech');
+        $Fes = confirmedOrder::where('city','Fes');
+        $Agadir = confirmedOrder::where('city','Agadir');
+        $Settat = confirmedOrder::where('city','Settat');
+        $Laayoun = confirmedOrder::where('city','Laayoun');
        // $users = User::where(DB::raw("(DATE_FORMAT(created_at,'%Y'))"),date('Y'))	->get();
 
         
@@ -40,8 +44,13 @@ class OrdersChart extends BaseChart
 
               
             
-            ->labels(['Tanger' , 'Rabat' , 'Casablanca' , 'Tetuan'])
+            ->labels(['Tanger' , 'Rabat' , 'Casablanca' , 
+                            'Tetuan' , 'Marrakech' , 'Fes' , 
+                                'Agadir' ,'Settat' , 'Laayoun'])
+
             ->dataset('Orders',[$tanger->count() , $rabat->count(),
-                                     $casablanca->count() , $tetuan->count() ]);
+                                     $casablanca->count() , $tetuan->count() ,
+                                    $Marrakech->count() ,$Fes->count() , 
+                                    $Agadir->count() , $Settat->count() ,$Laayoun->count() ]);
     }
 }

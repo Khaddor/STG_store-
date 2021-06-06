@@ -49,17 +49,22 @@
 										<input type="text" class="form-control"  name="address2">
 									</div><!-- End .form-group -->
 
+
 									<div class="form-group required-field">
-										<label>City  </label>
-										<select id="cars" name="city" required>
+										<label for="sel1"> City </label>
+										<select class="form-control" required name="city">
 											<option value="Tanger">Tanger</option>
 											<option value="Casablanca">Casablanca</option>
 											<option value="Rabat">Rabat</option>
 											<option value="Tetuan">Tetuan</option>
-										  </select>
-									</div><!-- End .form-group -->
+											<option value="Marrakech">Marrakech</option>
+											<option value="Fes">Fes</option>
+											<option value="Agadir">Agadir</option>
+											<option value="Settat">Settat</option>
+											<option value="Laayoun">Laayoun</option>
 
-								
+										</select>
+									  </div>
 
 									<div class="form-group required-field">
 										<label>Zip/Postal Code </label>

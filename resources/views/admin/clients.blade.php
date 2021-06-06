@@ -21,9 +21,9 @@
                 <tr>
                     <td> {{$user->id}} </td>
                     <td><i class="fa fa-user fa-lg"></i> - {{$user->firstname}} {{$user->lastname}} </td>
-                    <td> {{$user->phone}} </td>
+                    <td> <i class="fas fa-phone"></i>  {{$user->phone}}   </td>
                     <td> {{$user->email}} </td>
-                    <td> {{$user->orders->count()}} </td>
+                    <td> {{$user->orders->count()}}  <i class="fas fa-list-alt"></i></td>
                 </tr>
              @endif
          @endforeach

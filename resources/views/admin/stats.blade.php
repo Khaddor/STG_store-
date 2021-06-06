@@ -7,13 +7,12 @@
 @section('content')
 <div class="container pt-4 p-0 bg-white rounded" >
 
-     <div class="container rounded " >
-            <h1 class="pb-3">Statistiques</h1><br>
+     <div class="container rounded pt-4" >
 
         <div class="row ">
-            <div class="col-md-6">
+            <div class="col-md-12">
                 <div class="row ">
-                    <div class="col-md-6 pl-2 rounded">
+                    <div class="col-md-3 ml-5 rounded">
                         <table class="table table-borderless border-bottom  " >
                             <thead>
                             <tr> 
@@ -31,7 +30,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-md-6   rounded">
+                    <div class="col-md-3 ml-5   rounded">
                         <table class="table table-borderless border-bottom  " >
                             <thead>
                             <tr> 
@@ -49,7 +48,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="  col-md-6 ml-5 rounded">
+                    <div class="  col-md-3 ml-5 rounded">
                         <table class="table table-borderless border-bottom  " >
                             <thead>
                             <tr> 
@@ -69,16 +68,26 @@
                     </div>
                 </div> 
             </div>
-            <div class="col-md-6 ">   
-                <div id="chart" style="height: 300px; padding-right: 0px; margin-right: 0px"></div>
-            </div>
+            
 
         </div>
-    </div>      
+       
+    </div>    
+
+    <br><br>
     <hr><br>
+
+    <div class="col-md-12"> 
+        <h3 class="ml-5"><i class='fas fa-list-alt  '></i>  Orders Per City : </h3>
+       <div id="chart" style="height: 300px; padding-right: 0px; margin-right: 0px"></div>
+   </div>  
+
+   <hr><br> 
+
+   <h3 class="ml-5"><i class='fas fa-list-alt  '></i>  Orders Status : </h3><br>
     <div class="row">
-     
-        <div class=" col-md-4 pb-5 mb-5 ml-5 border-left" >   
+       
+        <div class=" col-md-4 ml-5" >   
             <table class="table table-hover table-striped bg-white ">
                 <thead>
                     <tr> 
@@ -87,23 +96,25 @@
                 </thead>
                 <tbody>
                     <tr >
-                        <td > En attend<span class="badge badge-primary float-right "> {{$orders_onHold->count()}} </span></td>
+                        <td > En attend<span class="badge badge-secondary float-right "> {{$orders_onHold->count()}} </span></td>
                     </tr>
                     <tr>
                         <td>Accepted<span class="badge badge-primary float-right ">{{$orders_accepted->count()}}</span></td>
                     </tr>
                     <tr>
-                        <td>Rejected<span class="badge badge-primary float-right ">{{$orders_rejected->count()}}</span></td>
+                        <td>Rejected<span class="badge badge-danger float-right ">{{$orders_rejected->count()}}</span></td>
                     </tr>
                     <tr>    
-                        <td>Done<span class="badge badge-primary float-right ">{{$orders_done->count()}}</span></td>
+                        <td>Done<span class="badge badge-success float-right ">{{$orders_done->count()}}</span></td>
                     </tr>
                 </tbody>
             </table>
         </div>
-        
+       
     </div>
+    <br><br><hr>
 </div>
+
 <script>
     const chart = new Chartisan({
     el: '#chart',
@@ -111,7 +122,6 @@
     hooks: new ChartisanHooks()
     .colors(['#0000FF', '#0000FF'])
     .legend({ position: 'bottom' })
-
     .datasets([{ type: 'bar', fill: true }, 'bar']),  
 
     });
