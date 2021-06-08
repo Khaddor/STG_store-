@@ -50,11 +50,11 @@ class orderController extends Controller
                         'quantity' => 1,
                         
                     ]);
-                    return redirect()->back()->with('success', 'Product added to cart successfully!');
+                    return redirect()->back()->with('success', 'Produit ajouté au panier avec succès!');
                 
                 
             }else{
-                return redirect()->back()->with('inCart', 'Product already in Cart');
+                return redirect()->back()->with('inCart', 'Produit déjà dans le panier');
             }
  
     }

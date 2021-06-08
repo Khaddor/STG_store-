@@ -12,6 +12,7 @@
         <div class="row ">
             <div class="col-md-12">
                 <div class="row ">
+
                     <div class="col-md-3 ml-5 rounded">
                         <table class="table table-borderless border-bottom  " >
                             <thead>
@@ -30,24 +31,10 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="col-md-3 ml-5   rounded">
-                        <table class="table table-borderless border-bottom  " >
-                            <thead>
-                            <tr> 
-                                <td > Store Visits <i class='fas fa-eye float-right '></i>  </td>
-                            </tr>
-                            </thead>
-                            <tbody>
-                                <tr >
-                                    <td style="height: 100px; font-weight: bold; font-size: 30px" class="pt-4" > + en cours </td>
-                                </tr>
-                                <tr >
-                                    <td style="color:rgb(52, 141, 52); "> <i class='fas fa-arrow-circle-up'></i> Today</td>
-                                </tr>
-                            
-                            </tbody>
-                        </table>
-                    </div>
+                    
+       
+      
+
                     <div class="  col-md-3 ml-5 rounded">
                         <table class="table table-borderless border-bottom  " >
                             <thead>
@@ -66,32 +53,13 @@
                             </tbody>
                         </table>
                     </div>
-                </div> 
-            </div>
-            
 
-        </div>
-       
-    </div>    
-
-    <br><br>
-    <hr><br>
-
-    <div class="col-md-12"> 
-        <h3 class="ml-5"><i class='fas fa-list-alt  '></i>  Orders Per City : </h3>
-       <div id="chart" style="height: 300px; padding-right: 0px; margin-right: 0px"></div>
-   </div>  
-
-   <hr><br> 
-
-   <h3 class="ml-5"><i class='fas fa-list-alt  '></i>  Orders Status : </h3><br>
-    <div class="row">
-       
-        <div class=" col-md-4 ml-5" >   
+         <div class="col-md-4 ml-3 pt-0  rounded "  >   
+         <div class="mt-0">   <h3>Orders status  </h3></div> 
             <table class="table table-hover table-striped bg-white ">
                 <thead>
                     <tr> 
-                        <td class="bg-primary "> Orders <span class="badge badge-light float-right "> {{$orders->count()}} </span></td>
+                        <td class=" bg-primary " style="background-color:#2F4F4F; color: white"> Orders <span class="badge badge-light float-right "> {{$orders->count()}} </span></td>
                     </tr>
                 </thead>
                 <tbody>
@@ -111,7 +79,25 @@
             </table>
         </div>
        
-    </div>
+                </div> 
+            </div>
+            
+
+        </div>
+       
+    </div>    
+
+    <br><br>
+    <hr><br>
+
+    <div class="col-md-12"> 
+        <h3 class="ml-5"><i class='fas fa-list-alt  '></i>  Orders Per City : </h3>
+       <div id="chart" style="height: 300px; padding-right: 0px; margin-right: 0px"></div>
+   </div>  
+
+   <hr><br> 
+
+   
     <br><br><hr>
 </div>
 

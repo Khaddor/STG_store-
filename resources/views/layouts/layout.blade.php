@@ -15,7 +15,7 @@ use App\Controllers\cartController;
 
 	<title>STG Telecom | Smartphones | Accessoires | Robotics</title>
 
-	<title>Porto - Bootstrap eCommerce Template</title>
+	<title>STG Telecom </title>
 
 
 	<meta name="keywords" content="HTML5 Template" />
@@ -131,9 +131,9 @@ use App\Controllers\cartController;
 						<span class="separator"></span>
 
 						<div class="social-icons">
-							<a href="#" class="social-icon social-instagram icon-instagram" target="_blank"></a>
-							<a href="#" class="social-icon social-twitter icon-twitter" target="_blank"></a>
-							<a href="#" class="social-icon social-facebook icon-facebook" target="_blank"></a>
+							<a href="https://www.instagram.com/stgtelecom/" class="social-icon social-instagram icon-instagram" target="_blank"></a>
+							<a href="https://twitter.com/stgtelecom" class="social-icon social-twitter icon-twitter" target="_blank"></a>
+							<a href="https://www.facebook.com/STGTelecomOfficiel/" class="social-icon social-facebook icon-facebook" target="_blank"></a>
 						</div><!-- End .social-icons -->
 					</div><!-- End .header-right -->
 				</div><!-- End .container -->
@@ -179,7 +179,7 @@ use App\Controllers\cartController;
 								<form action="{{ url('/search')}}" method="GET" role="search">
 									
 									<div class="header-search-wrapper">
-										<input type="search" class="form-control" name="query"  placeholder="Search..."  required>
+										<input type="search" class="form-control" name="query"  placeholder="Chercher..."  required>
 										<button class="btn icon-search-3" type="submit"></button>
 									</div><!-- End .header-search-wrapper -->
 								</form>
@@ -194,10 +194,10 @@ use App\Controllers\cartController;
 							<nav class="main-nav">
 								<ul class="menu">
 									<li>
-										<a href="/">Home</a>
+										<a href="/">Accueil</a>
 									</li>
 									<li>
-										<a href="/">Categories</a>
+										<a href="/">Catégories</a>
 									</li>
 					
 								</ul>
@@ -282,7 +282,7 @@ use App\Controllers\cartController;
 										
 										<div class="dropdown-cart-action">
 
-											<a href="/cart" class="btn btn-primary btn-block">View cart</a>
+											<a href="/cart" class="btn btn-primary btn-block" style="font-weight: 50px;">Voir le panier</a>
 
 											
 
@@ -340,7 +340,7 @@ use App\Controllers\cartController;
 								<h4 class="widget-title">Account</h4>
 
 								<ul class="links">
-									<li><a href="{{route('profile')}}">My Account</a></li>
+									<li><a href="{{route('profile')}}">Mon profil</a></li>
 									<li><a href="#">Track Your Order</a></li>
 									<li><a href="#">Payment Methods</a></li>
 									<li><a href="#">Shipping Guide</a></li>
@@ -390,8 +390,8 @@ use App\Controllers\cartController;
 
 
 					<div class="social-icons py-3">
-						<a href="#" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>
-						<a href="#" class="social-icon social-twitter icon-twitter" target="_blank" title="Twitter"></a>
+						<a href="https://www.facebook.com/STGTelecomOfficiel/" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>
+						<a href="https://twitter.com/stgtelecom" class="social-icon social-twitter icon-twitter" target="_blank" title="Twitter"></a>
 						<a href="#" class="social-icon social-linkedin fab fa-linkedin-in" target="_blank" title="Linkedin"></a>
 					</div><!-- End .social-icons -->
 				</div><!-- End .footer-bottom -->
@@ -423,7 +423,7 @@ use App\Controllers\cartController;
             <ul class="mobile-menu">
                 <li class="active"><a href="index.html">Home</a></li>
                 <li>
-                    <a href="category.html">Categories</a>
+                    <a href="category.html">Catégories</a>
                     <ul>
                         <li><a href="category-banner-full-width.html">Full Width Banner</a></li>
                         <li><a href="category-banner-boxed-slider.html">Boxed Slider Banner</a></li>
@@ -506,9 +506,9 @@ use App\Controllers\cartController;
         </nav><!-- End .mobile-nav -->
 
         <div class="social-icons">
-            <a href="#" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
-            <a href="#" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
-            <a href="#" class="social-icon" target="_blank"><i class="icon-instagram"></i></a>
+            <a href="https://www.facebook.com/STGTelecomOfficiel/" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
+            <a href="https://twitter.com/stgtelecom" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
+            <a href="https://www.instagram.com/stgtelecom/" class="social-icon" target="_blank"><i class="icon-instagram"></i></a>
         </div><!-- End .social-icons -->
     </div><!-- End .mobile-menu-wrapper -->
 </div><!-- End .mobile-menu-container -->

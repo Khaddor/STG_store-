@@ -30,14 +30,14 @@
                             @foreach ($orders as $order)
                             <tr>
                                 <th style="width: 5%"> {{$order->id}} </th>
-                                <td >  {{$order->product->name}}   <span class="badge badge-info">x {{$order->quantity}}</span></td>
+                                <td >  {{($order->product?$order->product->name:"---")}}   <span class="badge badge-info">x {{($order->product?$order->quantity:"---")}}</span></td>
                               
-                                <td >  <i class="fas fa-user"></i> {{$order->user->firstname}} <br><i class="fa fa-home"></i> 
-                                      {{$order->city}} , {{$order->user_address}} <br>
-                                    <i class="fas fa-phone"></i> {{$order->user_phone}} </td>
+                                <td >  <i class="fas fa-user"></i> {{$order->product?$order->user->firstname:"---"}} <br><i class="fa fa-home"></i> 
+                                      {{$order->product?$order->city:"---"}} , {{$order->product?$order->user_address:"---"}} <br>
+                                    <i class="fas fa-phone"></i> {{$order->product?$order->user_phone:"---"}} </td>
 
-                                <td > {{$order->product->price * $order->quantity}} <span class="badge badge-info">DH</span> </td>
-                                <td > {{$order->created_at}} </td>
+                                <td > {{($order->product?$order->product->price*$order->quantity:"---")}} <span class="badge badge-info">DH</span> </td>
+                                <td > {{$order->product?$order->created_at:"---"}} </td>
                                 <td >  
                                  <div class="container">
                                     <div class="row">

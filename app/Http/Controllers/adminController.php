@@ -176,7 +176,8 @@ class adminController extends Controller
         
        
         $orders_today = confirmedOrder::whereDate('created_at', Carbon::today())->get();
-        $users_today = User::whereDate('created_at', Carbon::today())->get();
+        $users_today = User::whereDate('created_at', Carbon::today())->get()
+            ->where('is_admin','!=' , 1);
 
 
         return view('admin.stats')->with([ 'orders_onHold' => $orders_onHold,
