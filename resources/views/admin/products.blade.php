@@ -38,7 +38,7 @@
                         <th scope="row"> {{$product->name}} </th>
                         <td> {{$product->price}} <span class="badge badge-info">DH</span></td>
                         <td> {{$product->image}} </td>
-                        <td>{{$product->category_id}}   ({{$product->category->name}}) </td>
+                        <td>{{$product->category?$product->category_id:"not found"}}   ({{$product->category?$product->category->name:"---"}}) </td>
                     <form action=" {{route('admin_delete_product')}} " method="post">
                         @csrf
                         <input type="hidden" name="id" value="{{$product->id }}">
