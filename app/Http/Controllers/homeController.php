@@ -16,4 +16,6 @@ class homeController extends Controller
             'categories' => category::all()
         ]);
     }
+
+    
 }

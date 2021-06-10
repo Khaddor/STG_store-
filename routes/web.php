@@ -58,7 +58,6 @@ Route::post('/cart/{product:id}',[orderController::class, 'store']);
 Route::get('/checkout' , [checkoutController::class,'index'])->name('checkout');
 //Route::get('/confirm_chekout',[checkoutController::class,'confirm'])->name('confirm_checkout');
 Route::post('/confirm_checkout',[checkoutController::class,'store'])->name('confirm_checkout');
-
 Route::get('/confirm_checkout',[checkoutController::class,'index_place_order'])->name('place_order');
 Route::post('/place_order',[checkoutController::class,'place_order'])->name('place_order');
 
