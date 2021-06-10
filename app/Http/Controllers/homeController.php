@@ -16,4 +16,19 @@ class homeController extends Controller
             'categories' => category::all()
         ]);
     }
+
+     public function orange(){
+        
+            return view('orange');
+    }
+    public function marjane(){
+        
+            return view('marjane');
+    }
+
+    public function electroplanet(){
+        
+            return view('electroplanet');
+    }
 }
+

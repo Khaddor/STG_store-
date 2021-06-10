@@ -108,7 +108,12 @@ Route::get('/search', [productController::class, 'search']);
 
 
 //points de vente footer
-Route::get('/marjane', 'App\Http\Controllers\marjaneController@marjane');
-Route::get('/orange', 'App\Http\Controllers\orangeController@orange');
-Route::get('/electroplanet', 'App\Http\Controllers\electroplanetController@electroplanet');
+
+
+Route::get('/orange', [homeController::class, 'orange'])->name('orange');
+Route::get('/marjane', [homeController::class, 'marjane'])->name('marjane');
+Route::get('/electroplanet', [homeController::class, 'electroplanet'])->name('electroplanet');
+
+
+
 
