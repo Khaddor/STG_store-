@@ -315,7 +315,7 @@ use App\Controllers\cartController;
 			<div class="container">
 				<div class="footer-middle">
 					<div class="row">
-						<div class="col-lg-5 m-b-4">
+						<div class="col-lg-4 m-b-4">
 							<img src="{{asset('assets/images/logo.png')}}" height="110" width="110" alt="Logo" class="m-b-4">
 
 							
@@ -336,7 +336,7 @@ use App\Controllers\cartController;
 
 						<div class="col-lg-2 col-sm-4 m-b-4">
 							<div class="widget">
-								<h4 class="widget-title">Account</h4>
+								<h4 class="widget-title">Compte</h4>
 
 								<ul class="links">
 									<li><a href="{{route('profile')}}">Mon profil</a></li>
