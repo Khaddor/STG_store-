@@ -329,8 +329,7 @@ use App\Controllers\cartController;
 									<h3>(123) 456-7890</h3>
 								</div>
 								<div class="col-sm-6">
-									<h6 class="text-uppercase mb-0">Payment Methods</h6>
-									<img src="{{asset('assets/images/payments.jpg')}}" alt="payment methods" class="footer-payments m-b-3">
+									
 								</div>
 							</div>
 						</div><!-- End .col-lg-5 -->
@@ -353,15 +352,14 @@ use App\Controllers\cartController;
 
 						<div class="col-lg-2 col-sm-4 m-b-4">
 							<div class="widget">
-								<h4 class="widget-title">About</h4>
+								<h4 class="widget-title">Points de vente</h4>
 
 								<ul class="links">
-									<li><a href="my-account.html">About Porto</a></li>
-									<li><a href="#">Our Guarantees</a></li>
-									<li><a href="#">Terms and Conditions</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Return Policy</a></li>
-									<li><a href="#">Site Map</a></li>
+									<li><a href="/marjane">Marjane</a></li>
+									<li><a href="/orange">Orange</a></li>
+									<li><a href="/electroplanet">Electroplanet</a></li>
+									<li><a href="https://www.jumia.ma/stg/">Jumia</a></li>
+									<li><a href="https://inwi.ma/">Inwi</a></li>
 								</ul>
 							</div><!-- End .widget -->
 						</div><!-- End .col-lg-2 -->
@@ -412,13 +410,13 @@ use App\Controllers\cartController;
         <nav class="mobile-nav">
             <ul class="mobile-menu mb-3 border-0">
                 
-                <li>
+                <!-- <li>
                     <a href="#">ENG</a>
                     <ul>
                         <li><a href="#">ENG</a></li>
                         <li><a href="#">FRE</a></li>
                     </ul>
-                </li>
+                </li> -->
             </ul>
             <ul class="mobile-menu">
                 <li class="active"><a href="index.html">Home</a></li>

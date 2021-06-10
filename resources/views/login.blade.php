@@ -17,8 +17,8 @@
 				<div class="row">
 					<div class="col-md-8 " style="padding-left:30%">
 						<div class="heading">
-							<h2 class="title">Login</h2>
-							<p>If you have an account with us, please log in.</p>
+							<h2 class="title">S'identifier</h2>
+							<p>Si vous avez un compte avec nous, s'il vous plaît connecter.</p>
 						</div><!-- End .heading -->
 
 						<form action="{{route('login')}}" method="post">
@@ -36,7 +36,7 @@
 
 
 							<div class="form-footer">
-								<button type="submit" class="btn btn-primary">LOGIN</button>
+								<button type="submit" class="btn btn-primary">Se connecter</button>
                                 <ul>
                                     <li style="padding-top:20px; padding-left:40px;"><a href="register" class="forget-pass"> Creé un compte </a></li>
                                     <li><a href="#" class="forget-pass" style="padding-left: 40px;"> Mot de passe oublié ?</a></li>
