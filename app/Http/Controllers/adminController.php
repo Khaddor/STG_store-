@@ -21,9 +21,7 @@ class adminController extends Controller
     }*/
 
 
-    public function dashboard_index(){
-        return view ('admin.dashboard');
-    }
+  
 
 
     public function products_index(){
@@ -71,6 +69,7 @@ class adminController extends Controller
             'price' => 'required',
             'image' => 'required|mimes:jpg,png,ipeg|max:5048',
             'reduced_price' => 'required',
+            'quantity' => 'required',
             'category' => 'required',
         ]);
             $newImageName = time() .'_'.$req->name .'.'.$req->image->extension();
@@ -82,6 +81,7 @@ class adminController extends Controller
             'price' => $req->input('price'),
             'image' => $newImageName,
             'label' => 'null',
+            'inStock' => $req->quantity,
             'reduction' => $req->input('reduced_price'),
             'description' => $req->description,
             'category_id' => $req->category,
@@ -166,7 +166,7 @@ class adminController extends Controller
 
 
 
-    public function stats_index(){
+    public function dashboard_index(){
 
         $orders = confirmedOrder::get();
         $orders_onHold = confirmedOrder::where('status_id',1);
@@ -178,15 +178,37 @@ class adminController extends Controller
         $orders_today = confirmedOrder::whereDate('created_at', Carbon::today())->get();
         $users_today = User::whereDate('created_at', Carbon::today())->get()
             ->where('is_admin','!=' , 1);
+        $products = product::all();
 
-
-        return view('admin.stats')->with([ 'orders_onHold' => $orders_onHold,
+        return view('admin.dashboard')->with([ 'orders_onHold' => $orders_onHold,
                                                 'orders_accepted' => $orders_accepted,
                                                 'orders_rejected' => $orders_rejected,
                                                 'orders_done' => $orders_done,
                                                'orders_today' => $orders_today,
                                                 'orders' => $orders,
-                                                'users_today' => $users_today,]);
+                                                'users_today' => $users_today,
+                                                'products' => $products]);
+    }
+
+
+    public function add_stock(Request $req){
+
+        $product = product::where('id' , $req->id)->first();
+        $product->inStock += $req->added_quantity;
+        $product->save();
+
+        return redirect()->back()->with('success' , 'Stock updated Succesfully');
+    }
+
+    public function remove_stock(Request $req){
+
+        $product = product::where('id' , $req->id)->first();
+        $product->inStock -= $req->removed_quantity;
+        $product->save();
+
+        return redirect()->back()->with('success' , 'Stock updated Succesfully');
+
+
     }
 }
 

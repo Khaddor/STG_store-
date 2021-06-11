@@ -243,7 +243,7 @@ use App\Controllers\cartController;
 													</h4>
 													
 													<span class="cart-product-info">
-														<span class="cart-product-qty">1</span>
+														<span class="cart-product-qty"> {{$order->quantity}} </span>
 														x {{$order->product->price}}
 													</span>
 												</div><!-- End .product-details -->

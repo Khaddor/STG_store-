@@ -78,11 +78,12 @@
 							<hr class="divider">
 
 							<div class="product-action">
-								<div class="product-single-qty">
-									<input class="horizontal-quantity form-control" type="text">
-								</div><!-- End .product-single-qty -->
+								
 								<form action="/cart/{{$product->id}}" method="POST">
 										@csrf
+										<div class="product-single-qty">
+											<input class="horizontal-quantity form-control" type="text" name="quantity">
+										</div><!-- End .product-single-qty -->
 										<div class="btn-icon-group">
 											<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Add to cart</button>
 										</div>

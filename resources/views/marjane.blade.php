@@ -99,11 +99,20 @@
 								<ul>
 									
 																											
-									<li style=" margin-left: 10px;" style="color:black;"><a href="http://127.0.0.1:8000/profile">tahiri </a></li>
-									<li style=" margin-left: 10px;" style="color:black;"><a href=" http://127.0.0.1:8000/logout ">Se déconnecter</a></li>
-																		<!--test-->
-									<li style=" margin-left: 10px;" style="color:black;"><a href="about">À propos</a></li>
+									@guest
+									<li><a href=" {{route('login')}} ">Se connecter </a></li>
+									@endguest
 
+									@auth
+									@if (Auth::user()->is_admin==1)
+									<li><a href="{{route('admin_dashboard')}}">Admin Dashboard </a></li>
+									@endif
+									
+									<li><a href="{{route('profile')}}">{{auth()->user()->firstname}} </a></li>
+									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
+									@endauth
+									<!--test-->
+									<li><a href="about">À propos</a></li>
 									
 
 								<!--	<li style=" margin-left: 10px;" style="color:black;"><a href="category">Our Stores</a></li>

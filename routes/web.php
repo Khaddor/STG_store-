@@ -97,8 +97,9 @@ Route::middleware(['auth','is_admin'])->group(function(){
         Route::get('/admin_edit_category/{category:id}',[adminController::class,'edit_category_index'])->name('admin_edit_category');
         Route::post('/admin_edit_category',[adminController::class,'edit_category'])->name('admin_edit_category_post');
 
+        Route::post('/admin_add_Stock', [adminController::class, 'add_stock'])->name('add_stock');
+        Route::post('/admin_remove_Stock', [adminController::class, 'remove_stock'])->name('remove_stock');
 
-        Route::get('/statistiques',[adminController::class,'stats_index'])->name('admin_stats');
 
 });
 
@@ -107,7 +108,12 @@ Route::get('/search', [productController::class, 'search']);
 
 
 //points de vente footer
-Route::get('/marjane', 'App\Http\Controllers\marjaneController@marjane');
-Route::get('/orange', 'App\Http\Controllers\orangeController@orange');
-Route::get('/electroplanet', 'App\Http\Controllers\electroplanetController@electroplanet');
+
+
+Route::get('/orange', [homeController::class, 'orange'])->name('orange');
+Route::get('/marjane', [homeController::class, 'marjane'])->name('marjane');
+Route::get('/electroplanet', [homeController::class, 'electroplanet'])->name('electroplanet');
+
+
+
 

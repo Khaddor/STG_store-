@@ -122,6 +122,7 @@
 									<form action="/cart/{{$product->id}}" method="POST">
 										@csrf
 										<div class="btn-icon-group">
+											<input type="hidden" name="quantity" value="1">
 											<button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>
 										</div>
 									</form>
