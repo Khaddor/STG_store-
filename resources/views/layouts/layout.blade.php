@@ -72,10 +72,11 @@ use App\Controllers\cartController;
 
 				<div class="info-box info-box-icon-left bg-info">
 					<i class="icon-money"></i>
-
+					<div id="chercher">
 					<div class="info-box-content">
 						<h4>100% garantie de remboursement</h4>
 					</div><!-- End .info-box-content -->
+					</div>
 				</div><!-- End .info-box -->
 
 				<div class="info-box info-box-icon-left">
@@ -182,6 +183,7 @@ use App\Controllers\cartController;
 										<input type="search" class="form-control" name="query"  placeholder="Chercher..."  required>
 										<button class="btn icon-search-3" type="submit"></button>
 									</div><!-- End .header-search-wrapper -->
+									
 								</form>
 							</div><!-- End .header-search -->
 						</div><!-- End .header-right -->
@@ -332,49 +334,8 @@ use App\Controllers\cartController;
 								</div>
 							</div>
 						</div><!-- End .col-lg-5 -->
-
-						<div class="col-lg-2 col-sm-4 m-b-4">
-							<div class="widget">
-								<h4 class="widget-title">Compte</h4>
-
-								<ul class="links">
-									<li><a href="http://127.0.0.1:8000/profile">Mon profil</a></li>
-									<li><a href="http://127.0.0.1:8000/profile/edit">Modifier les informations du compte</a></li>
-									<li><a href="http://127.0.0.1:8000/user_porders">Mes commandes</a></li>
-								
-								</ul>
-							</div><!-- End .widget -->
-						</div><!-- End .col-lg-2 -->
-
-						<div class="col-lg-2 col-sm-4 m-b-4">
-							<div class="widget">
-								<h4 class="widget-title">Points de vente</h4>
-
-								<ul class="links">
-									<li><a href="/marjane">Marjane</a></li>
-									<li><a href="/orange">Orange</a></li>
-									<li><a href="/electroplanet">Electroplanet</a></li>
-									<li><a href="https://www.jumia.ma/stg/">Jumia</a></li>
-									<li><a href="https://inwi.ma/">Inwi</a></li>
-								</ul>
-							</div><!-- End .widget -->
-						</div><!-- End .col-lg-2 -->
-	
 						<div class="col-lg-3 col-sm-4 m-b-4">
-							<div class="widget">
-								<h4 class="widget-title">Features</h4>
-
-								<ul class="links">
-									<li><a href="http://127.0.0.1:8000/termes_conditions">Termes et conditions</a></li>
-									<li><a href="#">Mobile &amp; Retina Optimized</a></li>
-									<li><a href="#">Super Fast Magento Theme</a></li>
-									<li><a href="#">1st Fully working Ajax Theme</a></li>
-									<li><a href="#">10 Unique Homepage Layouts</a></li>
-								</ul>
-							</div><!-- End .widget -->
-						</div>
-<div class="col-lg-3 col-sm-4 m-b-4">
-                    <div class="widget">
+             		       <div class="widget">
                         <h4 class="widget-title">Contactez nous </h4>
                         <ul class="contact-info">
                             <li>
@@ -398,6 +359,48 @@ use App\Controllers\cartController;
                        
                     </div><!-- End .widget -->
                 </div><!-- End .col-lg-3 -->
+                	<div class="col-lg-3 col-sm-4 m-b-4">
+							<div class="widget">
+								<h4 class="widget-title">Qui sommes-nous</h4>
+
+								<ul class="links">
+									<li><a href="http://127.0.0.1:8000/termes_conditions">Termes et conditions</a></li>
+									<li><a href="#chercher">Recherche Avancée</a></li>
+									<li><a href="/a_propos_de_nous">À propos de nous</a></li>
+
+								</ul>
+							</div><!-- End .widget -->
+						</div>
+						<div class="col-lg-2 col-sm-4 m-b-4">
+							<div class="widget">
+								<h4 class="widget-title">Points de vente</h4>
+
+								<ul class="links">
+									<li><a href="/marjane">Marjane</a></li>
+									<li><a href="/orange">Orange</a></li>
+									<li><a href="/electroplanet">Electroplanet</a></li>
+									<li><a href="https://www.jumia.ma/stg/">Jumia</a></li>
+									<li><a href="https://inwi.ma/">Inwi</a></li>
+								</ul>
+							</div><!-- End .widget -->
+						</div><!-- End .col-lg-2 -->
+						<div class="col-lg-2 col-sm-4 m-b-4">
+							<div class="widget">
+								<h4 class="widget-title">Compte</h4>
+
+								<ul class="links">
+									<li><a href="http://127.0.0.1:8000/profile">Mon profil</a></li>
+									<li><a href="http://127.0.0.1:8000/profile/edit">Modifier les informations du compte</a></li>
+									<li><a href="http://127.0.0.1:8000/user_porders">Mes commandes</a></li>
+								
+								</ul>
+							</div><!-- End .widget -->
+						</div><!-- End .col-lg-2 -->
+
+						
+	
+					
+				
 					</div><!-- End .row -->
 				</div><!-- End .footer-middle -->
 

@@ -114,6 +114,8 @@ Route::get('/orange', [homeController::class, 'orange'])->name('orange');
 Route::get('/marjane', [homeController::class, 'marjane'])->name('marjane');
 Route::get('/electroplanet', [homeController::class, 'electroplanet'])->name('electroplanet');
 Route::get('/termes_conditions', [homeController::class, 'termes_conditions'])->name('termes_conditions');
+Route::get('/a_propos_de_nous', [homeController::class, 'a_propos_de_nous'])->name('a_propos_de_nous');
+
 
 
 

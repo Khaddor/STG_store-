@@ -34,5 +34,10 @@ class homeController extends Controller
         
             return view('termes_conditions');
     }
+   
+     public function  a_propos_de_nous(){
+        
+            return view('a_propos_de_nous');
+    }
 }
 
