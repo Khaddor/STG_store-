@@ -388,9 +388,8 @@
 							</div><!-- End .widget -->
 							
 							<div class="widget widget-block">
-								<h3 class="widget-title">Custom HTML Block</h3>
-								<h5>This is a custom sub-title.</h5>
-								<p>Lorem ipsum dolor sit amet, consectetur elitad adipiscing Cras non placerat mi. </p>
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1784760777305!2d-5.8110756848067515!3d35.770991980173434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b80a95fb05e3d%3A0xcf5b316a11b49add!2sSTG%20Maroc!5e0!3m2!1sfr!2sma!4v1623459724830!5m2!1sfr!2sma" style="width: 250px; height:350px; border:0; padding-right: 10px;" allowfullscreen="" loading="lazy"></iframe>
+							
 							</div><!-- End .widget -->
 						</div><!-- End .sidebar-wrapper -->
 					</aside><!-- End .col-lg-3 -->
