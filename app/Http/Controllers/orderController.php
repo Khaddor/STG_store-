@@ -17,7 +17,7 @@ class orderController extends Controller
 
         $total=0;
         foreach ($orders as $order) {
-                 $total = $total + $order->product->price;						
+                 $total = $total + ($order->product->price*$order->quantity);						
         }
 
         
@@ -31,7 +31,7 @@ class orderController extends Controller
     }
 
 
-    public function store(product $product){
+    public function store(product $product, Request $req){
 
     // $product = product::where('id',$req->product_id)->get();
 
@@ -47,7 +47,7 @@ class orderController extends Controller
                         'user_id' => Auth::user()->id,
                         'product_id' => $product->id,
                         'price' => $product->price,
-                        'quantity' => 1,
+                        'quantity' => $req->quantity,
                         
                     ]);
                     return redirect()->back()->with('success', 'Produit ajouté au panier avec succès!');

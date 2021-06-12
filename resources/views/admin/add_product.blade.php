@@ -52,6 +52,17 @@
                                                 <div style="color:red;">{{$message}}</div>
                                             @enderror									
                         </div><!-- End .col-md-4 -->
+                        <div class="col-md-2">
+                            <div class="form-group required-field">
+                                <label for="acc-lastname">Available Quantity <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="acc-lastname" name="quantity" required="" placeholder="Quantity">
+                            </div><!-- End .form-group -->
+                                            @error('quantity')
+                                                <div style="color:red;">{{$message}}</div>
+                                            @enderror									
+                        </div><!-- End .col-md-2 -->
+
+
                         <div class="col-md-6">
                             <div class="form-group required-field">
                                 <label for="categories">Category <span class="text-danger">*</span></label>
@@ -64,6 +75,9 @@
                                   <!--  <label for="acc-lastname">Category </label>
                                 <input type="text" class="form-control" id="acc-lastname" name="category" required="">-->
                             </div><!-- End .form-group -->
+
+
+
                         </div><!-- End .col-md-4 -->
                                             @error('category')
                                                 <div style="color:red;">{{$message}}</div>

@@ -32,7 +32,7 @@ class loginController extends Controller
     return redirect()->route('home');*/
     $input = $request->all();
 
-    if(auth()->attempt(array('email' => $input['email'], 'password' => $input['password'])))
+    if(Auth::attempt(array('email' => $input['email'], 'password' => $input['password'])))
         {
             if (auth()->user()->is_admin == 1) {
                 return redirect()->route('admin_dashboard');

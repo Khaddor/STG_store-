@@ -48,7 +48,7 @@
 										</td>
 										<td> {{$order->product->price}} </td>
 										<td>
-											<input class="vertical-quantity form-control" type="text" name="q">
+											<input class="vertical-quantity form-control" type="text" name="quantity" value=" {{$order->quantity}} " >
 										</td>
 										<td>{{$order->quantity  *  $order->product->price}}</td>
 										<td>
@@ -122,8 +122,8 @@
 								
 								<tfoot>
 									<tr>
-										<td>Order Total</td>
-										<td>DH {{$total}} </td>
+										<td>Total à payer </td>
+										<td>{{$total}} DH </td>
 									</tr>
 								</tfoot>
 							</table>

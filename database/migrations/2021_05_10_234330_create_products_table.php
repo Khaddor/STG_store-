@@ -21,6 +21,7 @@ class CreateProductsTable extends Migration
             $table->integer('price');
             $table->string('image');
             $table->integer('reduction');
+            $table->integer('inStock');
             $table->foreignId('category_id')->onDelete('set null');
             $table->timestamps();
             $table->softDeletes('deleted_at');

@@ -58,7 +58,6 @@ Route::post('/cart/{product:id}',[orderController::class, 'store']);
 Route::get('/checkout' , [checkoutController::class,'index'])->name('checkout');
 //Route::get('/confirm_chekout',[checkoutController::class,'confirm'])->name('confirm_checkout');
 Route::post('/confirm_checkout',[checkoutController::class,'store'])->name('confirm_checkout');
-
 Route::get('/confirm_checkout',[checkoutController::class,'index_place_order'])->name('place_order');
 Route::post('/place_order',[checkoutController::class,'place_order'])->name('place_order');
 
@@ -98,8 +97,9 @@ Route::middleware(['auth','is_admin'])->group(function(){
         Route::get('/admin_edit_category/{category:id}',[adminController::class,'edit_category_index'])->name('admin_edit_category');
         Route::post('/admin_edit_category',[adminController::class,'edit_category'])->name('admin_edit_category_post');
 
+        Route::post('/admin_add_Stock', [adminController::class, 'add_stock'])->name('add_stock');
+        Route::post('/admin_remove_Stock', [adminController::class, 'remove_stock'])->name('remove_stock');
 
-        Route::get('/statistiques',[adminController::class,'stats_index'])->name('admin_stats');
 
 });
 

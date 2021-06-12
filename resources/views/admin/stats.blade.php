@@ -73,7 +73,6 @@
                         <td>Rejected<span class="badge badge-danger float-right ">{{$orders_rejected->count()}}</span></td>
                     </tr>
                     <tr>    
-                        <td>Done<span class="badge badge-success float-right ">{{$orders_done->count()}}</span></td>
                     </tr>
                 </tbody>
             </table>
