@@ -113,6 +113,8 @@ Route::get('/search', [productController::class, 'search']);
 Route::get('/orange', [homeController::class, 'orange'])->name('orange');
 Route::get('/marjane', [homeController::class, 'marjane'])->name('marjane');
 Route::get('/electroplanet', [homeController::class, 'electroplanet'])->name('electroplanet');
+Route::get('/termes_conditions', [homeController::class, 'termes_conditions'])->name('termes_conditions');
+
 
 
 

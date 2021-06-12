@@ -30,5 +30,9 @@ class homeController extends Controller
         
             return view('electroplanet');
     }
+    public function termes_conditions(){
+        
+            return view('termes_conditions');
+    }
 }
 

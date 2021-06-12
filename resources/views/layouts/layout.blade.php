@@ -193,11 +193,11 @@ use App\Controllers\cartController;
 						<div class="header-left">
 							<nav class="main-nav">
 								<ul class="menu">
-									<li>
-										<a href="/">Accueil</a>
+									<li >
+										<a style="color: black!important;" href="/">Accueil</a>
 									</li>
 									<li>
-										<a href="/">Catégories</a>
+										<a style="color: black!important;" href="/">Catégories</a>
 									</li>
 					
 								</ul>
@@ -216,7 +216,9 @@ use App\Controllers\cartController;
 							
 							<div class="dropdown cart-dropdown">
 								<a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
-									<i class="icon-bag-2"></i>
+									<div style="color: black!important;" class="bag">
+									<i class="icon-bag-2" ></i>
+									</div>
 									<span class="cart-count"> {{$orders->count()}} </span>
 								</a>
 
@@ -315,19 +317,16 @@ use App\Controllers\cartController;
 			<div class="container">
 				<div class="footer-middle">
 					<div class="row">
-						<div class="col-lg-4 m-b-4">
-							<img src="{{asset('assets/images/logo.png')}}" height="110" width="110" alt="Logo" class="m-b-4">
+						<div class="col-lg-2 m-b-5">
+							<img src="http://127.0.0.1:8000/assets/images/logo.png" height="110" width="110" alt="Logo" class="m-b-4">
 
 							
 
 
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent pulvinar feugiat quam, vitae aliquam urna egestas nec. sit amet</p>
+							
 
 							<div class="row ls-0">
-								<div class="col-sm-6">
-									<h6 class="text-uppercase mb-0">Questions?</h6>
-									<h3>(123) 456-7890</h3>
-								</div>
+								
 								<div class="col-sm-6">
 									
 								</div>
@@ -339,13 +338,10 @@ use App\Controllers\cartController;
 								<h4 class="widget-title">Compte</h4>
 
 								<ul class="links">
-									<li><a href="{{route('profile')}}">Mon profil</a></li>
-									<li><a href="#">Track Your Order</a></li>
-									<li><a href="#">Payment Methods</a></li>
-									<li><a href="#">Shipping Guide</a></li>
-									<li><a href="#">FAQs</a></li>
-									<li><a href="#">Product Support</a></li>
-									<li><a href="#">Privacy</a></li>
+									<li><a href="http://127.0.0.1:8000/profile">Mon profil</a></li>
+									<li><a href="http://127.0.0.1:8000/profile/edit">Modifier les informations du compte</a></li>
+									<li><a href="http://127.0.0.1:8000/user_porders">Mes commandes</a></li>
+								
 								</ul>
 							</div><!-- End .widget -->
 						</div><!-- End .col-lg-2 -->
@@ -369,20 +365,45 @@ use App\Controllers\cartController;
 								<h4 class="widget-title">Features</h4>
 
 								<ul class="links">
-									<li><a href="#">Powerful Admin Panel</a></li>
+									<li><a href="http://127.0.0.1:8000/termes_conditions">Termes et conditions</a></li>
 									<li><a href="#">Mobile &amp; Retina Optimized</a></li>
 									<li><a href="#">Super Fast Magento Theme</a></li>
 									<li><a href="#">1st Fully working Ajax Theme</a></li>
 									<li><a href="#">10 Unique Homepage Layouts</a></li>
 								</ul>
 							</div><!-- End .widget -->
-						</div><!-- End .col-lg-3 -->
+						</div>
+<div class="col-lg-3 col-sm-4 m-b-4">
+                    <div class="widget">
+                        <h4 class="widget-title">Contactez nous </h4>
+                        <ul class="contact-info">
+                            <li>
+                                <span class="contact-info-label">Adresse</span>
+                    			Immeuble Bureau ANATOLIA<br>
+								26, Rue Andaloussi, 1er étage n°7, <br>
+								Tanger - MAROC.
+								
+                            </li>
+                            <li>
+                                <span class="contact-info-label">Téléphone</span>Tél : <a href="tel:">+212 (0) 5 39 340 734 </a>
+                                
+                            </li>
+                            <li>
+                                <span class="contact-info-label">Email</span> <a href="mailto:contact@stgtelecom.ma">contact@stgtelecom.ma</a>
+                            </li>
+                            <li>
+                                
+                            </li>
+                        </ul>
+                       
+                    </div><!-- End .widget -->
+                </div><!-- End .col-lg-3 -->
 					</div><!-- End .row -->
 				</div><!-- End .footer-middle -->
 
 				<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
 
-					<p class="footer-copyright py-3 pr-4 mb-0">&copy; Copyright 2021 - STGTelecom -</p>
+					<p class="footer-copyright py-3 pr-4 mb-0">© Copyright 2021 - STGTelecom -</p>
 
 					
 
@@ -393,7 +414,7 @@ use App\Controllers\cartController;
 						<a href="#" class="social-icon social-linkedin fab fa-linkedin-in" target="_blank" title="Linkedin"></a>
 					</div><!-- End .social-icons -->
 				</div><!-- End .footer-bottom -->
-			</div><!-- End .container -->
+			</div>
 		</footer><!-- End .footer -->
 	</div><!-- End .page-wrapper -->
     
