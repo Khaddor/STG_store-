@@ -6,9 +6,9 @@
 <div class="container enonce-content about-us">
         <div class="row">
             <div class="col-sm-5 col-sm-push-7 about-us-left">
-                <img style="max-width: 100% !important" class="img-responsive about-us-image" src="/assets/images/logo_slogan.png" alt="president">
-                <img style="margin-left :90px; margin-top: 30px; margin-bottom: 50px; max-width: 45% !important" class="img-responsive about-us-image bg-hor" src="/assets/images/president_bg_hor.png" alt="">
-                <img style="max-width: 90% !important" class="img-responsive about-us-image hidden-xs" src="/assets/images/map_1.png" alt="">
+               <!--  <img style="max-width: 100% !important" class="img-responsive about-us-image" src="/assets/images/logo_slogan.png" alt="president"> -->
+                <img style="margin-top: 30px; margin-bottom: 50px; max-width: 100% !important" class="img-responsive about-us-image bg-hor" src="/assets/images/motif.png" alt="">
+                <!-- <img style="max-width: 90% !important" class="img-responsive about-us-image hidden-xs" src="/assets/images/map_1.png" alt=""> -->
             </div>
             <div class="col-sm-7 col-sm-pull-5">
                 <h1 class="title">QUI SOMMES-NOUS?</h1>
