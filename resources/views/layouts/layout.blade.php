@@ -219,9 +219,9 @@ use App\Controllers\cartController;
 							<div class="dropdown cart-dropdown">
 								<a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
 									<div style="color: black!important;" class="bag">
-									<i class="icon-bag-2" ></i>
+										<i class="icon-bag-2" ></i>
+										<span class="cart-count"> {{$orders->count()}} </span>
 									</div>
-									<span class="cart-count"> {{$orders->count()}} </span>
 								</a>
 
 								<div class="dropdown-menu">

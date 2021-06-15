@@ -123,7 +123,11 @@
 										@csrf
 										<div class="btn-icon-group">
 											<input type="hidden" name="quantity" value="1">
-											<button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>
+											@if ($product->inStock > 0)
+												<button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>	
+											@else 
+												<span class="product-label label-sale ">Stock Épuisé</span>
+											@endif
 										</div>
 									</form>
 
@@ -216,31 +220,7 @@
 								</div><!-- End .collapse -->
 							</div><!-- End .widget -->
 
-							<div class="widget">
-								<h3 class="widget-title">
-									<a data-toggle="collapse" href="#widget-body-3" role="button" aria-expanded="true" aria-controls="widget-body-3">Prix</a>
-								</h3>
-
-								<div class="collapse show" id="widget-body-3">
-									<div class="widget-body">
-										<form action="#">
-											<div class="price-slider-wrapper">
-												<div id="price-slider"></div><!-- End #price-slider -->
-											</div><!-- End .price-slider-wrapper -->
-
-											<div class="filter-price-action d-flex align-items-center justify-content-between flex-wrap">
-												<button type="submit" class="btn btn-primary">Filtrer</button>
-
-												<div class="filter-price-text">
-													Prix:
-													<span id="filter-price-range"></span>
-												</div><!-- End .filter-price-text -->
-											</div><!-- End .filter-price-action -->
-										</form>
-									</div><!-- End .widget-body -->
-								</div><!-- End .collapse -->
-							</div><!-- End .widget -->
-
+						
 							
 
 							

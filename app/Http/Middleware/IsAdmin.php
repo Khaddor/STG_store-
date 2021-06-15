@@ -14,7 +14,7 @@ class IsAdmin
      * @return mixed
      */
 
-    
+        
 
     public function handle($request, Closure $next)
     {

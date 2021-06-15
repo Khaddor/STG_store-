@@ -10,9 +10,12 @@ class productController extends Controller
 
     public function index(product $product){
 
+        $category_id = $product->category_id;
+        $related_products = product::where('category_id' , $category_id)->get();
         
         return view('product')
-                ->with('product',$product);   
+                ->with(['product' => $product,
+                            'related_products' => $related_products]);   
     }
 
 

@@ -21,7 +21,7 @@
 							<p>Si vous avez un compte avec nous, s'il vous plaît connecter.</p>
 						</div><!-- End .heading -->
 
-						<form action="{{route('login')}}" method="post">
+							<form action="{{route('login')}}" method="post">
 							@csrf
 							
 							<input type="email" class="form-control" placeholder="Email Address" name="email">
