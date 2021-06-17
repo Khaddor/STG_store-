@@ -1,7 +1,57 @@
 @extends('layouts/layout')
 
+
 @section('content')
 	
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style type="text/css">
+	
+.price-range-slider {
+	width:100%;
+  float:left;
+  padding:10px 20px;
+	.range-value {
+		margin:0;
+		input {
+			width:100%;
+			background:none;
+			color: #000;
+			font-size: 16px;
+			font-weight: initial;
+			box-shadow: none;
+			border: none;
+			margin: 20px 0 20px 0;
+		}
+	}
+	
+	.range-bar {
+		border: none;
+		background: #000;
+		height: 3px;	
+		width: 96%;
+		margin-left: 8px;
+		
+		.ui-slider-range {
+			background:#06b9c0;
+		}
+		
+		.ui-slider-handle {
+			border:none;
+			border-radius:25px;
+			background:#fff;
+			border:2px solid #06b9c0;
+			height:17px;
+			width:17px;
+			top: -0.52em;
+			cursor:pointer;
+		}
+		.ui-slider-handle + span {
+			background:#06b9c0;
+		}
+	}
+}
+</style>
+
 		<main class="main">
 
 			<div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
@@ -222,6 +272,23 @@
 								</div><!-- End .collapse -->
 							</div><!-- End .widget -->
 
+							<!-- <div class="widget">
+								<h3 class="widget-title">
+
+									<a data-toggle="collapse" href="#widget-body-3" role="button" aria-expanded="true" aria-controls="widget-body-3">Prix</a>
+
+								</h3>
+
+								<div class="price-range-slider">
+  								<form id="slider-range" class="form-inline" action="{{route('pricefilter')}}" method="GET">
+							          Min <input class="form-control" type="text" id="amount"  name="min">
+							          Max <input class="form-control" type="text" id="amount" name="max">
+							          <input class="btn btn-default" type="submit" value="Filter">
+							      </form>
+								</div>
+							</div> End .widget -->
+
+
 						
 							
 
@@ -235,16 +302,16 @@
 								<div class="widget-body">
 									<div class="owl-carousel widget-featured-products">
 										<div class="featured-col">
+								@foreach ($products as $product)
 											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-10.jpg">
-													</a>
+											<figure>
+													<a href="/product/{{$product->id}}">
+									        		<img src="{{asset('productsImages/'.$product->image)}}">
+									            	</a>
 												</figure>
 												<div class="product-details">
 													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
+                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
 													<div class="ratings-container">
 														<div class="product-ratings">
 															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
@@ -252,65 +319,25 @@
 														</div><!-- End .product-ratings -->
 													</div><!-- End .product-container -->
 													<div class="price-box">
-														<span class="product-price">$49.00</span>
+											<span class="product-price">DH {{$product->price}} </span>
 													</div><!-- End .price-box -->
 												</div><!-- End .product-details -->
 											</div>
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-11.jpg">
-													</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-														<span class="product-price">$49.00</span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-12.jpg">
-													</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-														<span class="product-price">$49.00</span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
+
+											
+											
 										</div><!-- End .featured-col -->
 
 										<div class="featured-col">
 											<div class="product-default left-details product-widget">
 												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-13.jpg">
-													</a>
+													<a href="/product/{{$product->id}}">
+									        		<img src="{{asset('productsImages/'.$product->image)}}">
+									            	</a>
 												</figure>
 												<div class="product-details">
 													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
+                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
 													<div class="ratings-container">
 														<div class="product-ratings">
 															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
@@ -318,20 +345,19 @@
 														</div><!-- End .product-ratings -->
 													</div><!-- End .product-container -->
 													<div class="price-box">
-														<span class="product-price">$49.00</span>
+											<span class="product-price">DH {{$product->price}} </span>
 													</div><!-- End .price-box -->
 												</div><!-- End .product-details -->
 											</div>
 											<div class="product-default left-details product-widget">
 												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-14.jpg">
-													</a>
+													<a href="/product/{{$product->id}}">
+									        		<img src="{{asset('productsImages/'.$product->image)}}">
+									            	</a>
 												</figure>
 												<div class="product-details">
 													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
+                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
 													<div class="ratings-container">
 														<div class="product-ratings">
 															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
@@ -339,20 +365,21 @@
 														</div><!-- End .product-ratings -->
 													</div><!-- End .product-container -->
 													<div class="price-box">
-														<span class="product-price">$49.00</span>
+											<span class="product-price">DH {{$product->price}} </span>
 													</div><!-- End .price-box -->
 												</div><!-- End .product-details -->
 											</div>
+
+
 											<div class="product-default left-details product-widget">
 												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-8.jpg">
-													</a>
+													<a href="/product/{{$product->id}}">
+									        		<img src="{{asset('productsImages/'.$product->image)}}">
+									            	</a>
 												</figure>
 												<div class="product-details">
 													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
+                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
 													<div class="ratings-container">
 														<div class="product-ratings">
 															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
@@ -360,17 +387,20 @@
 														</div><!-- End .product-ratings -->
 													</div><!-- End .product-container -->
 													<div class="price-box">
-														<span class="product-price">$49.00</span>
+											<span class="product-price">DH {{$product->price}} </span>
 													</div><!-- End .price-box -->
 												</div><!-- End .product-details -->
 											</div>
+								@endforeach
+											
 										</div><!-- End .featured-col -->
+
 									</div><!-- End .widget-featured-slider -->
 								</div><!-- End .widget-body -->
 							</div><!-- End .widget -->
 							
-							<div class="widget widget-block">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1784760777305!2d-5.8110756848067515!3d35.770991980173434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b80a95fb05e3d%3A0xcf5b316a11b49add!2sSTG%20Maroc!5e0!3m2!1sfr!2sma!4v1623459724830!5m2!1sfr!2sma" style="width: 250px; height:350px; border:0; padding-right: 10px;" allowfullscreen="" loading="lazy"></iframe>
+							<!-- <div class="widget widget-block">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1784760777305!2d-5.8110756848067515!3d35.770991980173434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b80a95fb05e3d%3A0xcf5b316a11b49add!2sSTG%20Maroc!5e0!3m2!1sfr!2sma!4v1623459724830!5m2!1sfr!2sma" style="width: 250px; height:350px; border:0; padding-right: 10px;" allowfullscreen="" loading="lazy"></iframe> -->
 							
 							</div><!-- End .widget -->
 						</div><!-- End .sidebar-wrapper -->
@@ -380,6 +410,7 @@
 
 			<div class="mb-3"></div><!-- margin -->
 		</main><!-- End .main -->
+
 
 
 @endsection

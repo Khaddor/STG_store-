@@ -105,7 +105,9 @@ Route::middleware(['auth','is_admin'])->group(function(){
 
 //Search
 Route::get('/search', [productController::class, 'search']);
+//pricefilter  
 
+Route::get('/pricefilter', [productController::class, 'pricefilter'])->name('pricefilter');
 
 //points de vente footer
 
@@ -124,3 +126,4 @@ Route::get('/products_list' ,[homeController::class , 'products_list_index'])->n
 
 
 
+        
