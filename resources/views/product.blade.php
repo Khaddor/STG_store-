@@ -79,15 +79,21 @@
 
 							<div class="product-action">
 								
+
+							@if ($product->inStock > 0)
 								<form action="/cart/{{$product->id}}" method="POST">
-										@csrf
-										<div class="product-single-qty">
-											<input class="horizontal-quantity form-control" type="text" name="quantity">
-										</div><!-- End .product-single-qty -->
-										<div class="btn-icon-group">
-											<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Add to cart</button>
-										</div>
-									</form>
+									@csrf
+									<div class="product-single-qty">
+										<input class="horizontal-quantity form-control" type="text" name="	">
+									</div><!-- End .product-single-qty -->
+									<div class="btn-icon-group">
+										<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Add to cart</button>
+									</div>
+							</form>
+							@else
+								<h3 class="text-danger">Stock Epuisé</h3>
+							@endif	
+								
 								
 							</div><!-- End .product-action -->
 
@@ -292,21 +298,26 @@
 					<h2 class="section-title">Related Products</h2>
 
 					<div class="products-slider owl-carousel owl-theme dots-top">
+@foreach ($related_products as $related_product)
+
 						<div class="product-default inner-quickview inner-icon">
 							<figure>
-								
+	
 								<!-----------img-------------->
-								<a href="/product/{{$product->id}}">
-											<img src="{{asset('productsImages/'.$product->image)}}">
+								<a href="/product/{{$related_product->id}}">
+											<img src="{{asset('productsImages/'.$related_product->image)}}">
 								</a>
 										
-								<div class="label-group">
-									<span class="product-label label-sale">-20%</span>
-								</div>
-								<form action="/cart/{{$product->id}}" method="POST">
+								
+								<form action="/cart/{{$related_product->id}}" method="POST">
 										@csrf
 										<div class="btn-icon-group">
-											<button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>
+											<input type="hidden" name="quantity" value="1">
+												@if ($related_product->inStock > 0)
+													<button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>		
+												@else		
+														<span class="product-label label-sale ">Stock Épuisé</span>
+												@endif
 										</div>
 									</form>
 							</figure>
@@ -314,12 +325,12 @@
 								<div class="category-wrap">
 								<div class="category-list">
 												<!---------CATEGORY_NAME------------->
-												<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
+												<a href="category/{{$related_product->category->id}}" class="product-category">{{$related_product->category->name}}</a>
 											</div>
 								</div>
 								<h3 class="product-title">
 											<!--------------PRODUCT_NAME----------->
-											<a href="/product/{{$product->id}} ">  {{$product->name}} </a>
+											<a href="/product/{{$related_product->id}} ">  {{$related_product->name}} </a>
 										</h3>
 								<div class="ratings-container">
 									<div class="product-ratings">
@@ -329,10 +340,11 @@
 								</div><!-- End .ratings-container -->
 								<div class="price-box">
 									<span class="old-price">$59.00</span>
-									<span class="product-price">$ {{$product->price}}</span>
+									<span class="product-price">$ {{$related_product->price}}</span>
 								</div><!-- End .price-box -->
 							</div><!-- End .product-details -->
 						</div>
+@endforeach		
 			
 						
 				

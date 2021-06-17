@@ -220,9 +220,9 @@ use App\Controllers\cartController;
 							<div class="dropdown cart-dropdown">
 								<a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
 									<div style="color: black!important;" class="bag">
-									<i class="icon-bag-2" ></i>
+										<i class="icon-bag-2" ></i>
+										<span class="cart-count"> {{$orders->count()}} </span>
 									</div>
-									<span class="cart-count"> {{$orders->count()}} </span>
 								</a>
 
 								<div class="dropdown-menu">
@@ -316,15 +316,28 @@ use App\Controllers\cartController;
             @yield('content')
 
 
-        <footer class="footer font2">
-			<div class="container">
+        <footer class="footer font2" style="
+    background-color: black;
+">
+			<div class="container" style="
+    /* color: white; */
+">
 				<div class="footer-middle">
+    	<img src="http://127.0.0.1:8000/assets/images/icons/favicon.ico" height="100" width="100" alt="Logo" style="
+    margin-left: 550px;
+">
 					<div class="row">
-						<div class="col-lg-2 m-b-5">
-							<img src="http://127.0.0.1:8000/assets/images/logo.png" height="110" width="110" alt="Logo" class="m-b-4">
-
+    
+						<div style="
+    /* padding-top: 120px; */
+" class="col-lg-4 m-b-5">
 							
 
+							
+<div class="widget widget-block">
+								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1784760777305!2d-5.8110756848067515!3d35.770991980173434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b80a95fb05e3d%3A0xcf5b316a11b49add!2sSTG%20Maroc!5e0!3m2!1sfr!2sma!4v1623459724830!5m2!1sfr!2sma" style="width: 400px; height:200px; border:0; padding-right: 10px;" allowfullscreen="" loading="lazy"></iframe>
+							
+							</div>
 
 							
 
@@ -335,9 +348,16 @@ use App\Controllers\cartController;
 								</div>
 							</div>
 						</div><!-- End .col-lg-5 -->
-						<div class="col-lg-3 col-sm-4 m-b-4">
-             		       <div class="widget">
-                        <h4 class="widget-title">Contactez nous </h4>
+						<div class="col-lg-3 col-sm-4 m-b-4" style="
+    /* margin-top: 120px; */
+    color: white!important;
+">
+             		       <div class="widget" style="
+    padding-left: 25px;
+">
+                        <h4 class="widget-title" style="
+    color: white;
+">Contactez nous </h4>
                         <ul class="contact-info">
                             <li>
                                 <span class="contact-info-label">Adresse</span>
@@ -360,9 +380,13 @@ use App\Controllers\cartController;
                        
                     </div><!-- End .widget -->
                 </div><!-- End .col-lg-3 -->
-                	<div class="col-lg-3 col-sm-4 m-b-4">
+                	<div class="col-lg-3 col-sm-4 m-b-4" style="
+    /* margin-top: 120px; */
+">
 							<div class="widget">
-								<h4 class="widget-title">Qui sommes-nous</h4>
+								<h4 class="widget-title" style="
+    color: white;
+">Qui sommes-nous</h4>
 
 								<ul class="links">
 									<li><a href="http://127.0.0.1:8000/termes_conditions">Termes et conditions</a></li>
@@ -372,9 +396,13 @@ use App\Controllers\cartController;
 								</ul>
 							</div><!-- End .widget -->
 						</div>
-						<div class="col-lg-2 col-sm-4 m-b-4">
+						<div class="col-lg-2 col-sm-4 m-b-4" style="
+    /* margin-top: 120px; */
+">
 							<div class="widget">
-								<h4 class="widget-title">Points de vente</h4>
+								<h4 class="widget-title" style="
+    color: white;
+">Points de vente</h4>
 
 								<ul class="links">
 									<li><a href="/marjane">Marjane</a></li>
@@ -385,18 +413,7 @@ use App\Controllers\cartController;
 								</ul>
 							</div><!-- End .widget -->
 						</div><!-- End .col-lg-2 -->
-						<div class="col-lg-2 col-sm-4 m-b-4">
-							<div class="widget">
-								<h4 class="widget-title">Compte</h4>
-
-								<ul class="links">
-									<li><a href="http://127.0.0.1:8000/profile">Mon profil</a></li>
-									<li><a href="http://127.0.0.1:8000/profile/edit">Modifier les informations du compte</a></li>
-									<li><a href="http://127.0.0.1:8000/user_porders">Mes commandes</a></li>
-								
-								</ul>
-							</div><!-- End .widget -->
-						</div><!-- End .col-lg-2 -->
+						<!-- End .col-lg-2 -->
 
 						
 	
@@ -419,7 +436,7 @@ use App\Controllers\cartController;
 					</div><!-- End .social-icons -->
 				</div><!-- End .footer-bottom -->
 			</div>
-		</footer><!-- End .footer -->
+		</footer>
 	</div><!-- End .page-wrapper -->
     
     </body>

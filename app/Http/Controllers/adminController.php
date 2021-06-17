@@ -131,6 +131,8 @@ class adminController extends Controller
         $product->price = $req->price;
         $product->reduction = $req->reduced_price;
         $product->description = $req->description;
+        $product->inStock = $req->quantity;
+        $product->category_id = $req->category;
 
         $newImageName = time() .'_'.$req->name .'.'.$req->image->extension();
          $req->image->move(\public_path('productsImages'),$newImageName);

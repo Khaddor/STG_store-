@@ -48,19 +48,19 @@
 
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('admin_categories')}}">
                 <svg class="c-sidebar-nav-icon">
-               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
+               <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list"></use>
                </svg> Categories </a>
            </li>
             </li>
 
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('admin_orders')}}">
                 <svg class="c-sidebar-nav-icon">
-            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
+            <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-list"></use>
             </svg> Orders</a>
         </li>
         <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href=" {{route('admin_clients')}} ">
             <svg class="c-sidebar-nav-icon">
-        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
+        <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
         </svg> Clients</a>
     </li>
     <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#">
