@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 class homeController extends Controller
 {
     public function index(){
-
-        
             return view('home',[
             'products' => product::all(),
             'categories' => category::all()
@@ -39,5 +37,6 @@ class homeController extends Controller
         
             return view('a_propos_de_nous');
     }
+     
 }
 

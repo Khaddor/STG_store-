@@ -39,7 +39,7 @@
 								<div class="col-md-4">
 									<div class="form-group required-field">
 										<label for="acc-name">First Name</label>
-										<input type="text" class="form-control" id="acc-name" name="firstname" required="">
+										<input value="{{auth()->user()->firstname}}" type="text" class="form-control" id="acc-name" name="firstname" required="">
 									</div><!-- End .form-group -->
 								</div><!-- End .col-md-4 -->
 
@@ -48,7 +48,7 @@
 								<div class="col-md-4">
 									<div class="form-group required-field">
 										<label for="acc-lastname">Last Name</label>
-										<input type="text" class="form-control" id="acc-lastname" name="lastname" required="">
+										<input value="{{auth()->user()->lastname}}" type="text" class="form-control" id="acc-lastname" name="lastname" required="">
 									</div><!-- End .form-group -->
 								</div><!-- End .col-md-4 -->
 							</div><!-- End .row -->

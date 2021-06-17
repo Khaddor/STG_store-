@@ -21,7 +21,7 @@
 							<table class="table table-cart">
 								<thead>
 									<tr>
-										<th class="product-col">Product</th>
+										<th class="product-col">{{ __('commerce.product') }}</th>
 										<th class="price-col">Price</th>
 										<th class="qty-col">Qty</th>
 										<th>Subtotal</th>
@@ -112,7 +112,7 @@
 
 					<div class="col-lg-4">
 						<div class="cart-summary">
-							<h3>Summary</h3>
+							<h3>{{__('commerce.summury')}}</h3>
 
 							
 

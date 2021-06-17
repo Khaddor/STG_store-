@@ -44,6 +44,7 @@ use App\Controllers\cartController;
 	<!-- Main CSS File -->
 	<link rel="stylesheet" href=" {{ asset('assets/css/style.min.css') }}">
 	<link rel="stylesheet" type="text/css" href=" {{ asset('assets/vendor/fontawesome-free/css/all.min.css') }} ">
+
 </head>
     <body>
 
@@ -117,7 +118,7 @@ use App\Controllers\cartController;
 									<li><a href=" {{route('logout')}} ">Se déconnecter</a></li>
 									@endauth
 									<!--test-->
-									<li><a href="about">À propos</a></li>
+									<li><a href="/a_propos_de_nous">À propos de nous</a></li>
 
 									
 
@@ -585,3 +586,29 @@ use App\Controllers\cartController;
 
 <!-- Main JS File -->
 <script src="{{asset('assets/js/main.min.js')}}"></script>
+
+
+	
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	//-----JS for Price Range slider-----
+
+$(function() {
+	// Controller minPrice, maxPrice
+	var min = 600;
+
+	var max = 750;
+
+	$( "#slider-range" ).slider({
+	  range: true,
+	  min: min,
+	  max: max,
+	  values: [ min,max ],
+	  slide: function( event, ui ) {
+		$( "#amount" ).val( "DH" + ui.values[ 0 ] + "            -         DH" + ui.values[ 1 ] );
+	  }
+	});
+	$( "#amount" ).val( "DH" + $( "#slider-range" ).slider( "values", 0 ) +
+	  "            -         DH" + $( "#slider-range" ).slider( "values", 1 ) );
+});
+</script>

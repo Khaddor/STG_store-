@@ -1,7 +1,57 @@
 @extends('layouts/layout')
 
+
 @section('content')
 	
+<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<style type="text/css">
+	
+.price-range-slider {
+	width:100%;
+  float:left;
+  padding:10px 20px;
+	.range-value {
+		margin:0;
+		input {
+			width:100%;
+			background:none;
+			color: #000;
+			font-size: 16px;
+			font-weight: initial;
+			box-shadow: none;
+			border: none;
+			margin: 20px 0 20px 0;
+		}
+	}
+	
+	.range-bar {
+		border: none;
+		background: #000;
+		height: 3px;	
+		width: 96%;
+		margin-left: 8px;
+		
+		.ui-slider-range {
+			background:#06b9c0;
+		}
+		
+		.ui-slider-handle {
+			border:none;
+			border-radius:25px;
+			background:#fff;
+			border:2px solid #06b9c0;
+			height:17px;
+			width:17px;
+			top: -0.52em;
+			cursor:pointer;
+		}
+		.ui-slider-handle + span {
+			background:#06b9c0;
+		}
+	}
+}
+</style>
+
 		<main class="main">
 
 			<div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
@@ -218,27 +268,18 @@
 
 							<div class="widget">
 								<h3 class="widget-title">
+
 									<a data-toggle="collapse" href="#widget-body-3" role="button" aria-expanded="true" aria-controls="widget-body-3">Prix</a>
+
 								</h3>
 
-								<div class="collapse show" id="widget-body-3">
-									<div class="widget-body">
-										<form action="#">
-											<div class="price-slider-wrapper">
-												<div id="price-slider"></div><!-- End #price-slider -->
-											</div><!-- End .price-slider-wrapper -->
-
-											<div class="filter-price-action d-flex align-items-center justify-content-between flex-wrap">
-												<button type="submit" class="btn btn-primary">Filtrer</button>
-
-												<div class="filter-price-text">
-													Prix:
-													<span id="filter-price-range"></span>
-												</div><!-- End .filter-price-text -->
-											</div><!-- End .filter-price-action -->
-										</form>
-									</div><!-- End .widget-body -->
-								</div><!-- End .collapse -->
+								<div class="price-range-slider">
+  								<form id="slider-range" class="form-inline" action="{{route('pricefilter')}}" method="GET">
+							          Min <input class="form-control" type="text" id="amount"  name="min">
+							          Max <input class="form-control" type="text" id="amount" name="max">
+							          <input class="btn btn-default" type="submit" value="Filter">
+							      </form>
+								</div>
 							</div><!-- End .widget -->
 
 							
@@ -253,16 +294,16 @@
 								<div class="widget-body">
 									<div class="owl-carousel widget-featured-products">
 										<div class="featured-col">
+								@foreach ($products as $product)
 											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-10.jpg">
-													</a>
+											<figure>
+													<a href="/product/{{$product->id}}">
+									        		<img src="{{asset('productsImages/'.$product->image)}}">
+									            	</a>
 												</figure>
 												<div class="product-details">
 													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
+                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
 													<div class="ratings-container">
 														<div class="product-ratings">
 															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
@@ -270,65 +311,25 @@
 														</div><!-- End .product-ratings -->
 													</div><!-- End .product-container -->
 													<div class="price-box">
-														<span class="product-price">$49.00</span>
+											<span class="product-price">DH {{$product->price}} </span>
 													</div><!-- End .price-box -->
 												</div><!-- End .product-details -->
 											</div>
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-11.jpg">
-													</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-														<span class="product-price">$49.00</span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-12.jpg">
-													</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-														<span class="product-price">$49.00</span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
+
+											
+											
 										</div><!-- End .featured-col -->
 
 										<div class="featured-col">
 											<div class="product-default left-details product-widget">
 												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-13.jpg">
-													</a>
+													<a href="/product/{{$product->id}}">
+									        		<img src="{{asset('productsImages/'.$product->image)}}">
+									            	</a>
 												</figure>
 												<div class="product-details">
 													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
+                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
 													<div class="ratings-container">
 														<div class="product-ratings">
 															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
@@ -336,20 +337,19 @@
 														</div><!-- End .product-ratings -->
 													</div><!-- End .product-container -->
 													<div class="price-box">
-														<span class="product-price">$49.00</span>
+											<span class="product-price">DH {{$product->price}} </span>
 													</div><!-- End .price-box -->
 												</div><!-- End .product-details -->
 											</div>
 											<div class="product-default left-details product-widget">
 												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-14.jpg">
-													</a>
+													<a href="/product/{{$product->id}}">
+									        		<img src="{{asset('productsImages/'.$product->image)}}">
+									            	</a>
 												</figure>
 												<div class="product-details">
 													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
+                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
 													<div class="ratings-container">
 														<div class="product-ratings">
 															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
@@ -357,20 +357,21 @@
 														</div><!-- End .product-ratings -->
 													</div><!-- End .product-container -->
 													<div class="price-box">
-														<span class="product-price">$49.00</span>
+											<span class="product-price">DH {{$product->price}} </span>
 													</div><!-- End .price-box -->
 												</div><!-- End .product-details -->
 											</div>
+
+
 											<div class="product-default left-details product-widget">
 												<figure>
-													<a href="product.html">
-														<img src="assets/images/products/product-8.jpg">
-													</a>
+													<a href="/product/{{$product->id}}">
+									        		<img src="{{asset('productsImages/'.$product->image)}}">
+									            	</a>
 												</figure>
 												<div class="product-details">
 													<h2 class="product-title">
-														<a href="product.html">Product Short Name</a>
-													</h2>
+                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
 													<div class="ratings-container">
 														<div class="product-ratings">
 															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
@@ -378,11 +379,14 @@
 														</div><!-- End .product-ratings -->
 													</div><!-- End .product-container -->
 													<div class="price-box">
-														<span class="product-price">$49.00</span>
+											<span class="product-price">DH {{$product->price}} </span>
 													</div><!-- End .price-box -->
 												</div><!-- End .product-details -->
 											</div>
+								@endforeach
+											
 										</div><!-- End .featured-col -->
+
 									</div><!-- End .widget-featured-slider -->
 								</div><!-- End .widget-body -->
 							</div><!-- End .widget -->
@@ -398,6 +402,7 @@
 
 			<div class="mb-3"></div><!-- margin -->
 		</main><!-- End .main -->
+
 
 
 @endsection

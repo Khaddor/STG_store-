@@ -4,6 +4,7 @@
  <!-- Required meta tags -->
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
+ <link rel="icon" type="image/x-icon" href="{{asset('assets/images/icons/favicon.ico')}}">
 
  <!-- CoreUI CSS -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" integrity="sha512-n+g8P11K/4RFlXnx2/RW1EZK25iYgolW6Qn7I0F96KxJibwATH3OoVCQPh/hzlc4dWAwplglKX8IVNVMWUUdsw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -21,9 +22,10 @@
 
     <!---------SIDE BAR ------->
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
-        <div class="c-sidebar-brand d-lg-down-none">
-            <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
-                <img style=" height: 50px; padding-right: 100px; margin-top: 5px;" src="http://127.0.0.1:8000/assets/images/icons/favicon.ico">
+        <div class="c-sidebar-brand d-lg-down-none text-center">
+<!--             <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
+ -->               <img class="text-center" style=" height: 50px; margin-top: 5px;" src="http://127.0.0.1:8000/assets/images/icons/favicon.ico"> 
+
             </svg>
             <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">
                 <use xlink:href="assets/brand/coreui.svg#signet"></use>
