@@ -53,7 +53,7 @@ Route::get('/about', function(){
 
 //Orders
 Route::get('/cart',[orderController::class, 'index'])->name('cart')->middleware(['auth']);
-Route::post('/cart/{product:id}',[orderController::class, 'store']);
+Route::post('/cart/add_to_cart',[orderController::class, 'store'])->name('addToCart')->middleware(['auth']);
 
 Route::get('/checkout' , [checkoutController::class,'index'])->name('checkout');
 //Route::get('/confirm_chekout',[checkoutController::class,'confirm'])->name('confirm_checkout');
@@ -115,6 +115,9 @@ Route::get('/marjane', [homeController::class, 'marjane'])->name('marjane');
 Route::get('/electroplanet', [homeController::class, 'electroplanet'])->name('electroplanet');
 Route::get('/termes_conditions', [homeController::class, 'termes_conditions'])->name('termes_conditions');
 Route::get('/a_propos_de_nous', [homeController::class, 'a_propos_de_nous'])->name('a_propos_de_nous');
+
+
+Route::get('/products_list' ,[homeController::class , 'products_list_index'])->name('products_list');
 
 
 

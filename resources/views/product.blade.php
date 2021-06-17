@@ -69,7 +69,6 @@
 							<div class="product-desc">
 								<p>
 									{{$product->description}}
-									<a href="#">(read more)</a>
 								</p>
 							</div><!-- End .product-desc -->
 
@@ -81,10 +80,11 @@
 								
 
 							@if ($product->inStock > 0)
-								<form action="/cart/{{$product->id}}" method="POST">
+								<form action=" {{route('addToCart')}} " method="POST">
 									@csrf
 									<div class="product-single-qty">
-										<input class="horizontal-quantity form-control" type="text" name="	">
+										<input type="hidden" name="id" value=" {{$product->id}} ">
+										<input class="horizontal-quantity form-control" type="text" name="quantity">
 									</div><!-- End .product-single-qty -->
 									<div class="btn-icon-group">
 										<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Add to cart</button>
@@ -295,7 +295,7 @@
 				</div><!-- End .product-single-tabs -->
 
 				<div class="products-section pt-0">
-					<h2 class="section-title">Related Products</h2>
+					<h2 class="section-title">Produits Similaires</h2>
 
 					<div class="products-slider owl-carousel owl-theme dots-top">
 @foreach ($related_products as $related_product)

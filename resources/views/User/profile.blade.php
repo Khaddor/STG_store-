@@ -18,25 +18,25 @@
 		<div class="row">
 			<aside class="sidebar col-lg-3">
 				<div class="widget widget-dashboard">
-					<h3 class="widget-title">My Account</h3>
+					<h3 class="widget-title">Mon Compte</h3>
 
 
 
 					<ul class="list">
-						<li class="active"><a href=" {{route('profile')}} ">Account Information</a></li>
-						<li ><a href=" {{route('profile_edit')}} ">Edit Information</a></li>
-						<li><a href=" {{route('user_orders')}} ">My Orders</a></li>
+						<li class="active"><a href=" {{route('profile')}} ">Mes informations</a></li>
+						<li ><a href=" {{route('profile_edit')}} "> Modifier mes informations</a></li>
+						<li><a href=" {{route('user_orders')}} ">Mes commandes</a></li>
 					</ul>
 				</div><!-- End .widget -->
 			</aside><!-- End .col-lg-3 -->
                         
 				<div class="col-md-6">
-                        <h3>Account Information</h3>
+                        <h3>Mes Informations </h3>
                                 
 					<div class="card">
 						<div class="card-header">
-                                                                User Information
-                                                        <a href=" {{route('profile_edit')}} " class="card-edit">Edit</a>
+                                                                 Informations de l'Utilisateur
+                                                        <a href=" {{route('profile_edit')}} " class="card-edit">Modifier</a>
 						</div><!-- End .card-header -->
 
 					        <div class="card-body">
@@ -47,7 +47,7 @@
 
                                                                 {{auth()->user()->email  }}<br>
                                                                 
-                                                                <a href=" {{route('profile_edit')}} ">Change Password</a>
+                                                                <a href=" {{route('profile_edit')}} ">Changer Mot de passe</a>
                                                         </p>
 					        </div><!-- End .card-body -->
 				        </div><!-- End .card -->

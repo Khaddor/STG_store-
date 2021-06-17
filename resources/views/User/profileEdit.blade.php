@@ -17,7 +17,7 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-lg-9 order-lg-last dashboard-content">
-				<h2>Edit Account Information</h2>
+				<h2>Modifier Mes Informations</h2> <br>
 				
 				@if (Session::has('message'))
 						<div class="alert alert-success" role="alert">
@@ -38,7 +38,7 @@
 							<div class="row">
 								<div class="col-md-4">
 									<div class="form-group required-field">
-										<label for="acc-name">First Name</label>
+										<label for="acc-name">Prénom</label>
 										<input type="text" class="form-control" id="acc-name" name="firstname" required="">
 									</div><!-- End .form-group -->
 								</div><!-- End .col-md-4 -->
@@ -47,7 +47,7 @@
 
 								<div class="col-md-4">
 									<div class="form-group required-field">
-										<label for="acc-lastname">Last Name</label>
+										<label for="acc-lastname">Nom</label>
 										<input type="text" class="form-control" id="acc-lastname" name="lastname" required="">
 									</div><!-- End .form-group -->
 								</div><!-- End .col-md-4 -->
@@ -61,7 +61,7 @@
 					</div><!-- End .form-group -->
 
 					<div class="form-group required-field">
-						<label for="acc-password">Password</label>
+						<label for="acc-password">Mot de passe</label>
 						<input type="password" class="form-control" id="acc-password" name="password" required="">
 					</div><!-- End .form-group -->
 
@@ -69,31 +69,31 @@
 
 					<div class="custom-control custom-checkbox">
 						<input type="checkbox" class="custom-control-input" id="change-pass-checkbox" value="1">
-						<label class="custom-control-label" for="change-pass-checkbox">Change Password</label>
+						<label class="custom-control-label" for="change-pass-checkbox">Changer Mot de passe</label>
 					</div><!-- End .custom-checkbox -->
 
 					<div id="account-chage-pass">
-						<h3 class="mb-2">Change Password</h3>
+						<h3 class="mb-2">Changer Mot de passe</h3>
 						<div class="row">
 							<div class="col-md-6">
 								<div class="form-group required-field">
-									<label for="acc-pass2">Password</label>
+									<label for="acc-pass2">Mot de passe</label>
 									<input type="password" class="form-control" id="acc-pass2" name="passwordConf">
 								</div><!-- End .form-group -->
 							</div><!-- End .col-md-6 -->
 
 							<div class="col-md-6">
 								<div class="form-group required-field">
-									<label for="acc-pass3">Confirm Password</label>
+									<label for="acc-pass3">Confrmer Mot de passe</label>
 									<input type="password" class="form-control" id="acc-pass3" name="passwordConf">
 								</div><!-- End .form-group -->
 							</div><!-- End .col-md-6 -->
 						</div><!-- End .row -->
 					</div><!-- End #account-chage-pass -->
 
-					<div class="required text-right">* Required Field</div>
+					<div class="required text-right">* Champs obligatoires </div>
 					<div class="form-footer">
-						<a href=" {{route('profile')}} "><i class="icon-angle-double-left"></i>Back</a>
+						<a href=" {{route('profile')}} "><i class="icon-angle-double-left"></i>Retour</a>
 
 						<div class="form-footer-right">
 							<button type="submit" class="btn btn-primary">Save</button>
@@ -104,12 +104,12 @@
 
 			<aside class="sidebar col-lg-3">
 				<div class="widget widget-dashboard">
-					<h3 class="widget-title">My Account</h3>
+					<h3 class="widget-title">Mon Compte</h3>
 
 					<ul class="list">
-						<li><a href=" {{route('profile')}} ">Account Information</a></li>
-						<li class="active"><a href=" {{route('profile_edit')}} ">Edit Information</a></li>
-						<li><a href=" {{route('user_orders')}} ">My Orders</a></li>
+						<li><a href=" {{route('profile')}} ">Mes informations</a></li>
+						<li class="active"><a href=" {{route('profile_edit')}} ">Modifier mes informations</a></li>
+						<li><a href=" {{route('user_orders')}} ">Mes commandes</a></li>
 				
 					</ul>
 				</div><!-- End .widget -->

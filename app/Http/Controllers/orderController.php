@@ -31,16 +31,13 @@ class orderController extends Controller
     }
 
 
-    public function store(product $product, Request $req){
+    public function store(Request $req){
 
     // $product = product::where('id',$req->product_id)->get();
-
-     if(!Auth::check()){
-         return redirect()->route('login');
-     }
-          
-     $condition = ['product_id' => $product->id,
+    $product = product::where('id' , $req->id)->first();
+    $condition = ['product_id' => $product->id,
                     'user_id'=> auth()->user()->id];
+                  
 
              if(!order::where($condition)->exists()){
                     order::create([

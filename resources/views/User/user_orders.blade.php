@@ -23,9 +23,9 @@
                 <thead>
                     <tr>
                         <th>Username</th>
-                        <th>Order ID</th>
-                        <th>Ordered date</th>
-                        <th>Status</th>
+                        <th> Référence Commande</th>
+                        <th>Date de commande</th>
+                        <th>Statut</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -68,12 +68,12 @@
 
 			<aside class="sidebar col-lg-3">
 				<div class="widget widget-dashboard">
-					<h3 class="widget-title">My Account</h3>
+					<h3 class="widget-title">Mon Compte</h3>
 
 					<ul class="list">
-						<li><a href=" {{route('profile')}} ">Account Information</a></li>
-						<li ><a href=" {{route('profile_edit')}} ">Edit Information</a></li>
-						<li class="active"><a href="#">My Orders</a></li>
+						<li><a href=" {{route('profile')}} ">Mes informations</a></li>
+						<li ><a href=" {{route('profile_edit')}} ">Modifier mes informations</a></li>
+						<li class="active"><a href="#">Mes commandes</a></li>
 				
 					</ul>
 				</div><!-- End .widget -->

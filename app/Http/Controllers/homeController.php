@@ -17,6 +17,12 @@ class homeController extends Controller
         ]);
     }
 
+    public function products_list_index(){
+            return view('products_list')->with([
+                    'products' => product::all()
+            ]);
+    }
+
      public function orange(){
         
             return view('orange');

@@ -148,11 +148,13 @@ use App\Controllers\cartController;
 							
 
 								<div class="header-dropdown switcher">
-									<a href="#">ENG</a>
+									<a href="#">FR</a>
 									<div class="header-menu">
 										<ul>
 											<li><a href="#">ENG</a></li>
-											<li><a href="#">FRE</a></li>
+											<li><a href="#">FR</a></li>
+											<li><a href="#">AR</a></li>
+
 										</ul>
 									</div><!-- End .header-menu -->
 								</div><!-- End .header-dropown -->
@@ -577,11 +579,11 @@ use App\Controllers\cartController;
 
 <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
 <!-- Plugins JS File -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
 <script src="{{asset('assets/js/optional/isotope.pkgd.min.js')}}"></script>
 <script src="{{asset('assets/js/plugins.min.js')}}"></script>
-
 <!-- Main JS File -->
 <script src="{{asset('assets/js/main.min.js')}}"></script>
