@@ -107,7 +107,9 @@ Route::middleware(['auth','is_admin'])->group(function(){
 Route::get('/search', [productController::class, 'search']);
 //pricefilter  
 
-Route::get('/pricefilter', [productController::class, 'pricefilter'])->name('pricefilter');
+Route::post('/pricefilter', [productController::class, 'pricefilter'])->name('pricefilter');
+Route::get('/getminPrice', [productController::class, 'getminPrice'])->name('getminPrice');
+Route::get('/getmaxPrice', [productController::class, 'getmaxPrice'])->name('getmaxPrice');
 
 //points de vente footer
 

@@ -25,7 +25,8 @@ use App\Controllers\cartController;
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="{{asset('assets/images/icons/favicon.ico')}}">
 	
-	
+	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
+
 	<script type="text/javascript">
 		WebFontConfig = {
 			google: { families: [ 'Open+Sans:300,400,600,700,800','Poppins:300,400,500,600,700' ] }
@@ -318,26 +319,37 @@ use App\Controllers\cartController;
             @yield('content')
 
 
-        <footer class="footer font2" style="
+<footer class="footer font2" style="
     background-color: black;
 ">
 			<div class="container" style="
     /* color: white; */
 ">
-				<div class="footer-middle">
+				<div class="footer-middle" style="
+    margin-left: 10px;
+">
     	<img src="http://127.0.0.1:8000/assets/images/icons/favicon.ico" height="100" width="100" alt="Logo" style="
     margin-left: 550px;
 ">
-					<div class="row">
+					<div class="row" style="margin-left: 10px!important;">
     
-						<div style="
-    /* padding-top: 120px; */
-" class="col-lg-4 m-b-5">
+						<div style="color: white!important;" class="col-lg-2 m-b-5">
 							
 
 							
 <div class="widget widget-block">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1784760777305!2d-5.8110756848067515!3d35.770991980173434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b80a95fb05e3d%3A0xcf5b316a11b49add!2sSTG%20Maroc!5e0!3m2!1sfr!2sma!4v1623459724830!5m2!1sfr!2sma" style="width: 400px; height:200px; border:0; padding-right: 10px;" allowfullscreen="" loading="lazy"></iframe>
+    <div class="widget">
+								<h4 class="widget-title" style="color: white;">Points de vente</h4>
+
+								<ul class="links">
+									<li><a href="/marjane">Marjane</a></li>
+									<li><a href="/orange">Orange</a></li>
+									<li><a href="/electroplanet">Electroplanet</a></li>
+									<li><a href="https://www.jumia.ma/stg/">Jumia</a></li>
+									<li><a href="https://inwi.ma/">Inwi</a></li>
+								</ul>
+							</div>
+								
 							
 							</div>
 
@@ -350,16 +362,22 @@ use App\Controllers\cartController;
 								</div>
 							</div>
 						</div><!-- End .col-lg-5 -->
-						<div class="col-lg-3 col-sm-4 m-b-4" style="
-    /* margin-top: 120px; */
-    color: white!important;
-">
-             		       <div class="widget" style="
-    padding-left: 25px;
-">
-                        <h4 class="widget-title" style="
-    color: white;
-">Contactez nous </h4>
+					
+                	<div class="col-lg-2 col-sm-4 m-b-4" style="color: white!important;">
+							<div class="widget">
+								<h4 class="widget-title" style="color: white;">Qui sommes-nous</h4>
+
+								<ul class="links">
+									<li><a href="http://127.0.0.1:8000/termes_conditions">Termes et conditions</a></li>
+									<li><a href="#chercher">Recherche Avancée</a></li>
+									<li><a href="/a_propos_de_nous">À propos de nous</a></li>
+
+								</ul>
+							</div><!-- End .widget -->
+						</div>
+							<div class="col-lg-3 col-sm-4 m-b-4" style="color: white!important;">
+             		       <div class="widget" style="padding-left: 25px;">
+                        <h4 class="widget-title" style="color: white;">Contactez nous </h4>
                         <ul class="contact-info">
                             <li>
                                 <span class="contact-info-label">Adresse</span>
@@ -382,39 +400,11 @@ use App\Controllers\cartController;
                        
                     </div><!-- End .widget -->
                 </div><!-- End .col-lg-3 -->
-                	<div class="col-lg-3 col-sm-4 m-b-4" style="
-    /* margin-top: 120px; */
-">
-							<div class="widget">
-								<h4 class="widget-title" style="
-    color: white;
-">Qui sommes-nous</h4>
 
-								<ul class="links">
-									<li><a href="http://127.0.0.1:8000/termes_conditions">Termes et conditions</a></li>
-									<li><a href="#chercher">Recherche Avancée</a></li>
-									<li><a href="/a_propos_de_nous">À propos de nous</a></li>
-
-								</ul>
-							</div><!-- End .widget -->
-						</div>
-						<div class="col-lg-2 col-sm-4 m-b-4" style="
-    /* margin-top: 120px; */
-">
-							<div class="widget">
-								<h4 class="widget-title" style="
-    color: white;
-">Points de vente</h4>
-
-								<ul class="links">
-									<li><a href="/marjane">Marjane</a></li>
-									<li><a href="/orange">Orange</a></li>
-									<li><a href="/electroplanet">Electroplanet</a></li>
-									<li><a href="https://www.jumia.ma/stg/">Jumia</a></li>
-									<li><a href="https://inwi.ma/">Inwi</a></li>
-								</ul>
-							</div><!-- End .widget -->
-						</div><!-- End .col-lg-2 -->
+<div class="col-lg-3 col-sm-4 m-b-4">
+<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1784760777305!2d-5.8110756848067515!3d35.770991980173434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b80a95fb05e3d%3A0xcf5b316a11b49add!2sSTG%20Maroc!5e0!3m2!1sfr!2sma!4v1623459724830!5m2!1sfr!2sma" style="width: 450px; height:200px; border:0; padding-right: 10px;" allowfullscreen="" loading="lazy"></iframe>
+</div>
+						<!-- End .col-lg-2 -->
 						<!-- End .col-lg-2 -->
 
 						
@@ -434,7 +424,7 @@ use App\Controllers\cartController;
 					<div class="social-icons py-3">
 						<a href="https://www.facebook.com/STGTelecomOfficiel/" class="social-icon social-facebook icon-facebook" target="_blank" title="Facebook"></a>
 						<a href="https://twitter.com/stgtelecom" class="social-icon social-twitter icon-twitter" target="_blank" title="Twitter"></a>
-						<a href="#" class="social-icon social-linkedin fab fa-linkedin-in" target="_blank" title="Linkedin"></a>
+						<a href="https://www.linkedin.com/company/stg-telecom/" class="social-icon social-linkedin fab fa-linkedin-in" target="_blank" title="Linkedin"></a>
 					</div><!-- End .social-icons -->
 				</div><!-- End .footer-bottom -->
 			</div>
@@ -611,23 +601,59 @@ use App\Controllers\cartController;
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
 <script type="text/javascript">
 	//-----JS for Price Range slider-----
+	function readamount(){
+		// Getting min and max values onclick
+		var str = $(":input[type=text][readonly='readonly']").val();
+		var mySubString = str.replace(/ |DH/g,'');
+		mySubString = mySubString.split('-');
+		var min = mySubString[0];
+		var max = mySubString[1];
+		// console.log(min);
+		// console.log(max);
+		document.getElementById('min').value = min;
+		document.getElementById('max').value = max;
+	}
 
 $(function() {
-	// Controller minPrice, maxPrice
-	var min = 600;
-
-	var max = 750;
+	var minP;
+	function handleMin(data) {
+	  minP = data;
+	}
+	var maxP;
+	function handleMax(data) {
+	  maxP = data;
+	}
+		$.ajax({
+		    type: 'GET',
+		    url: '{{"getminPrice"}}',
+		    dataType: "json",
+		    async: false,
+		    success:handleMin,
+		    error: function() { 
+		        alert("Error occured");
+		    }
+		});
+	$.ajax({
+		    type: 'GET',
+		    url: '{{"getmaxPrice"}}',
+		    dataType: "json",
+		    async: false,
+		    success:handleMax,
+		    error: function() { 
+		        alert("Error occured");
+		    }
+	});
 
 	$( "#slider-range" ).slider({
 	  range: true,
-	  min: min,
-	  max: max,
-	  values: [ min,max ],
+	  min: minP,
+	  max: maxP,
+	  values: [ minP,maxP ],
 	  slide: function( event, ui ) {
-		$( "#amount" ).val( "DH" + ui.values[ 0 ] + "            -         DH" + ui.values[ 1 ] );
+		$( "#amount" ).val( "DH" + ui.values[ 0 ] + "           -        DH" + ui.values[ 1 ] );
 	  }
 	});
 	$( "#amount" ).val( "DH" + $( "#slider-range" ).slider( "values", 0 ) +
-	  "            -         DH" + $( "#slider-range" ).slider( "values", 1 ) );
+	  "           -        DH" + $( "#slider-range" ).slider( "values", 1 ) );
 });
 </script>

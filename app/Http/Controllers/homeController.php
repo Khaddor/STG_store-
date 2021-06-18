@@ -8,10 +8,22 @@ use Illuminate\Http\Request;
 
 class homeController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+
+        if($request->input('min')  <> null){
+         $products = Product::select("*")
+                    ->whereBetween('price', [$request->input('min'), $request->input('max')])
+                    ->paginate(10);
+        }else{
+             $products = Product::paginate(10);
+        }
+        $featured = Product::latest()->take(5)->get();
+        // dd($featured);
+
             return view('home',[
-            'products' => product::all(),
-            'categories' => category::all()
+            'products' => $products,
+            'categories' => category::all(),
+            'featured' => $featured
         ]);
     }
 

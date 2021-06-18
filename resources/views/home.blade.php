@@ -3,7 +3,6 @@
 
 @section('content')
 	
-<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
 	
 .price-range-slider {
@@ -120,7 +119,7 @@
 
 							<div class="toolbox-right">
 								<div class="toolbox-item toolbox-show">
-									<label>Show:</label>
+									<label>Afficher:</label>
 
 									<div class="select-custom">
 										<select name="count" class="form-control">
@@ -155,6 +154,10 @@
 						@endif
 <!-- ------------------------------PRODUCTS--------------------------->
 						<div class="row">
+						@if (count($products) == 0)
+						<p class="alert alert-danger">Pas de produits qui correspondent à votre recherche</p>
+						@endif
+
 @foreach ($products as $product)
 							
 						
@@ -213,198 +216,102 @@
 							</div><!-- End .col-sm-4 -->
 
 @endforeach
+
+
 						</div><!-- End .row -->
 						
 <!--------------------------------TOOLBOX------------------->
-						<nav class="toolbox toolbox-pagination">
-							<div class="toolbox-item toolbox-show">
-								<label>Show:</label>
-
-								<div class="select-custom">
-									<select name="count" class="form-control">
-										<option value="12">12</option>
-										<option value="24">24</option>
-										<option value="36">36</option>
-									</select>
-								</div><!-- End .select-custom -->
-							</div><!-- End .toolbox-item -->
-
-							<ul class="pagination toolbox-item">
-								<li class="page-item disabled">
-									<a class="page-link page-link-btn" href="#"><i class="icon-angle-left"></i></a>
-								</li>
-								<li class="page-item active">
-									<a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-								</li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">4</a></li>
-								<li class="page-item"><a class="page-link" href="#">5</a></li>
-								<li class="page-item"><span class="page-link">...</span></li>
-								<li class="page-item">
-									<a class="page-link page-link-btn" href="#"><i class="icon-angle-right"></i></a>
-								</li>
-							</ul>
+						<nav class="toolbox toolbox-pagination float-right">
+							{{ $products->links('vendor.pagination.bootstrap-4') }}
 						</nav>
 					</div><!-- End .col-lg-9 -->
 
 					<div class="sidebar-overlay"></div>
 					<div class="sidebar-toggle"><i class="fas fa-sliders-h"></i></div>
 					<aside class="sidebar-shop col-lg-3 order-lg-first mobile-sidebar">
-						<div class="sidebar-wrapper">
-							<div class="widget">
-								<h3 class="widget-title">
-									<a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true" aria-controls="widget-body-2">Catégories</a>
-								</h3>
+   <div class="sidebar-wrapper">
+      <div class="widget">
+         <h3 class="widget-title">
+            <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true" aria-controls="widget-body-2">Catégories</a>
+         </h3>
+         <!-----------------------CATEGORIES-------------------------------------------->
+         <div class="collapse show" id="widget-body-2">
+            <div class="widget-body">
+               <ul class="cat-list">
+                  @foreach ($categories as $category)
+                  <li><a href="/category/{{$category->id}} "> {{$category->name}} </a></li>
+                  @endforeach
+               </ul>
+            </div>
+            <!-- End .widget-body -->
+         </div>
+         <!-- End .collapse -->
+      </div>
+      <!-- End .widget -->
+      <div class="widget">
+        <h3 class="widget-title">
+            <a data-toggle="collapse" href="#widget-body-3" role="button" aria-expanded="true" aria-controls="widget-body-3">Prix</a>
+        </h3>
+        <div class="price-range-slider">
+           <p class="range-value">
+              <input style="margin-top: 20px; margin-left: 15px;" type="text" id="amount" readonly="" >
+           </p>
+           <div id="slider-range" class="range-bar" onclick="readamount()"></div>
+        </div>
+        <form action="{{ route('home')}}" method="GET">
+        	@csrf
+        	<input type="hidden" name="min" id="min" value={{App\Models\Product::getLowestPrice()}}>
+        	<input type="hidden" name="max" id="max" value={{App\Models\Product::getHighestPrice()}}>
+        	<div class="col-md-12 text-center">
+        		<button style="border-color: #17a2b8; background-color: #17a2b8;" type="submit" class="btn btn-primary">Filtrer</button>
+        	</div>
+        </form>
 
-
-<!-----------------------CATEGORIES-------------------------------------------->
-
-								<div class="collapse show" id="widget-body-2">
-									<div class="widget-body">
-										<ul class="cat-list">
-											@foreach ($categories as $category)
-												<li><a href="/category/{{$category->id}} "> {{$category->name}} </a></li>
-											@endforeach
-										
-										</ul>
-									</div><!-- End .widget-body -->
-								</div><!-- End .collapse -->
-							</div><!-- End .widget -->
-
-							<!-- <div class="widget">
-								<h3 class="widget-title">
-
-									<a data-toggle="collapse" href="#widget-body-3" role="button" aria-expanded="true" aria-controls="widget-body-3">Prix</a>
-
-								</h3>
-
-								<div class="price-range-slider">
-  								<form id="slider-range" class="form-inline" action="{{route('pricefilter')}}" method="GET">
-							          Min <input class="form-control" type="text" id="amount"  name="min">
-							          Max <input class="form-control" type="text" id="amount" name="max">
-							          <input class="btn btn-default" type="submit" value="Filter">
-							      </form>
-								</div>
-							</div> End .widget -->
-
-
-						
-							
-
-							
-
-							
-							<div class="widget widget-featured">
-
-								<h3 class="widget-title">Featured</h3>
-								
-								<div class="widget-body">
-									<div class="owl-carousel widget-featured-products">
-										<div class="featured-col">
-								@foreach ($products as $product)
-											<div class="product-default left-details product-widget">
-											<figure>
-													<a href="/product/{{$product->id}}">
-									        		<img src="{{asset('productsImages/'.$product->image)}}">
-									            	</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-											<span class="product-price">DH {{$product->price}} </span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
-
-											
-											
-										</div><!-- End .featured-col -->
-
-										<div class="featured-col">
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="/product/{{$product->id}}">
-									        		<img src="{{asset('productsImages/'.$product->image)}}">
-									            	</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-											<span class="product-price">DH {{$product->price}} </span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="/product/{{$product->id}}">
-									        		<img src="{{asset('productsImages/'.$product->image)}}">
-									            	</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-											<span class="product-price">DH {{$product->price}} </span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
-
-
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="/product/{{$product->id}}">
-									        		<img src="{{asset('productsImages/'.$product->image)}}">
-									            	</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-											<span class="product-price">DH {{$product->price}} </span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
-								@endforeach
-											
-										</div><!-- End .featured-col -->
-
-									</div><!-- End .widget-featured-slider -->
-								</div><!-- End .widget-body -->
-							</div><!-- End .widget -->
-							
-							<!-- <div class="widget widget-block">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1784760777305!2d-5.8110756848067515!3d35.770991980173434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b80a95fb05e3d%3A0xcf5b316a11b49add!2sSTG%20Maroc!5e0!3m2!1sfr!2sma!4v1623459724830!5m2!1sfr!2sma" style="width: 250px; height:350px; border:0; padding-right: 10px;" allowfullscreen="" loading="lazy"></iframe> -->
-							
-							</div><!-- End .widget -->
-						</div><!-- End .sidebar-wrapper -->
-					</aside><!-- End .col-lg-3 -->
+      </div>
+      <div class="widget widget-featured">
+         <h3 class="widget-title">Featured</h3>
+         <div class="widget-body">
+            <div class="owl-carousel widget-featured-products">
+               <div class="featured-col">
+                  @foreach ($featured as $product)
+                  <div class="product-default left-details product-widget">
+                     <figure>
+                        <a href="/product/{{$product->id}}">
+                        <img src="{{asset('productsImages/'.$product->image)}}">
+                        </a>
+                     </figure>
+                     <div class="product-details">
+                        <h2 class="product-title">
+                           <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													
+                        </h2>
+                        <div class="ratings-container">
+                           <div class="product-ratings">
+                              <span class="ratings" style="width:100%"></span><!-- End .ratings -->
+                              <span class="tooltiptext tooltip-top"></span>
+                           </div>
+                           <!-- End .product-ratings -->
+                        </div>
+                        <!-- End .product-container -->
+                        <div class="price-box">
+                           <span class="product-price">DH {{$product->price}} </span>
+                        </div>
+                        <!-- End .price-box -->
+                     </div>
+                     <!-- End .product-details -->
+                  </div>
+                  @endforeach
+               </div>
+            </div>
+            <!-- End .widget-featured-slider -->
+         </div>
+         <!-- End .widget-body -->
+      </div>
+      <!-- End .widget -->
+   <!-- End .widget -->
+   </div><!-- End .sidebar-wrapper -->
+</aside>
+<!-- End .col-lg-3 -->
+				
 				</div><!-- End .row -->
 			</div><!-- End .container -->
 
