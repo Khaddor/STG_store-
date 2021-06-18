@@ -155,97 +155,75 @@
 						@endif
 <!-- ------------------------------PRODUCTS--------------------------->
 						<div class="row">
-@foreach ($products as $product)
+				
+@if (!empty($products) && $products->count())
+@foreach ($products as $key => $product)
 							
 						
-							<div class="col-6 col-sm-4">
-								<div class="product-default inner-quickview inner-icon">
-									<figure>
+			<div class="col-6 col-sm-4">
+				<div class="product-default inner-quickview inner-icon">
+					<figure>
 
-										<!-----------img-------------->
-										<a href="/product/{{$product->id}}">
-											<img src="{{asset('productsImages/'.$product->image)}}">
-										</a>
-										
+						<!-----------img-------------->
+						<a href="/product/{{$product->id}}">
+							<img src="{{asset('productsImages/'.$product->image)}}">
+						</a>
+						
 
-									<!----------------ADD-TO-CART-BTN---------------------->
-								<form action=" {{route('addToCart')}} " method="POST">
-										@csrf
-										<div class="btn-icon-group">
-											<input type="hidden" name="id" value="{{$product->id}} ">
+					<!----------------ADD-TO-CART-BTN---------------------->
+				<form action=" {{route('addToCart')}} " method="POST">
+						@csrf
+						<div class="btn-icon-group">
+							<input type="hidden" name="id" value="{{$product->id}} ">
 
-											@if ($product->inStock > 0)
-												<button class="btn-icon btn-add-cart"  type="submit" id="add" ><i class="icon-shopping-cart"></i></button>	
-											@else 
-												<span class="product-label label-sale ">Stock Épuisé</span>
-											@endif
-										</div>
-									</form>
-											
+							@if ($product->inStock > 0)
+								<button class="btn-icon btn-add-cart"  type="submit" id="add" ><i class="icon-shopping-cart"></i></button>	
+							@else 
+								<span class="product-label label-sale ">Stock Épuisé</span>
+							@endif
+						</div>
+					</form>
+							
 
 
-										<!-- <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>  -->
-									</figure>
-									<div class="product-details">
-										<div class="category-wrap">
-											<div class="category-list">
-												<!---------CATEGORY_NAME------------->
-												<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
-											</div>
-										</div>
-										<h2 class="product-title">
-											<!--------------PRODUCT_NAME----------->
-											<a href="/product/{{$product->id}} ">  {{$product->name}} </a>
-										</h2>
-										<div class="ratings-container">
-											<div class="product-ratings">
-												<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-												<span class="tooltiptext tooltip-top"></span>
-											</div><!-- End .product-ratings -->
-										</div><!-- End .product-container -->
-										<div class="price-box">
-											<span class="old-price">DH {{$product->reduction}} </span>
-											<!---------PRICE------------->
-											<span class="product-price">DH {{$product->price}} </span>
-										</div><!-- End .price-box -->
-									</div><!-- End .product-details -->
-								</div>
-							</div><!-- End .col-sm-4 -->
+						<!-- <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>  -->
+					</figure>
+					<div class="product-details">
+						<div class="category-wrap">
+							<div class="category-list">
+								<!---------CATEGORY_NAME------------->
+								<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
+							</div>
+						</div>
+						<h2 class="product-title">
+							<!--------------PRODUCT_NAME----------->
+							<a href="/product/{{$product->id}} ">  {{$product->name}} </a>
+						</h2>
+						<div class="ratings-container">
+							<div class="product-ratings">
+								<span class="ratings" style="width:100%"></span><!-- End .ratings -->
+								<span class="tooltiptext tooltip-top"></span>
+							</div><!-- End .product-ratings -->
+						</div><!-- End .product-container -->
+						<div class="price-box">
+							<span class="old-price">DH {{$product->reduction}} </span>
+							<!---------PRICE------------->
+							<span class="product-price">DH {{$product->price}} </span>
+						</div><!-- End .price-box -->
+					</div><!-- End .product-details -->
+				</div>
+			</div><!-- End .col-sm-4 -->
 
 @endforeach
+			@else
+				<h3>No products Available</h3>
+			@endif
+
 						</div><!-- End .row -->
-						
+<hr>
+ <div class="float-right "> {{ $products->links() }}  </div>						
 <!--------------------------------TOOLBOX------------------->
-						<nav class="toolbox toolbox-pagination">
-							<div class="toolbox-item toolbox-show">
-								<label>Show:</label>
-
-								<div class="select-custom">
-									<select name="count" class="form-control">
-										<option value="12">12</option>
-										<option value="24">24</option>
-										<option value="36">36</option>
-									</select>
-								</div><!-- End .select-custom -->
-							</div><!-- End .toolbox-item -->
-
-							<ul class="pagination toolbox-item">
-								<li class="page-item disabled">
-									<a class="page-link page-link-btn" href="#"><i class="icon-angle-left"></i></a>
-								</li>
-								<li class="page-item active">
-									<a class="page-link" href="#">1 <span class="sr-only">(current)</span></a>
-								</li>
-								<li class="page-item"><a class="page-link" href="#">2</a></li>
-								<li class="page-item"><a class="page-link" href="#">3</a></li>
-								<li class="page-item"><a class="page-link" href="#">4</a></li>
-								<li class="page-item"><a class="page-link" href="#">5</a></li>
-								<li class="page-item"><span class="page-link">...</span></li>
-								<li class="page-item">
-									<a class="page-link page-link-btn" href="#"><i class="icon-angle-right"></i></a>
-								</li>
-							</ul>
-						</nav>
+						
 					</div><!-- End .col-lg-9 -->
 
 					<div class="sidebar-overlay"></div>
@@ -272,137 +250,59 @@
 								</div><!-- End .collapse -->
 							</div><!-- End .widget -->
 
-							<!-- <div class="widget">
-								<h3 class="widget-title">
-
-									<a data-toggle="collapse" href="#widget-body-3" role="button" aria-expanded="true" aria-controls="widget-body-3">Prix</a>
-
-								</h3>
-
-								<div class="price-range-slider">
-  								<form id="slider-range" class="form-inline" action="{{route('pricefilter')}}" method="GET">
-							          Min <input class="form-control" type="text" id="amount"  name="min">
-							          Max <input class="form-control" type="text" id="amount" name="max">
-							          <input class="btn btn-default" type="submit" value="Filter">
-							      </form>
-								</div>
-							</div> End .widget -->
-
+						
 
 						
-							
-
-							
-
-							
 							<div class="widget widget-featured">
-
-								<h3 class="widget-title">Featured</h3>
+								<h3 class="widget-title">Voir Aussi</h3>
 								
 								<div class="widget-body">
 									<div class="owl-carousel widget-featured-products">
-										<div class="featured-col">
-								@foreach ($products as $product)
-											<div class="product-default left-details product-widget">
-											<figure>
-													<a href="/product/{{$product->id}}">
-									        		<img src="{{asset('productsImages/'.$product->image)}}">
-									            	</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-											<span class="product-price">DH {{$product->price}} </span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
+										@foreach ($products as $product)
 
-											
-											
-										</div><!-- End .featured-col -->
+											<div class="featured-col">
 
-										<div class="featured-col">
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="/product/{{$product->id}}">
-									        		<img src="{{asset('productsImages/'.$product->image)}}">
-									            	</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-											<span class="product-price">DH {{$product->price}} </span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="/product/{{$product->id}}">
-									        		<img src="{{asset('productsImages/'.$product->image)}}">
-									            	</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-											<span class="product-price">DH {{$product->price}} </span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
+												<div class="product-default left-details product-widget">
+													<figure>
+														<a href="/product/{{$product->id}}">
+															<img src="{{asset('productsImages/'.$product->image)}}">
+														</a>
+													</figure>
+													<div class="product-details">
+														<h2 class="product-title">
+															<a href="product.html"> {{$product->name}} </a>
+														</h2>
+														<div class="ratings-container">
+															<div class="product-ratings">
+																<span class="ratings" style="width:100%"></span><!-- End .ratings -->
+																<span class="tooltiptext tooltip-top"></span>
+															</div><!-- End .product-ratings -->
+														</div><!-- End .product-container -->
+														<div class="price-box">
+															<span class="product-price">$ {{$product->price}} </span>
+														</div><!-- End .price-box -->
+													</div><!-- End .product-details -->
+												</div>
+												
+											</div><!-- End .featured-col -->
 
+										@endforeach
+										
 
-											<div class="product-default left-details product-widget">
-												<figure>
-													<a href="/product/{{$product->id}}">
-									        		<img src="{{asset('productsImages/'.$product->image)}}">
-									            	</a>
-												</figure>
-												<div class="product-details">
-													<h2 class="product-title">
-                                                    <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													</h2>
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-															<span class="tooltiptext tooltip-top"></span>
-														</div><!-- End .product-ratings -->
-													</div><!-- End .product-container -->
-													<div class="price-box">
-											<span class="product-price">DH {{$product->price}} </span>
-													</div><!-- End .price-box -->
-												</div><!-- End .product-details -->
-											</div>
-								@endforeach
-											
-										</div><!-- End .featured-col -->
-
+									
 									</div><!-- End .widget-featured-slider -->
 								</div><!-- End .widget-body -->
 							</div><!-- End .widget -->
 							
-							<!-- <div class="widget widget-block">
-								<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3237.1784760777305!2d-5.8110756848067515!3d35.770991980173434!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd0b80a95fb05e3d%3A0xcf5b316a11b49add!2sSTG%20Maroc!5e0!3m2!1sfr!2sma!4v1623459724830!5m2!1sfr!2sma" style="width: 250px; height:350px; border:0; padding-right: 10px;" allowfullscreen="" loading="lazy"></iframe> -->
 							
-							</div><!-- End .widget -->
+
+							
+
+							
+							
+						
+								
+							
 						</div><!-- End .sidebar-wrapper -->
 					</aside><!-- End .col-lg-3 -->
 				</div><!-- End .row -->

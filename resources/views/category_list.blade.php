@@ -2,33 +2,7 @@
 
 @section('content')
     
-<div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
-                    
-	<div class="col-lg-6 col-md-12 heading-item x1bleu-desc s30-home-desc">
-		<div class="inner-heading"style="margin-top: 150px">
-			<div class="stg-phone-title"align="center" >
-				<h1 align="center" style="color: white">STG</h1>
-				<span>
-					<picture>
-						<img src="https://stgtelecom.com/asstes/images/s30/stg-s30.png" align="align-items-center" id="s30">
-					</picture>
-				</span>
-			</div>
-		  <h2 align="center" style="font-weight: 500;background: repeating-linear-gradient(91deg, #0c2b47 0%,#0de394 100%);font-size: 4.5rem;-webkit-text-fill-color: transparent;-webkit-background-clip: text;">Never Lose Sight </h2>
-			<p align="center" style="color: white">Triplez votre expérience</p>
-			<a href="http://127.0.0.1:8000/product/4" style="margin-left: 238px;" class="btn btn-dark btn-outline btn-xl">Achetez &nbsp maintenant</a>
-		</div>
-	</div>
-	<div class="col-lg-6 col-md-12 img-item x1bleu-img s30-home-img">
-		<div class="inner-img-item">
-			<picture>
-				<img src="https://stgtelecom.com/asstes/images/s30/stg-s30-homepage.png" alt="">
-			</picture>
-		</div>
-	</div>
-<div>
-</div>
-</div>
+
 			<div class="container">
 				<nav aria-label="breadcrumb" class="breadcrumb-nav">
 					<ol class="breadcrumb">
@@ -58,10 +32,10 @@
 								</div><!-- End .toolbox-item -->
 
 								<div class="toolbox-item layout-modes">
-									<a href=" {{route('home')}} " class="layout-btn btn-grid " title="Grid">
+									<a href=" {{route('category' , $category_id)}} " class="layout-btn btn-grid " title="Grid">
 										<i class="icon-mode-grid"></i>
 									</a>
-									<a href=" {{route('products_list')}} " class="layout-btn btn-list active" title="List">
+									<a href=" {{route('category_list' , $category_id)}} " class="layout-btn btn-list active" title="List">
 										<i class="icon-mode-list"></i>
 									</a>
 								</div><!-- End .layout-modes -->

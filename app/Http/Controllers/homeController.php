@@ -9,17 +9,25 @@ use Illuminate\Http\Request;
 class homeController extends Controller
 {
     public function index(){
+
+        $products = product::paginate(6);
+
             return view('home',[
-            'products' => product::all(),
-            'categories' => category::all()
+            'products' => $products,
+            'categories' => category::all(),
+            
         ]);
     }
 
     public function products_list_index(){
             return view('products_list')->with([
-                    'products' => product::all()
+                    'products' => product::paginate(6),
+                    'categories' => category::all(),
             ]);
     }
+
+   
+
 
      public function orange(){
         

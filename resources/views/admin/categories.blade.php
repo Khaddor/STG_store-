@@ -23,7 +23,9 @@
                     </tr>
                     </thead>
                     <tbody>
-            @foreach ($categories as $category)
+        @if (!empty($categories) && $categories->count())
+
+                @foreach ($categories as $key => $category)
                 <form action=" {{route('admin_delete_category')}} " method="POST">
                     @csrf
                     <input type="hidden" name="category_id" value=" {{$category->id}} ">
@@ -37,8 +39,15 @@
                     </tr>
                 </form>
             @endforeach	
-                </table>
 
-        </div>
+        @else
+                            <tr>
+                                <td colspan="10">There are no data.</td>
+                            </tr>
+        @endif
+         
+                </table>
+                {{$categories->links()}}
+            </div>
 
 @endsection

@@ -120,7 +120,7 @@ Route::get('/a_propos_de_nous', [homeController::class, 'a_propos_de_nous'])->na
 
 
 Route::get('/products_list' ,[homeController::class , 'products_list_index'])->name('products_list');
-
+Route::get('/category_list/{category:id}', [categoryController::class , 'category_list_index'])->name('category_list');
 
 
 
