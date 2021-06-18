@@ -100,11 +100,12 @@
                     </div><!-- End .col-sm-4 -->
 
         @endforeach
+@else
+                    <h6>Cette catégorie ne contient aucun produit</h6>
+@endif
+
                 </div><!-- End .row -->
             
-@else
-    <h3>Cette Catégorie ne contient aucun produit</h3>
-@endif
 
 <!--------------------------------TOOLBOX------------------->
 <br><hr>

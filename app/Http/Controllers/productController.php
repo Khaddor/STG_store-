@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 
 
 class productController extends Controller
@@ -31,17 +32,30 @@ class productController extends Controller
 
   //    }
 
-      public function pricefilter(Request $request){
-        
-          
-         //	 $query = product::where('price','>',$request->min);
-      	dd($request->min);	
-          $query = DB::select('select * from products where price > ' . $request->min .';');
-          dd('ok');
+      public function pricefilter(Request $req){
 
-         // $products = $query->paginate(6);
+
+        $products = Product::select("*")
+                        ->whereBetween('price', [$req->input('min'), $req->input('max')])
+                        ->get();
+
+        // dd($products);
+
+        return view('home',[
+            'products' => $products,
+            'categories' => category::all()
+        ]);
     
-      return view('pricefilter');
+    }
 
+    public function getminPrice()
+    {
+      $min = Product::all('price')->min('price');
+      return json_encode($min);
+    }
+    public function getmaxPrice()
+    {
+      $max = Product::all('price')->max('price');
+      return $max;
     }
 }

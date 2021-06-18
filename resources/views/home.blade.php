@@ -3,7 +3,6 @@
 
 @section('content')
 	
-<link rel="stylesheet" type="text/css" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 <style type="text/css">
 	
 .price-range-slider {
@@ -120,7 +119,7 @@
 
 							<div class="toolbox-right">
 								<div class="toolbox-item toolbox-show">
-									<label>Show:</label>
+									<label>Afficher:</label>
 
 									<div class="select-custom">
 										<select name="count" class="form-control">
@@ -155,9 +154,11 @@
 						@endif
 <!-- ------------------------------PRODUCTS--------------------------->
 						<div class="row">
-				
-@if (!empty($products) && $products->count())
-@foreach ($products as $key => $product)
+						@if (count($products) == 0)
+						<p class="alert alert-danger">Pas de produits qui correspondent à votre recherche</p>
+						@endif
+
+@foreach ($products as $product)
 							
 						
 			<div class="col-6 col-sm-4">
@@ -215,96 +216,101 @@
 			</div><!-- End .col-sm-4 -->
 
 @endforeach
-			@else
-				<h3>No products Available</h3>
-			@endif
 
 						</div><!-- End .row -->
 <hr>
- <div class="float-right "> {{ $products->links() }}  </div>						
 <!--------------------------------TOOLBOX------------------->
-						
+						<nav class="toolbox toolbox-pagination float-right">
+							{{ $products->links('vendor.pagination.bootstrap-4') }}
+						</nav>
 					</div><!-- End .col-lg-9 -->
 
 					<div class="sidebar-overlay"></div>
 					<div class="sidebar-toggle"><i class="fas fa-sliders-h"></i></div>
 					<aside class="sidebar-shop col-lg-3 order-lg-first mobile-sidebar">
-						<div class="sidebar-wrapper">
-							<div class="widget">
-								<h3 class="widget-title">
-									<a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true" aria-controls="widget-body-2">Catégories</a>
-								</h3>
+   <div class="sidebar-wrapper">
+      <div class="widget">
+         <h3 class="widget-title">
+            <a data-toggle="collapse" href="#widget-body-2" role="button" aria-expanded="true" aria-controls="widget-body-2">Catégories</a>
+         </h3>
+         <!-----------------------CATEGORIES-------------------------------------------->
+         <div class="collapse show" id="widget-body-2">
+            <div class="widget-body">
+               <ul class="cat-list">
+                  @foreach ($categories as $category)
+                  <li><a href="/category/{{$category->id}} "> {{$category->name}} </a></li>
+                  @endforeach
+               </ul>
+            </div>
+            <!-- End .widget-body -->
+         </div>
+         <!-- End .collapse -->
+      </div>
+      <!-- End .widget -->
+      <div class="widget">
+        <h3 class="widget-title">
+            <a data-toggle="collapse" href="#widget-body-3" role="button" aria-expanded="true" aria-controls="widget-body-3">Prix</a>
+        </h3>
+        <div class="price-range-slider">
+           <p class="range-value">
+              <input style="margin-top: 20px; margin-left: 15px;" type="text" id="amount" readonly="" >
+           </p>
+           <div id="slider-range" class="range-bar" onclick="readamount()"></div>
+        </div>
+        <form action="{{ route('home')}}" method="GET">
+        	@csrf
+        	<input type="hidden" name="min" id="min" value={{App\Models\Product::getLowestPrice()}}>
+        	<input type="hidden" name="max" id="max" value={{App\Models\Product::getHighestPrice()}}>
+        	<div class="col-md-12 text-center">
+        		<button style="border-color: #17a2b8; background-color: #17a2b8;" type="submit" class="btn btn-primary">Filtrer</button>
+        	</div>
+        </form>
 
-
-<!-----------------------CATEGORIES-------------------------------------------->
-
-								<div class="collapse show" id="widget-body-2">
-									<div class="widget-body">
-										<ul class="cat-list">
-											@foreach ($categories as $category)
-												<li><a href="/category/{{$category->id}} "> {{$category->name}} </a></li>
-											@endforeach
-										
-										</ul>
-									</div><!-- End .widget-body -->
-								</div><!-- End .collapse -->
-							</div><!-- End .widget -->
-
-						
-
-						
-							<div class="widget widget-featured">
-								<h3 class="widget-title">Voir Aussi</h3>
-								
-								<div class="widget-body">
-									<div class="owl-carousel widget-featured-products">
-										@foreach ($products as $product)
-
-											<div class="featured-col">
-
-												<div class="product-default left-details product-widget">
-													<figure>
-														<a href="/product/{{$product->id}}">
-															<img src="{{asset('productsImages/'.$product->image)}}">
-														</a>
-													</figure>
-													<div class="product-details">
-														<h2 class="product-title">
-															<a href="product.html"> {{$product->name}} </a>
-														</h2>
-														<div class="ratings-container">
-															<div class="product-ratings">
-																<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-																<span class="tooltiptext tooltip-top"></span>
-															</div><!-- End .product-ratings -->
-														</div><!-- End .product-container -->
-														<div class="price-box">
-															<span class="product-price">$ {{$product->price}} </span>
-														</div><!-- End .price-box -->
-													</div><!-- End .product-details -->
-												</div>
-												
-											</div><!-- End .featured-col -->
-
-										@endforeach
-										
-
-									
-									</div><!-- End .widget-featured-slider -->
-								</div><!-- End .widget-body -->
-							</div><!-- End .widget -->
-							
-							
-
-							
-
-							
-							
-						
-								
-							
-						</div><!-- End .sidebar-wrapper -->
-					</aside><!-- End .col-lg-3 -->
+      </div>
+      <div class="widget widget-featured">
+         <h3 class="widget-title">Featured</h3>
+         <div class="widget-body">
+            <div class="owl-carousel widget-featured-products">
+               <div class="featured-col">
+                  @foreach ($featured as $product)
+                  <div class="product-default left-details product-widget">
+                     <figure>
+                        <a href="/product/{{$product->id}}">
+                        <img src="{{asset('productsImages/'.$product->image)}}">
+                        </a>
+                     </figure>
+                     <div class="product-details">
+                        <h2 class="product-title">
+                           <a href="/product/{{$product->id}} ">  {{$product->name}} </a>													
+                        </h2>
+                        <div class="ratings-container">
+                           <div class="product-ratings">
+                              <span class="ratings" style="width:100%"></span><!-- End .ratings -->
+                              <span class="tooltiptext tooltip-top"></span>
+                           </div>
+                           <!-- End .product-ratings -->
+                        </div>
+                        <!-- End .product-container -->
+                        <div class="price-box">
+                           <span class="product-price">DH {{$product->price}} </span>
+                        </div>
+                        <!-- End .price-box -->
+                     </div>
+                     <!-- End .product-details -->
+                  </div>
+                  @endforeach
+               </div>
+            </div>
+            <!-- End .widget-featured-slider -->
+         </div>
+         <!-- End .widget-body -->
+      </div>
+      <!-- End .widget -->
+   <!-- End .widget -->
+   </div><!-- End .sidebar-wrapper -->
+</aside>
+<!-- End .col-lg-3 -->
+				
 				</div><!-- End .row -->
 			</div><!-- End .container -->
 

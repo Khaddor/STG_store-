@@ -34,5 +34,16 @@ class product extends Model
     public function confirmedOrders(){
         return $this->hasMany(confirmedOrder::class);
     }
+
+    public static function getLowestPrice()
+    {
+        $min = Product::all('price')->min('price');
+        return $min;
+    }
+    public static function getHighestPrice()
+    {
+        $max = Product::all('price')->max('price');
+        return $max;
+    }
     
 }
