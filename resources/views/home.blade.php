@@ -178,7 +178,9 @@
 											<input type="hidden" name="id" value="{{$product->id}} ">
 
 											@if ($product->inStock > 0)
-												<button class="btn-icon btn-add-cart"  type="submit" id="add" ><i class="icon-shopping-cart"></i></button>	
+												<button class="btn-icon btn-add-cart"  type="submit" id="add" ><i class="icon-shopping-cart"></i>
+												</button>	
+												<input type="hidden" value="1" name="quantity">
 											@else 
 												<span class="product-label label-sale ">Stock Épuisé</span>
 											@endif

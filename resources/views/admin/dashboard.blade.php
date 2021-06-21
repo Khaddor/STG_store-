@@ -94,7 +94,6 @@
        
     </div>    
 
-    <br><br>
     <hr><br>
 
     <div class="col-md-12"> 
@@ -103,55 +102,18 @@
    </div>  
 
    <hr><br> 
-
-   
-   
-   <div class="container">
-    <h2>Stock Management</h2><br>
-
-
-        <table class="table table-striped">
-            <thead>
-                <tr>
-                    <td>#</td>
-                    <td>Products</td>
-                    <td>Quantity Available</td>
-                    <td>Add</td>
-                    <td>Remove</td>
-                </tr>
-            </thead>
+   <div class="col-md-6 mb-3">
+     <h3 class="ml-5"><i class='fas fa-exclamation-triangle text-warning '></i>  Products out of stock</h3>
+           <table class="table table-hover table-striped ml-5">
+           
             <tbody>
                 @foreach ($products as $product)  
                 <tr>
-                    <td> {{$product->id}} </td>
-                    <td>{{$product->name}}</td>
-                    <td> {{$product->inStock}}</td>
-                <form action=" {{route('add_stock')}} " method="POST"> 
-                    @csrf   
-                    <td>
-                        <input type="text" name="added_quantity" class="col-md-3 mr-2" placeholder="..." required><button class="btn btn-success btn-sm" type="submit">ADD</button>
-                        <input type="hidden" value=" {{$product->id}} "  name="id">
-                    </td>
-                </form>
-                <form action=" {{route('remove_stock')}} " method="POST"> 
-                    @csrf   
-                    <td>
-                        <input type="text" name="removed_quantity" class="col-md-3 mr-2" placeholder="..." required><button class="btn btn-danger btn-sm" type="submit">Remove</button>
-                        <input type="hidden" value=" {{$product->id}} "  name="id">
-                    </td>
-                </form>
+                    <td><i class="fas fa-circle text-danger"></i> &nbsp; {{$product->name}}</td>
                 </tr>
                 @endforeach
-
-
             </tbody>
-
-
         </table>
-
-
-    <br><br><hr>
-
    </div>
 
 </div>

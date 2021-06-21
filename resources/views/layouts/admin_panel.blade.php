@@ -4,7 +4,7 @@
  <!-- Required meta tags -->
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
- <link rel="icon" type="image/x-icon" href="{{asset('assets/images/icons/favicon.ico')}}">
+ <link rel="icon" type="image/x-icon" href="{{asset('assets/images/icons/faviicon.ico')}}">
 
  <!-- CoreUI CSS -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" integrity="sha512-n+g8P11K/4RFlXnx2/RW1EZK25iYgolW6Qn7I0F96KxJibwATH3OoVCQPh/hzlc4dWAwplglKX8IVNVMWUUdsw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -38,7 +38,11 @@
                 </svg> Dashboard</a>
             </li>
     
-       
+            <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('admin_stock')}}">
+                <svg class="c-sidebar-nav-icon">
+                <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-chart-pie"></use>
+                </svg> Gestion de stock</a>
+            </li>
      
             <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="{{route('admin_products')}}">
                 <svg class="c-sidebar-nav-icon">
@@ -63,11 +67,11 @@
         <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-user"></use>
         </svg> Clients</a>
     </li>
-    <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#">
+  <!--   <li class="c-sidebar-nav-item"><a class="c-sidebar-nav-link" href="#">
         <svg class="c-sidebar-nav-icon">
     <use xlink:href="vendors/@coreui/icons/svg/free.svg#cil-star"></use>
     </svg> Statistiques</a>
-</li>
+</li> -->
         
         </ul>
     <button class="c-sidebar-minimizer c-class-toggler" type="button" data-target="_parent" data-class="c-sidebar-minimized"></button>
@@ -96,7 +100,7 @@
               
 
                 <li class="c-header-nav-item dropdown"><a class="c-header-nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                <div class="c-avatar"><img class="c-avatar-img" src="{{asset('assets/images/icons/favicon.ico')}}" ></div>
+                <div class="c-avatar"><img class="c-avatar-img" src="{{asset('assets/images/icons/faviicon.ico')}}" ></div>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right pt-0">
                 <div class="dropdown-header bg-light py-2"><strong>Account</strong></div>

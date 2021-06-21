@@ -13,9 +13,9 @@ use App\Controllers\cartController;
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 
-	<title>STG Telecom | Smartphones | Accessoires | Robotics</title>
+	<title>STG Maroc | Smartphones | Accessoires | Robotics</title>
 
-	<title>STG Telecom </title>
+	<title>STG Maroc </title>
 
 
 	<meta name="keywords" content="HTML5 Template" />
@@ -23,7 +23,7 @@ use App\Controllers\cartController;
 	<meta name="author" content="SW-THEMES">
 		
 	<!-- Favicon -->
-	<link rel="icon" type="image/x-icon" href="{{asset('assets/images/icons/favicon.ico')}}">
+	<link rel="icon" type="image/x-icon" href="{{asset('assets/images/icons/faviicon.ico')}}">
 	
 	<link rel="stylesheet" type="text/css" href="{{asset('assets/css/jquery-ui.css')}}">
 
@@ -391,7 +391,7 @@ use App\Controllers\cartController;
                                 
                             </li>
                             <li>
-                                <span class="contact-info-label">Email</span> <a href="mailto:contact@stgtelecom.ma">contact@stgtelecom.ma</a>
+                                <span class="contact-info-label">Email</span> <a href="mailto:contact@stgtelecom.ma">contact@stg.ma</a>
                             </li>
                             <li>
                                 
@@ -629,9 +629,9 @@ $(function() {
 		    dataType: "json",
 		    async: false,
 		    success:handleMin,
-		    error: function() { 
-		        alert("Error occured");
-		    }
+		    // error: function() { 
+		    //     alert("Error occured");
+		    // }
 		});
 	$.ajax({
 		    type: 'GET',
@@ -639,9 +639,9 @@ $(function() {
 		    dataType: "json",
 		    async: false,
 		    success:handleMax,
-		    error: function() { 
-		        alert("Error occured");
-		    }
+		    // error: function() { 
+		    //     alert("Error occured");
+		    // }
 	});
 
 	$( "#slider-range" ).slider({

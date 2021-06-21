@@ -72,17 +72,26 @@
                                         <input type="hidden" name="order_id" value=" {{$order->id}} "> 
                                           <div class="col-md-4">
                                            <button class="btn btn-success btn-sm mt-4"  type="submit" > <i class="fa fa-check fa-sm"></i> </button> 
-                                        <!--  <button class="btn btn-primary btn-sm"  > <i class="fa fa-edit fa-sm" id="editBtnOrders"></i> </button>  -->
                                           </div>
                                     </div>     
-                                </div>   
+                                 
                                     </form>
+                                     </div> 
+                                     @if($order->status_id == 2)
+                                    <form method="POST" action="{{route('generate-pdf')}}">
+                                        @csrf
+                                        <input type="hidden" name="order_id" value="{{$order->id}}">
+                                        <button class="btn btn-primary btn-sm mt-4"  type="submit" > <i class="fas fa-file-pdf fa-sm"></i></button>
+                                    </form>
+                                    @endif
                                 </td>
                             </tr>
                             @endforeach
 
                             </table>
-            
+             <div class="toolbox toolbox-pagination float-right">
+            {{ $orders->links('vendor.pagination.bootstrap-4') }}
+        </div>
                     </div>                
                     
             </div><!-- End .row -->

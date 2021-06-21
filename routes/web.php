@@ -77,8 +77,10 @@ Route::middleware(['auth','is_admin'])->group(function(){
         
         Route::get('/admin',[adminController::class,'dashboard_index'])->name('admin_dashboard');
         Route::get('/admin_products',[adminController::class,'products_index'])->name('admin_products');
+        Route::get('/admin_stock',[adminController::class,'stock_index'])->name('admin_stock');
         Route::get('/admin_categories',[adminController::class,'categories_index'])->name('admin_categories');
         Route::get('/admin_orders',[adminController::class,'orders_index'])->name('admin_orders');
+        Route::post('generate-pdf', [adminController::class, 'generatePDF'])->name('generate-pdf');
         Route::post('/admin_change_status',[adminController::class,'change_status'])->name('change_status');
 
         Route::get('/admin_clients',[adminController::class,'clients_index'])->name('admin_clients');
