@@ -629,9 +629,7 @@ $(function() {
 		    dataType: "json",
 		    async: false,
 		    success:handleMin,
-		    // error: function() { 
-		    //     alert("Error occured");
-		    // }
+
 		});
 	$.ajax({
 		    type: 'GET',
@@ -639,9 +637,7 @@ $(function() {
 		    dataType: "json",
 		    async: false,
 		    success:handleMax,
-		    // error: function() { 
-		    //     alert("Error occured");
-		    // }
+
 	});
 
 	$( "#slider-range" ).slider({

@@ -38,8 +38,10 @@ class adminController extends Controller
 
 
     public function categories_index(){
+
         $categories = category::paginate(10);
         return view('admin.categories')->with([ 'categories' => $categories]);
+
     }
 
     public function orders_index(){

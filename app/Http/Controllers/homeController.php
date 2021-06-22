@@ -29,9 +29,13 @@ class homeController extends Controller
 
     public function products_list_index(){
             return view('products_list')->with([
-                    'products' => product::all()
+                    'products' => product::paginate(6),
+                    'categories' => category::all(),
             ]);
     }
+
+   
+
 
      public function orange(){
         

@@ -161,21 +161,21 @@
 @foreach ($products as $product)
 							
 						
-							<div class="col-6 col-sm-4">
-								<div class="product-default inner-quickview inner-icon">
-									<figure>
+			<div class="col-6 col-sm-4">
+				<div class="product-default inner-quickview inner-icon">
+					<figure>
 
-										<!-----------img-------------->
-										<a href="/product/{{$product->id}}">
-											<img src="{{asset('productsImages/'.$product->image)}}">
-										</a>
-										
+						<!-----------img-------------->
+						<a href="/product/{{$product->id}}">
+							<img src="{{asset('productsImages/'.$product->image)}}">
+						</a>
+						
 
-									<!----------------ADD-TO-CART-BTN---------------------->
-								<form action=" {{route('addToCart')}} " method="POST">
-										@csrf
-										<div class="btn-icon-group">
-											<input type="hidden" name="id" value="{{$product->id}} ">
+					<!----------------ADD-TO-CART-BTN---------------------->
+				<form action=" {{route('addToCart')}} " method="POST">
+						@csrf
+						<div class="btn-icon-group">
+							<input type="hidden" name="id" value="{{$product->id}} ">
 
 											@if ($product->inStock > 0)
 												<button class="btn-icon btn-add-cart"  type="submit" id="add" ><i class="icon-shopping-cart"></i>
@@ -188,40 +188,41 @@
 									</form>
 											
 
+							
 
-										<!-- <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>  -->
-									</figure>
-									<div class="product-details">
-										<div class="category-wrap">
-											<div class="category-list">
-												<!---------CATEGORY_NAME------------->
-												<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
-											</div>
-										</div>
-										<h2 class="product-title">
-											<!--------------PRODUCT_NAME----------->
-											<a href="/product/{{$product->id}} ">  {{$product->name}} </a>
-										</h2>
-										<div class="ratings-container">
-											<div class="product-ratings">
-												<span class="ratings" style="width:100%"></span><!-- End .ratings -->
-												<span class="tooltiptext tooltip-top"></span>
-											</div><!-- End .product-ratings -->
-										</div><!-- End .product-container -->
-										<div class="price-box">
-											<span class="old-price">DH {{$product->reduction}} </span>
-											<!---------PRICE------------->
-											<span class="product-price">DH {{$product->price}} </span>
-										</div><!-- End .price-box -->
-									</div><!-- End .product-details -->
-								</div>
-							</div><!-- End .col-sm-4 -->
+
+						<!-- <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>  -->
+					</figure>
+					<div class="product-details">
+						<div class="category-wrap">
+							<div class="category-list">
+								<!---------CATEGORY_NAME------------->
+								<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
+							</div>
+						</div>
+						<h2 class="product-title">
+							<!--------------PRODUCT_NAME----------->
+							<a href="/product/{{$product->id}} ">  {{$product->name}} </a>
+						</h2>
+						<div class="ratings-container">
+							<div class="product-ratings">
+								<span class="ratings" style="width:100%"></span><!-- End .ratings -->
+								<span class="tooltiptext tooltip-top"></span>
+							</div><!-- End .product-ratings -->
+						</div><!-- End .product-container -->
+						<div class="price-box">
+							<span class="old-price">DH {{$product->reduction}} </span>
+							<!---------PRICE------------->
+							<span class="product-price">DH {{$product->price}} </span>
+						</div><!-- End .price-box -->
+					</div><!-- End .product-details -->
+				</div>
+			</div><!-- End .col-sm-4 -->
 
 @endforeach
 
-
 						</div><!-- End .row -->
-						
+<hr>
 <!--------------------------------TOOLBOX------------------->
 						<nav class="toolbox toolbox-pagination float-right">
 							{{ $products->links('vendor.pagination.bootstrap-4') }}
