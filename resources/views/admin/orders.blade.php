@@ -82,7 +82,7 @@
                             @endforeach
 
                             </table>
-            
+                            <div class="float-right mt-2"> {{$orders->links()}} </div>
                     </div>                
                     
             </div><!-- End .row -->

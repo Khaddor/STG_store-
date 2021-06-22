@@ -36,7 +36,7 @@ class adminController extends Controller
     }
 
     public function orders_index(){
-       $orders = confirmedOrder::get();
+       $orders = confirmedOrder::paginate(5);
        return view('admin.orders')->with('orders' , $orders);
     }
 
