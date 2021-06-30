@@ -49,6 +49,9 @@
                 @endforeach	
                 </tbody>
             </table>
+               <div class="toolbox toolbox-pagination float-right">
+            {{ $products->links('vendor.pagination.bootstrap-4') }}
+        </div>
         </div>
 </div>
 @endsection

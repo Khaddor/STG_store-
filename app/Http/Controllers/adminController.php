@@ -11,6 +11,8 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Queue\Console\PruneBatchesCommand;
+use PDF;
+
 
 class adminController extends Controller
 {
@@ -25,18 +27,25 @@ class adminController extends Controller
 
 
     public function products_index(){
-        $products = product::get();
+        $products = product::paginate(10);
         return view('admin.products')->with([ 'products' => $products]);
     }
 
+    public function stock_index(){
+        $products = Product::paginate(10);
+        return view('admin.stock')->with([ 'products' => $products]);
+    } 
+
+
     public function categories_index(){
-     //   $categories = category::get();
-       $categories = category::paginate(10);
-     return view('admin.categories')->with([ 'categories' => $categories]);
+
+        $categories = category::paginate(10);
+        return view('admin.categories')->with([ 'categories' => $categories]);
+
     }
 
     public function orders_index(){
-       $orders = confirmedOrder::paginate(5);
+       $orders = confirmedOrder::orderBy('created_at', 'desc')->paginate(5);
        return view('admin.orders')->with('orders' , $orders);
     }
 
@@ -181,7 +190,8 @@ class adminController extends Controller
         $orders_today = confirmedOrder::whereDate('created_at', Carbon::today())->get();
         $users_today = User::whereDate('created_at', Carbon::today())->get()
             ->where('is_admin','!=' , 1);
-        $products = product::all();
+        $products = product::where('instock','=',0)->get();
+        // $products = product::all();
 
         return view('admin.dashboard')->with([ 'orders_onHold' => $orders_onHold,
                                                 'orders_accepted' => $orders_accepted,
@@ -212,6 +222,31 @@ class adminController extends Controller
         return redirect()->back()->with('success' , 'Stock updated Succesfully');
 
 
+    }
+
+    public function generatePDF(Request $req){
+        $Corder = confirmedOrder::find($req->input('order_id'));
+        $product = Product::find($Corder->product_id);
+        $total = $Corder->quantity*$product->price;
+        $data = [
+            'firstname' => $Corder->user_firstname,
+            'lastname' => $Corder->user_lastname,
+            'phone' => $Corder->user_phone,
+            'address' => $Corder->user_address,
+            'city' => $Corder->city,
+            'total' => 1000,
+            'orderat' => $Corder->created_at,
+            'confirmedat' => $Corder->updated_at,
+            'quantity' => $Corder->quantity,
+            'product' => $product->label,
+            'prix' => $product->price,
+            'total' => $total,
+            'date' => date('m/d/Y')
+        ];
+
+        $pdf = PDF::loadView('admin.myPDF', $data);
+    
+        return $pdf->download('itsolutionstuff.pdf');
     }
 }
 

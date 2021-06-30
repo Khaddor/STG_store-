@@ -39,6 +39,12 @@
                     </tr>
                 </form>
             @endforeach	
+                </table>
+   <div class="toolbox toolbox-pagination float-right">
+            {{ $categories->links('vendor.pagination.bootstrap-4') }}
+        </div>
+        </div>
+
 
         @else
                             <tr>
@@ -47,7 +53,6 @@
         @endif
          
                 </table>
-                {{$categories->links()}}
             </div>
 
 @endsection
