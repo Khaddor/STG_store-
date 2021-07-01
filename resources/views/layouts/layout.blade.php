@@ -416,7 +416,7 @@ use App\Controllers\cartController;
 
 				<div class="footer-bottom d-flex justify-content-between align-items-center flex-wrap">
 
-					<p class="footer-copyright py-3 pr-4 mb-0">© Copyright 2021 - STGTelecom -</p>
+					<p class="footer-copyright py-3 pr-4 mb-0">© Copyright 2021 - STG Maroc -</p>
 
 					
 
