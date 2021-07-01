@@ -7,7 +7,7 @@
 				<div class="container">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-						<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+						<li class="breadcrumb-item active" aria-current="page">La caisse</li>
 					</ol>
 				</div><!-- End .container -->
 			</nav>
@@ -15,18 +15,18 @@
 			<div class="container">
 				<ul class="checkout-progress-bar">
 					<li>
-						<span>Shipping</span>
+						<span>Livraison</span>
 					</li>
 					<li class="active">
-						<span>Review &amp; Payments</span>
+						<span>Confirmation</span>
 					</li>
 				</ul>
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="order-summary">
-							<h3>Summary</h3>
+							<h3>Total</h3>
 							<h4>
-								<a data-toggle="collapse" href="#order-cart-section" class="collapsed" role="button" aria-expanded="false" aria-controls="order-cart-section">{{$orders->count()}} product(s) in Cart</a>
+								<a data-toggle="collapse" href="#order-cart-section" class="collapsed" role="button" aria-expanded="false" aria-controls="order-cart-section">{{$orders->count()}} produit(s) en Cart</a>
 							</h4>
 
 							<div class="collapse" id="order-cart-section">
@@ -93,9 +93,8 @@
 
 					<div class="col-lg-8 order-lg-first">
 						<div class="checkout-payment">
-							<h2 class="step-title">Check information :</h2>
+							<h2 class="step-title">Verifiez vos informations :</h2>
 
-							<h4>Confirmer vos informations</h4>
 							
 							@if (Session::has('success'))
 								<div class="alert alert-success" role="alert">
@@ -129,24 +128,20 @@
 								<input type="hidden" name="phone" value="{{$req->phone ?? ""}}" >
 							
 								<div class="clearfix">
-									<button class="btn btn-primary float-right" type="submit"> Place Order</button>	
+									<button class="btn btn-primary float-right" onclick="test()" type="submit"> Passer la commande</button>	
+								<script type="text/javascript">
+									function test(){
+										alert("Merci pour votre commande!");
+									}
+								</script>
+									
+
 								</div><!-- End .clearfix -->
 
 							</form>
 
 						</div><!-- End .checkout-payment -->
-						<div class="checkout-discount">
-							<h4>
-								<a data-toggle="collapse" href="#checkout-discount-section" class="collapsed" role="button" aria-expanded="false" aria-controls="checkout-discount-section">Apply Discount Code</a>
-							</h4>
-
-							<div class="collapse" id="checkout-discount-section">
-								<form action="#">
-										<input type="text" class="form-control form-control-sm" placeholder="Enter discount code"  required>
-										<button class="btn btn-sm btn-outline-secondary" type="submit">Apply Discount</button>
-								</form>
-							</div><!-- End .collapse -->
-						</div><!-- End .checkout-discount -->
+					
 					</div><!-- End .col-lg-8 -->
 				</div><!-- End .row -->
 			</div><!-- End .container -->
