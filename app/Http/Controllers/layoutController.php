@@ -22,4 +22,17 @@ class layoutController extends Controller
         return redirect()->back();
     }
 
+
+	
+	public function update(Request $req){
+		dd('ok');
+		if($req->id && $req->quantity){
+			$order = session()->get('order');
+			$order->quantity = $req->quantity;
+			session()->put('order' , $order);
+			session()->flash('success' , 'Cart updated successfully');
+
+		}
+	}
+
 }

@@ -63,6 +63,9 @@ Route::post('/place_order',[checkoutController::class,'place_order'])->name('pla
 
 Route::post('/layout/{order:id}' , [layoutController::class, 'delete'])->name('layout');
 
+Route::patch('update-cart' , [layoutController::class , 'update'])->name('update.cart');
+
+
 
 //User 
 Route::get('/profile/edit' , [usersController::class,'edit'])->name('profile_edit');

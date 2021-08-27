@@ -180,7 +180,7 @@
                     </div>
                     <div class="col company-details">
                         <h2 class="name">
-                            <a target="_blank" href="https://lobianijs.com">
+                            <a target="_blank" href="#">
                             STG 
                             </a>
                         </h2>

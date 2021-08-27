@@ -24,7 +24,7 @@
     <div class="c-sidebar c-sidebar-dark c-sidebar-fixed c-sidebar-lg-show" id="sidebar">
         <div class="c-sidebar-brand d-lg-down-none text-center">
 <!--             <svg class="c-sidebar-brand-full" width="118" height="46" alt="CoreUI Logo">
- -->               <img class="text-center" style=" height: 50px; margin-top: 5px;" src="http://127.0.0.1:8000/assets/images/icons/favicon.ico"> 
+ -->               <img class="text-center" style=" height: 50px; margin-top: 5px;" src="{{asset('assets/images/icons/favicon.ico')}}"> 
 
             </svg>
             <svg class="c-sidebar-brand-minimized" width="46" height="46" alt="CoreUI Logo">

@@ -3,7 +3,8 @@
 
 
 @section('content')
-    
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+
 <main class="main">
 			<nav aria-label="breadcrumb" class="breadcrumb-nav">
 				<div class="container">
@@ -34,7 +35,7 @@
 							@foreach ($orders as $order)
 							
 								<tbody>
-									<tr class="product-row">
+									<tr class="product-row" data-id="{{ $order->id }}">
 										<td class="product-col">
 											<figure class="product-image-container">
 												<a href="product.html" class="product-image">
@@ -48,7 +49,7 @@
 										</td>
 										<td> {{$order->product->price}} </td>
 										<td>
-											<input class="vertical-quantity form-control" type="text" name="quantity" value=" {{$order->quantity}} " >
+											<input class="vertical-quantity form-control update-cart quantity" type="integer" name="quantity"  id="quantity" value=" {{$order->quantity}} " >
 										</td>
 										<td>{{$order->quantity  *  $order->product->price}}</td>
 										<td>
@@ -62,6 +63,8 @@
 
 																		
 									</tr>
+
+
 
 									<tr class="product-action-row">
 										<td colspan="4" class="clearfix">
@@ -77,7 +80,29 @@
 									</tr>
 							@endforeach
 								
-									
+							<script type="text/javascript">
+
+								$(".update-cart").change(function (e) {
+										e.preventDefault();
+										
+										var ele = $(this);
+								
+										$.ajax({
+											url: " {{route('update.cart')}} ",
+											method: "PATCH",
+											data: {
+												_token: '{{ csrf_token() }}', 
+												id: ele.parents("tr").attr("data-id"), 
+												quantity: ele.parents("tr").find(".quantity").val()
+											},
+											success: function (response) {
+												//console.log(response)
+												window.location.reload();
+											}
+										});
+									});
+	
+						</script>		
 								</tbody>
 
 								<tfoot>

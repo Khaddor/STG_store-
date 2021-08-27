@@ -328,7 +328,7 @@ use App\Controllers\cartController;
 				<div class="footer-middle" style="
     margin-left: 10px;
 ">
-    	<img src="http://127.0.0.1:8000/assets/images/icons/favicon.ico" height="100" width="100" alt="Logo" style="
+    	<img src="{{asset('assets/images/icons/favicon.ico')}}" height="100" width="100" alt="Logo" style="
     margin-left: 550px;
 ">
 					<div class="row" style="margin-left: 10px!important;">
