@@ -38,7 +38,7 @@ use App\Controllers\cartController;
 			s.parentNode.insertBefore(wf, s);
 		})(document);
 	</script>
-	
+	<meta name="csrf-token" content="{{ csrf_token() }}">
 	<!-- Plugins CSS File -->
 	<link rel="stylesheet" href=" {{ asset('assets/css/bootstrap.min.css') }}">
 
@@ -221,7 +221,7 @@ use App\Controllers\cartController;
 						<div class="header-right">
 							
 							<div class="dropdown cart-dropdown">
-								<a href="#" class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-display="static">
+								<a  class="dropdown-toggle" role="button" data-toggle="dropdown"  href=" {{route('cart')}} " aria-haspopup="true" aria-expanded="false" data-display="static">
 									<div style="color: black!important;" class="bag">
 										<i class="icon-bag-2" ></i>
 										<span class="cart-count"> {{$orders->count()}} </span>
@@ -587,7 +587,8 @@ use App\Controllers\cartController;
 
 <a id="scroll-top" href="#top" title="Top" role="button"><i class="icon-angle-up"></i></a>
 
-<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"> </script>
+
 <!-- Plugins JS File -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>
 <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
@@ -597,8 +598,9 @@ use App\Controllers\cartController;
 <script src="{{asset('assets/js/main.min.js')}}"></script>
 
 
-	
+
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.0/jquery-ui.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 	//-----JS for Price Range slider-----
 	function readamount(){

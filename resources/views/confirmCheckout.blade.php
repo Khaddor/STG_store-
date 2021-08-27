@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
 <main class="main">
 			<nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
@@ -129,9 +130,15 @@
 								<input type="hidden" name="phone" value="{{$req->phone ?? ""}}" >
 							
 								<div class="clearfix">
-									<button class="btn btn-primary float-right" type="submit"> Place Order</button>	
+									<button class="btn btn-primary float-right" type="submit" onclick="alert()"> Place Order</button>	
 								</div><!-- End .clearfix -->
 
+								<script>
+									function alert(){
+								swal('Ordered Successfully','',"success");
+
+									}
+								</script>
 							</form>
 
 						</div><!-- End .checkout-payment -->

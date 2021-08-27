@@ -2,7 +2,8 @@
 
 
 @section('content')
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <style type="text/css">
 	
 .price-range-slider {
@@ -162,7 +163,7 @@
 							
 						
 			<div class="col-6 col-sm-4">
-				<div class="product-default inner-quickview inner-icon">
+				<div class="product-default inner-quickview inner-icon product_data">
 					<figure>
 
 						<!-----------img-------------->
@@ -172,23 +173,20 @@
 						
 
 					<!----------------ADD-TO-CART-BTN---------------------->
-				<form action=" {{route('addToCart')}} " method="POST">
-						@csrf
-						<div class="btn-icon-group">
-							<input type="hidden" name="id" value="{{$product->id}} ">
+			
+						<div class="btn-icon-group ">
+							<input type="hidden" name="id" value="{{$product->id}} " class="product_id">
 
 											@if ($product->inStock > 0)
-												<button class="btn-icon btn-add-cart"  type="submit" id="add" ><i class="icon-shopping-cart"></i>
+												<button class="btn-icon btn-add-cart addToCartBtn"  id="add" ><i class="icon-shopping-cart"></i>
 												</button>	
-												<input type="hidden" value="1" name="quantity">
+												<input type="hidden" value="1" name="quantity" class="quantity">
 											@else 
 												<span class="product-label label-sale ">Stock Épuisé</span>
 											@endif
 										</div>
-									</form>
 											
 
-							
 
 
 						<!-- <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>  -->
@@ -220,6 +218,47 @@
 			</div><!-- End .col-sm-4 -->
 
 @endforeach
+
+
+
+			<script>
+				$(document).ready(function(){
+
+					$('.addToCartBtn').click(function(e){
+						e.preventDefault();
+
+						var product_id = $(this).closest('.product_data').find('.product_id').val();
+						var product_quantity = $(this).closest('.product_data').find('.quantity').val();
+
+						$.ajaxSetup({
+							headers: {
+								'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+							}
+						});
+
+						$.ajax({
+							method : "POST",
+							url : "{{route('addToCart')}} ",
+							data : {
+								'product_id' : product_id,
+								'product_quantity' : product_quantity
+							},
+							success : function(response){
+								//window.location.reload();
+								swal(response.status,'',"success");
+
+							}
+
+						});
+
+					});
+
+
+
+				});
+
+			</script>
+
 
 						</div><!-- End .row -->
 <hr>

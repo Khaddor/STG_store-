@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 		<main class="main">
 			<div class="container">
 				<nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -49,7 +50,7 @@
 							</div>
 						</div><!-- End .product-single-gallery -->
 
-						<div class="col-md-7 product-single-details">
+						<div class="col-md-7 product-single-details product_data">
 							<h1 class="product-title">{{$product->name}}</h1>
 
 							<div class="ratings-container">
@@ -79,22 +80,56 @@
 							<div class="product-action">
 								
 
-							@if ($product->inStock > 0)
-								<form action=" {{route('addToCart')}} " method="POST">
-									@csrf
+					@if ($product->inStock > 0)
 									<div class="product-single-qty">
-										<input type="hidden" name="id" value=" {{$product->id}} ">
-										<input class="horizontal-quantity form-control" type="text" name="quantity">
+										<input type="hidden" name="id" value=" {{$product->id}} " class="product_id">
+										<input class="horizontal-quantity form-control product_quantity" type="text" name="quantity">
 									</div><!-- End .product-single-qty -->
 									<div class="btn-icon-group">
-										<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Add to cart</button>
+										<button class="btn btn-dark add-cart icon-shopping-cart addToCartBtn"  > Add to cart</button>
 									</div>
-							</form>
-							@else
-								<h3 class="text-danger">Stock Epuisé</h3>
-							@endif	
-								
-								
+									@else
+										<h3 class="text-danger">Stock Epuisé</h3>
+					@endif	
+										
+				
+					<script>
+
+						$(document).ready(function (){
+
+							$('.addToCartBtn').click(function(e){
+									e.preventDefault();
+									var product_id = $(this).closest('.product_data').find('.product_id').val();
+									var product_quantity = $(this).closest('.product_data').find('.product_quantity').val();
+						
+						
+						$.ajaxSetup({
+							headers: {
+								'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+							}
+						});
+
+						$.ajax({
+							method : "POST",
+							url : "{{route('addToCart')}} ",
+							data : {
+								'product_id' : product_id,
+								'product_quantity' : product_quantity
+							},
+							success : function(response){
+								swal(response.status,'',"success");
+
+							}
+
+						});
+
+							});
+
+
+						});
+
+
+					</script>
 							</div><!-- End .product-action -->
 
 							<hr class="divider mb-1">
@@ -300,7 +335,7 @@
 					<div class="products-slider owl-carousel owl-theme dots-top">
 @foreach ($related_products as $related_product)
 
-						<div class="product-default inner-quickview inner-icon">
+						<div class="product-default inner-quickview inner-icon product_data">
 							<figure>
 	
 								<!-----------img-------------->
@@ -309,17 +344,17 @@
 								</a>
 										
 								
-								<form action="/cart/{{$related_product->id}}" method="POST">
-										@csrf
+								
 										<div class="btn-icon-group">
-											<input type="hidden" name="quantity" value="1">
+											<input type="hidden" name="id" value=" {{$product->id}} " class="product_id">
+											<input class="product_quantity" type="hidden" name="quantity">
+
 												@if ($related_product->inStock > 0)
-													<button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>		
+													<button class="btn-icon btn-add-cart addToCartBtn"  type="submit" ><i class="icon-shopping-cart"></i></button>		
 												@else		
 														<span class="product-label label-sale ">Stock Épuisé</span>
 												@endif
 										</div>
-									</form>
 							</figure>
 							<div class="product-details">
 								<div class="category-wrap">
@@ -345,6 +380,9 @@
 							</div><!-- End .product-details -->
 						</div>
 @endforeach		
+
+
+
 			
 						
 				
