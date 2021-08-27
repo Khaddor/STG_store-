@@ -63,7 +63,7 @@
 							<hr class="short-divider">
 
 							<div class="price-box">
-								<span class="product-price">$ {{$product->price}} </span>
+								<span class="product-price">DH {{$product->price}} </span>
 							</div><!-- End .price-box -->
 
 							<div class="product-desc">
@@ -87,7 +87,7 @@
 										<input class="horizontal-quantity form-control" type="text" name="quantity">
 									</div><!-- End .product-single-qty -->
 									<div class="btn-icon-group">
-										<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Add to cart</button>
+										<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Ajouter au panier</button>
 									</div>
 							</form>
 							@else
@@ -339,8 +339,8 @@
 									</div><!-- End .product-ratings -->
 								</div><!-- End .ratings-container -->
 								<div class="price-box">
-									<span class="old-price">$59.00</span>
-									<span class="product-price">$ {{$related_product->price}}</span>
+									<span class="old-price">DH {{$related_product->reduction}}</span>
+									<span class="product-price">DH {{$related_product->price}}</span>
 								</div><!-- End .price-box -->
 							</div><!-- End .product-details -->
 						</div>
