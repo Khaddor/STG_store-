@@ -10,7 +10,7 @@
 				<div class="container">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-						<li class="breadcrumb-item active" aria-current="page">Panier</li>
+						<li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
 					</ol>
 				</div><!-- End .container -->
 			</nav>
@@ -22,10 +22,10 @@
 							<table class="table table-cart">
 								<thead>
 									<tr>
-										<th class="product-col">{{ __('Produit') }}</th>
-										<th class="price-col">Prix</th>
-										<th class="qty-col">Quantité</th>
-										<th>Total</th>
+										<th class="product-col">{{ __('commerce.product') }}</th>
+										<th class="price-col">Price</th>
+										<th class="qty-col">Qty</th>
+										<th>Subtotal</th>
 										<th>Action</th>
 
 									</tr>
@@ -97,7 +97,7 @@
 											},
 											success: function (response) {
 												//console.log(response)
-												window.location.reload();
+												xwindow.location.reload();
 											}
 										});
 									});
@@ -110,7 +110,7 @@
 										<td colspan="4" class="clearfix">
 											<div class="float-left">
 
-												<a href="/" class="btn btn-outline-secondary">Continuer vos achats</a>
+												<a href="/" class="btn btn-outline-secondary">Continue Shopping</a>
 
 
 
@@ -122,12 +122,22 @@
 							</table>
 						</div><!-- End .cart-table-container -->
 
-						
+						<div class="cart-discount">
+							<h4>Apply Discount Code</h4>
+							<form action="#">
+								<div class="input-group">
+									<input type="text" class="form-control form-control-sm" placeholder="Enter discount code"  required>
+									<div class="input-group-append">
+										<button class="btn btn-sm btn-primary" type="submit">Apply Discount</button>
+									</div>
+								</div><!-- End .input-group -->
+							</form>
+						</div><!-- End .cart-discount -->
 					</div><!-- End .col-lg-8 -->
 
 					<div class="col-lg-4">
 						<div class="cart-summary">
-							<h3>{{__('Total')}}</h3>
+							<h3>{{__('commerce.summury')}}</h3>
 
 							
 
@@ -144,7 +154,8 @@
 							</table>
 
 							<div class="checkout-methods">
-								<a href=" {{route('checkout')}} " class="btn btn-block btn-sm btn-primary">Aller à la caisse</a>
+								<a href=" {{route('checkout')}} " class="btn btn-block btn-sm btn-primary">Go to Checkout</a>
+								<a href="#" class="btn btn-link btn-block">Check Out with Multiple Addresses</a>
 							</div><!-- End .checkout-methods -->
 						</div><!-- End .cart-summary -->
 					</div><!-- End .col-lg-4 -->
