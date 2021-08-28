@@ -135,7 +135,11 @@
 
 								<script>
 									function alert(){
-								swal('Ordered Successfully','',"success");
+											swal('Ordered Placed Successfully','',"success");
+
+											window.setTimeout(function(){
+												window.location = "{{route('home')}} ";
+											},3000);
 
 									}
 								</script>

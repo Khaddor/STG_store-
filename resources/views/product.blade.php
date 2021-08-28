@@ -117,7 +117,17 @@
 								'product_quantity' : product_quantity
 							},
 							success : function(response){
+								if(response.check == 0){
+								//window.location.reload();
 								swal(response.status,'',"success");
+
+
+								window.setTimeout(function(){
+									window.location = " {{route('home')}} ";
+								},2000);
+							}else{
+								swal(response.status,'',"error");
+							}
 
 							}
 

@@ -49,11 +49,13 @@ class orderController extends Controller
                         
                     ]);
                     //return redirect()->back()->with('success', 'Produit ajouté au panier avec succès!');
-                return response()->json(['status' => 'Produit Ajouté avec succés']);
+                    return response()->json(['status' => 'Produit Ajouté avec succés',
+                                                'check' => '0']);
                 
             }else{
                 //return redirect()->back()->with('inCart', 'Produit déjà dans le panier');
-                return response()->json(['status' => 'Produit Déjà au Panier']);
+                return response()->json(['status' => 'Produit Déjà au Panier',
+                                                'check' => '1']);
 
             }
  
