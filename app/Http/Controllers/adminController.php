@@ -45,8 +45,42 @@ class adminController extends Controller
     }
 
     public function orders_index(){
+       
        $orders = confirmedOrder::orderBy('created_at', 'desc')->paginate(5);
-       return view('admin.orders')->with('orders' , $orders);
+       return view('admin.orders')->with(['orders' => $orders]);
+    }
+
+    public function filtre_orders(Request $req){
+
+
+            $selOrders = $req->selectedOrders;
+            $searchName = $req->searchName;
+
+        if(!empty($searchName)){
+            if($selOrders == 0){
+                $orders = confirmedOrder::where('user_firstname','like','%'.$searchName.'%')
+                                ->orWhere('user_address','like','%'.$searchName.'%')
+                                ->orderBy('created_at', 'desc')->paginate(5);
+            }else{
+                $orders = confirmedOrder::where('status_id',$selOrders)
+                               ->Where('user_firstname','like','%'.$searchName.'%')
+                                ->orWhere('user_address','like','%'.$searchName.'%')
+                                               // ->orderBy('created_at', 'desc')
+                                                ->paginate(5);
+            }
+        }else{
+            if($selOrders == 0){
+                $orders = confirmedOrder::orderBy('created_at', 'desc')->paginate(5);
+            }else{
+                $orders = confirmedOrder::where('status_id',$selOrders)
+                                                ->orderBy('created_at', 'desc')
+                                                ->paginate(5);
+            }
+        }
+            
+       return view('admin.orders')->with(['orders' => $orders,
+                                                'selOrders' => $selOrders]);
+            
     }
 
     public function add_product_index(){

@@ -5,7 +5,7 @@
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <link rel="icon" type="image/x-icon" href="{{asset('assets/images/icons/faviicon.ico')}}">
-
+ <<meta name="csrf-token" content="{{ csrf_token() }}">
  <!-- CoreUI CSS -->
  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery.perfect-scrollbar/1.5.0/css/perfect-scrollbar.min.css" integrity="sha512-n+g8P11K/4RFlXnx2/RW1EZK25iYgolW6Qn7I0F96KxJibwATH3OoVCQPh/hzlc4dWAwplglKX8IVNVMWUUdsw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
@@ -132,7 +132,6 @@
 <script src=" {{asset('assets/js/coreui.min.js')}} "></script>
  </body>
 </html>
-
 
 <!-- Plugins JS File -->
 <script src="{{asset('assets/js/jquery.min.js')}}"></script>

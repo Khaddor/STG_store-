@@ -236,6 +236,7 @@
 							}
 						});
 
+					
 						$.ajax({
 							method : "POST",
 							url : "{{route('addToCart')}} ",
