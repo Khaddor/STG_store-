@@ -180,7 +180,7 @@
                     </div>
                     <div class="col company-details">
                         <h2 class="name">
-                            <a target="_blank" href="https://lobianijs.com">
+                            <a target="_blank" href="#">
                             STG 
                             </a>
                         </h2>
@@ -231,9 +231,9 @@
                 
                 
             </main>
-            <div class="thanks">Thank you!</div><br>
+            <div class="thanks">Merci pour votre confiance!</div><br>
             <footer>
-                Lorem ipsum dolor sit amet. 
+                © Copyright 2021 - STG Maroc -
             </footer>
         </div>
         <!--DO NOT DELETE THIS div. IT is responsible for showing footer always at the bottom-->

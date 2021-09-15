@@ -115,8 +115,9 @@
             </tbody>
         </table>
    </div>
-
+   <br><br><br>
 </div>
+<div style="height: 60px" ></div>
 
 <script>
     const chart = new Chartisan({
