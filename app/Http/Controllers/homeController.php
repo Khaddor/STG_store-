@@ -23,7 +23,8 @@ class homeController extends Controller
             return view('home',[
             'products' => $products,
             'categories' => category::all(),
-            'featured' => $featured
+            'featured' => $featured,
+            'color' => 'black'
         ]);
     }
 

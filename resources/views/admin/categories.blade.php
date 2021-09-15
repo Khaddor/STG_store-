@@ -2,6 +2,9 @@
 
 
 @section('content')
+
+
+<div class="container bg-white p-5">
         <div class="col-lg-11 order-lg-last dashboard-content ml-5">
             <h2>Categories</h2>
             @if (Session::has('success'))
@@ -54,5 +57,5 @@
          
                 </table>
             </div>
-
+</div>
 @endsection

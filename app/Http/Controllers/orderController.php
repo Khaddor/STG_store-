@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class orderController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
+
     public function index(){
         
         $id = Auth::user()->id;
@@ -34,24 +42,29 @@ class orderController extends Controller
     public function store(Request $req){
 
     // $product = product::where('id',$req->product_id)->get();
-    $product = product::where('id' , $req->id)->first();
+    $id = $req->input('product_id');
+    $product = product::where('id' , $id)->first();
+
     $condition = ['product_id' => $product->id,
                     'user_id'=> auth()->user()->id];
-                  
-
-             if(!order::where($condition)->exists()){
+    $order = order::where($condition);
+             if(!$order->exists()){
                     order::create([
                         'user_id' => Auth::user()->id,
                         'product_id' => $product->id,
                         'price' => $product->price,
-                        'quantity' => $req->quantity,
+                        'quantity' => $req->input('product_quantity'),
                         
                     ]);
-                    return redirect()->back()->with('success', 'Produit ajouté au panier avec succès!');
-                
+                    //return redirect()->back()->with('success', 'Produit ajouté au panier avec succès!');
+                    return response()->json(['status' => 'Produit Ajouté avec succés',
+                                                'check' => '0']);
                 
             }else{
-                return redirect()->back()->with('inCart', 'Produit déjà dans le panier');
+                //return redirect()->back()->with('inCart', 'Produit déjà dans le panier');
+                return response()->json(['status' => 'Produit Déjà au Panier',
+                                                'check' => '1']);
+
             }
  
     }

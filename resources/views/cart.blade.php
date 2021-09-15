@@ -47,16 +47,17 @@
 												<a href="product/{{$order->product->id}}"> {{$order->product->name}} </a>
 											</h2>
 										</td>
-										<td> {{$order->product->price}} </td>
+										<td> {{$order->product->price}} DH</td>
 										<td>
-											<input class="vertical-quantity form-control update-cart quantity" type="integer" name="quantity"  id="quantity" value=" {{$order->quantity}} " >
+											<input  type="hidden" name="quantity" value=" {{$order->quantity}} " >
+											<p class="mt-1"> x {{$order->quantity}} </p>
+
 										</td>
-										<td>{{$order->quantity  *  $order->product->price}}</td>
+										<td>{{$order->quantity  *  $order->product->price}} DH</td>
 										<td>
 											<form action="/layout/{{$order->id}}" method="post">
 													@csrf
-													<button type="submit" class="btn btn-danger btn-sm mt-4 "><i class="fa fa-trash fa-md"></i></button></td>
-
+													<button type="submit" class="btn btn-danger btn-sm mt-4 p-4	"><i class="fa fa-trash fa-md"></i></button></td>
 											</form>
 											
 										</td>
@@ -123,12 +124,12 @@
 						</div><!-- End .cart-table-container -->
 
 						<div class="cart-discount">
-							<h4>Apply Discount Code</h4>
+							<h4>Code coupon</h4>
 							<form action="#">
 								<div class="input-group">
-									<input type="text" class="form-control form-control-sm" placeholder="Enter discount code"  required>
+									<input type="text" class="form-control form-control-sm" placeholder="Tapez code coupon"  required>
 									<div class="input-group-append">
-										<button class="btn btn-sm btn-primary" type="submit">Apply Discount</button>
+										<button class="btn btn-sm btn-primary" type="submit">Appliquer</button>
 									</div>
 								</div><!-- End .input-group -->
 							</form>
@@ -137,7 +138,7 @@
 
 					<div class="col-lg-4">
 						<div class="cart-summary">
-							<h3>{{__('commerce.summury')}}</h3>
+							<h3>Resumé</h3>
 
 							
 
@@ -155,7 +156,6 @@
 
 							<div class="checkout-methods">
 								<a href=" {{route('checkout')}} " class="btn btn-block btn-sm btn-primary">Go to Checkout</a>
-								<a href="#" class="btn btn-link btn-block">Check Out with Multiple Addresses</a>
 							</div><!-- End .checkout-methods -->
 						</div><!-- End .cart-summary -->
 					</div><!-- End .col-lg-4 -->

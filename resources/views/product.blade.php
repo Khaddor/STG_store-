@@ -1,7 +1,8 @@
 @extends('layouts.layout')
 
 @section('content')
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 		<main class="main">
 			<div class="container">
 				<nav aria-label="breadcrumb" class="breadcrumb-nav">
@@ -49,7 +50,7 @@
 							</div>
 						</div><!-- End .product-single-gallery -->
 
-						<div class="col-md-7 product-single-details">
+						<div class="col-md-7 product-single-details product_data">
 							<h1 class="product-title">{{$product->name}}</h1>
 
 							<div class="ratings-container">
@@ -63,7 +64,7 @@
 							<hr class="short-divider">
 
 							<div class="price-box">
-								<span class="product-price">DH {{$product->price}} </span>
+								<span class="product-price"> {{$product->price}} DH </span>
 							</div><!-- End .price-box -->
 
 							<div class="product-desc">
@@ -79,22 +80,20 @@
 							<div class="product-action">
 								
 
-							@if ($product->inStock > 0)
-								<form action=" {{route('addToCart')}} " method="POST">
-									@csrf
+					@if ($product->inStock > 0)
 									<div class="product-single-qty">
-										<input type="hidden" name="id" value=" {{$product->id}} ">
-										<input class="horizontal-quantity form-control" type="text" name="quantity">
+										<input type="hidden" name="id" value=" {{$product->id}} " class="product_id">
+										<input class="horizontal-quantity form-control quantity" type="text" name="quantity">
 									</div><!-- End .product-single-qty -->
 									<div class="btn-icon-group">
 										<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Ajouter au panier</button>
 									</div>
-							</form>
-							@else
-								<h3 class="text-danger">Stock Epuisé</h3>
-							@endif	
-								
-								
+									@else
+										<h3 class="text-danger">Stock Epuisé</h3>
+					@endif	
+										
+				
+									
 							</div><!-- End .product-action -->
 
 							<hr class="divider mb-1">
@@ -120,177 +119,18 @@
 						<li class="nav-item">
 							<a class="nav-link active" id="product-tab-desc" data-toggle="tab" href="#product-desc-content" role="tab" aria-controls="product-desc-content" aria-selected="true">Description</a>
 						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="product-tab-more-info" data-toggle="tab" href="#product-more-info-content" role="tab" aria-controls="product-more-info-content" aria-selected="false">More Info</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="product-tab-tags" data-toggle="tab" href="#product-tags-content" role="tab" aria-controls="product-tags-content" aria-selected="false">Tags</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" id="product-tab-reviews" data-toggle="tab" href="#product-reviews-content" role="tab" aria-controls="product-reviews-content" aria-selected="false">Reviews (3)</a>
-						</li>
 					</ul>
 					<div class="tab-content">
 						<div class="tab-pane fade show active" id="product-desc-content" role="tabpanel" aria-labelledby="product-tab-desc">
 							<div class="product-desc-content">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>
-								<ul>
-									<li><i class="fa fa-check-circle"></i>Any Product types that You want - Simple, Configurable</li>
-									<li><i class="fa fa-check-circle"></i>Downloadable/Digital Products, Virtual Products</li>
-									<li><i class="fa fa-check-circle"></i>Inventory Management with Backordered items</li>
-								</ul>
-								<p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, <br>quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+									<p> {{ $product->description}} </p>								
 							</div><!-- End .product-desc-content -->
 						</div><!-- End .tab-pane -->
 
-						<div class="tab-pane fade fade" id="product-more-info-content" role="tabpanel" aria-labelledby="product-tab-more-info">
-							<div class="product-desc-content">
-								<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat.</p>
-							</div><!-- End .product-desc-content -->
-						</div><!-- End .tab-pane -->
+						
 
-						<div class="tab-pane fade" id="product-tags-content" role="tabpanel" aria-labelledby="product-tab-tags">
-							<div class="product-tags-content">
-								<form action="#">
-									<h4>Add Your Tags:</h4>
-									<div class="form-group">
-										<input type="text" class="form-control form-control-sm" required>
-										<input type="submit" class="btn btn-dark" value="Add Tags">
-									</div><!-- End .form-group -->
-								</form>
-								<p class="note">Use spaces to separate tags. Use single quotes (') for phrases.</p>
-							</div><!-- End .product-tags-content -->
-						</div><!-- End .tab-pane -->
-
-						<div class="tab-pane fade" id="product-reviews-content" role="tabpanel" aria-labelledby="product-tab-reviews">
-							<div class="product-reviews-content">
-								<div class="row">
-									<div class="col-xl-7">
-										<h2 class="reviews-title">3 reviews for Product Long Name</h2>
-
-										<ol class="comment-list">
-											<li class="comment-container">
-												<div class="comment-avatar">
-													<img src="{{asset('assets/images/avatar/avatar1.jpg')}}" width="65" height="65" alt="avatar"/>
-												</div><!-- End .comment-avatar-->
-
-												<div class="comment-box">
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:80%"></span><!-- End .ratings -->
-														</div><!-- End .product-ratings -->
-													</div><!-- End .ratings-container -->
-
-													<div class="comment-info mb-1">
-														<h4 class="avatar-name">John Doe</h4> - <span class="comment-date">Novemeber 15, 2019</span>
-													</div><!-- End .comment-info -->
-
-													<div class="comment-text">
-														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-													</div><!-- End .comment-text -->
-												</div><!-- End .comment-box -->
-											</li><!-- comment-container -->
-
-											<li class="comment-container">
-												<div class="comment-avatar">
-													<img src="{{asset('assets/images/avatar/avatar2.jpg')}}" width="65" height="65" alt="avatar"/>
-												</div><!-- End .comment-avatar-->
-
-												<div class="comment-box">
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:80%"></span><!-- End .ratings -->
-														</div><!-- End .product-ratings -->
-													</div><!-- End .ratings-container -->
-
-													<div class="comment-info mb-1">
-														<h4 class="avatar-name">John Doe</h4> - <span class="comment-date">Novemeber 15, 2019</span>
-													</div><!-- End .comment-info -->
-
-													<div class="comment-text">
-														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-													</div><!-- End .comment-text -->
-												</div><!-- End .comment-box -->
-											</li><!-- comment-container -->
-												
-											<li class="comment-container">
-												<div class="comment-avatar">
-													<img src="{{asset('assets/images/avatar/avatar3.jpg')}}" width="65" height="65" alt="avatar"/>
-												</div><!-- End .comment-avatar-->
-
-												<div class="comment-box">
-													<div class="ratings-container">
-														<div class="product-ratings">
-															<span class="ratings" style="width:80%"></span><!-- End .ratings -->
-														</div><!-- End .product-ratings -->
-													</div><!-- End .ratings-container -->
-
-													<div class="comment-info mb-1">
-														<h4 class="avatar-name">John Doe</h4> - <span class="comment-date">Novemeber 15, 2019</span>
-													</div><!-- End .comment-info -->
-
-													<div class="comment-text">
-														<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.</p>
-													</div><!-- End .comment-text -->
-												</div><!-- End .comment-box -->
-											</li><!-- comment-container -->
-										</ol><!-- End .comment-list -->
-									</div>
-
-									<div class="col-xl-5">
-										<div class="add-product-review">
-											<form action="#" class="comment-form m-0">
-												<h3 class="review-title">Add a Review</h3>
-
-												<div class="rating-form">
-													<label for="rating">Your rating</label>
-													<span class="rating-stars">
-														<a class="star-1" href="#">1</a>
-														<a class="star-2" href="#">2</a>
-														<a class="star-3" href="#">3</a>
-														<a class="star-4" href="#">4</a>
-														<a class="star-5" href="#">5</a>
-													</span>
-
-													<select name="rating" id="rating" required="" style="display: none;">
-														<option value="">Rate…</option>
-														<option value="5">Perfect</option>
-														<option value="4">Good</option>
-														<option value="3">Average</option>
-														<option value="2">Not that bad</option>
-														<option value="1">Very poor</option>
-													</select>
-												</div>
-
-												<div class="form-group">
-													<label>Your Review</label>
-													<textarea cols="5" rows="6" class="form-control form-control-sm"></textarea>
-												</div><!-- End .form-group -->
-
-
-												<div class="row">
-													<div class="col-md-6 col-xl-12">
-														<div class="form-group">
-															<label>Your Name</label>
-															<input type="text" class="form-control form-control-sm" required>
-														</div><!-- End .form-group -->
-													</div>
-
-													<div class="col-md-6 col-xl-12">
-														<div class="form-group">
-															<label>Your E-mail</label>
-															<input type="text" class="form-control form-control-sm" required>
-														</div><!-- End .form-group -->
-													</div>
-												</div>
-
-												<input type="submit" class="btn btn-dark ls-n-15" value="Submit">
-											</form>
-										</div><!-- End .add-product-review -->
-									</div>
-								</div>
-							</div><!-- End .product-reviews-content -->
-						</div><!-- End .tab-pane -->
+					
+					
 					</div><!-- End .tab-content -->
 				</div><!-- End .product-single-tabs -->
 
@@ -300,7 +140,7 @@
 					<div class="products-slider owl-carousel owl-theme dots-top">
 @foreach ($related_products as $related_product)
 
-						<div class="product-default inner-quickview inner-icon">
+						<div class="product-default inner-quickview inner-icon product_data">
 							<figure>
 	
 								<!-----------img-------------->
@@ -309,17 +149,17 @@
 								</a>
 										
 								
-								<form action="/cart/{{$related_product->id}}" method="POST">
-										@csrf
+								
 										<div class="btn-icon-group">
-											<input type="hidden" name="quantity" value="1">
+											<input type="hidden" name="id" value=" {{$product->id}} " class="product_id">
+											<input class="product_quantity" type="hidden" name="quantity">
+
 												@if ($related_product->inStock > 0)
-													<button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>		
+													<button class="btn-icon btn-add-cart addToCartBtn"  type="submit" ><i class="icon-shopping-cart"></i></button>		
 												@else		
 														<span class="product-label label-sale ">Stock Épuisé</span>
 												@endif
 										</div>
-									</form>
 							</figure>
 							<div class="product-details">
 								<div class="category-wrap">
@@ -339,12 +179,15 @@
 									</div><!-- End .product-ratings -->
 								</div><!-- End .ratings-container -->
 								<div class="price-box">
-									<span class="old-price">DH {{$related_product->reduction}}</span>
-									<span class="product-price">DH {{$related_product->price}}</span>
+									<span class="old-price">59.00 DH</span>
+									<span class="product-price"> {{$related_product->price}} DH</span>
 								</div><!-- End .price-box -->
 							</div><!-- End .product-details -->
 						</div>
 @endforeach		
+
+
+
 			
 						
 				
