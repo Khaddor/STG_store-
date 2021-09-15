@@ -2,7 +2,8 @@
 
 
 @section('content')
-	
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 <style type="text/css">
 	
 .price-range-slider {
@@ -53,7 +54,7 @@
 
 		<main class="main">
 
-			<div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
+			<div class="row stg-section-content stg-x1bleu-content" style="background-color:black;">
                     
                     <div class="col-lg-6 col-md-12 heading-item x1bleu-desc s30-home-desc">
                         <div class="inner-heading"style="margin-top: 150px">
@@ -67,7 +68,7 @@
                             </div>
                           <h2 align="center" style="font-weight: 500;background: repeating-linear-gradient(91deg, #0c2b47 0%,#0de394 100%);font-size: 4.5rem;-webkit-text-fill-color: transparent;-webkit-background-clip: text;">Never Lose Sight </h2>
                             <p align="center" style="color: white">Triplez votre expérience</p>
-                            <a href="http://127.0.0.1:8000/product/4" style="margin-left: 238px;" class="btn btn-dark btn-outline btn-xl">Achetez &nbsp maintenant</a>
+                            <a href="http://127.0.0.1:8000/product/4" style="margin-left: 200px;" class="btn btn-dark btn-outline btn-xl">Achetez &nbsp maintenant</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 img-item x1bleu-img s30-home-img">
@@ -162,7 +163,7 @@
 							
 						
 			<div class="col-6 col-sm-4">
-				<div class="product-default inner-quickview inner-icon">
+				<div class="product-default inner-quickview inner-icon product_data">
 					<figure>
 
 						<!-----------img-------------->
@@ -172,23 +173,20 @@
 						
 
 					<!----------------ADD-TO-CART-BTN---------------------->
-				<form action=" {{route('addToCart')}} " method="POST">
-						@csrf
-						<div class="btn-icon-group">
-							<input type="hidden" name="id" value="{{$product->id}} ">
+			
+						<div class="btn-icon-group ">
+							<input type="hidden" name="id" value="{{$product->id}} " class="product_id">
 
 											@if ($product->inStock > 0)
-												<button class="btn-icon btn-add-cart"  type="submit" id="add" ><i class="icon-shopping-cart"></i>
+												<button class="btn-icon btn-add-cart addToCartBtn"  id="add" ><i class="icon-shopping-cart"></i>
 												</button>	
-												<input type="hidden" value="1" name="quantity">
+												<input type="hidden" value="1" name="quantity" class="quantity">
 											@else 
 												<span class="product-label label-sale ">Stock Épuisé</span>
 											@endif
 										</div>
-									</form>
 											
 
-							
 
 
 						<!-- <a href="ajax/product-quick-view.html" class="btn-quickview" title="Quick View">Quick View</a>  -->
@@ -220,6 +218,9 @@
 			</div><!-- End .col-sm-4 -->
 
 @endforeach
+
+
+
 
 						</div><!-- End .row -->
 <hr>
@@ -320,7 +321,6 @@
 
 			<div class="mb-3"></div><!-- margin -->
 		</main><!-- End .main -->
-
 
 
 @endsection

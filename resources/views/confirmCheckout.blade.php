@@ -1,6 +1,7 @@
 @extends('layouts.layout')
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
 <main class="main">
 			<nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
@@ -24,9 +25,9 @@
 				<div class="row">
 					<div class="col-lg-4">
 						<div class="order-summary">
-							<h3>Total</h3>
+							<h3>Resumé</h3>
 							<h4>
-								<a data-toggle="collapse" href="#order-cart-section" class="collapsed" role="button" aria-expanded="false" aria-controls="order-cart-section">{{$orders->count()}} produit(s) en Cart</a>
+								<a data-toggle="collapse" href="#order-cart-section" class="collapsed" role="button" aria-expanded="false" aria-controls="order-cart-section">{{$orders->count()}} Produit(s) au panier</a>
 							</h4>
 
 							<div class="collapse" id="order-cart-section">
@@ -93,7 +94,7 @@
 
 					<div class="col-lg-8 order-lg-first">
 						<div class="checkout-payment">
-							<h2 class="step-title">Verifiez vos informations :</h2>
+							<h2 class="step-title">Verifier Informations :</h2>
 
 							
 							@if (Session::has('success'))
@@ -128,20 +129,28 @@
 								<input type="hidden" name="phone" value="{{$req->phone ?? ""}}" >
 							
 								<div class="clearfix">
-									<button class="btn btn-primary float-right" onclick="test()" type="submit"> Passer la commande</button>	
-								<script type="text/javascript">
-									function test(){
-										alert("Merci pour votre commande!");
-									}
-								</script>
-									
-
+									<button class="btn btn-primary float-right" type="submit" onclick="alert()"> Passer la Commande</button>	
 								</div><!-- End .clearfix -->
 
+								<script>
+									function alert(){
+											swal('Ordered Placed Successfully','',"success");
+
+											window.setTimeout(function(){
+												window.location = "{{route('home')}} ";
+											},5000);
+
+									}
+								</script>
 							</form>
 
 						</div><!-- End .checkout-payment -->
-					
+						<div class="checkout-discount">
+							<h4>
+							</h4>
+
+							
+						</div><!-- End .checkout-discount -->
 					</div><!-- End .col-lg-8 -->
 				</div><!-- End .row -->
 			</div><!-- End .container -->
