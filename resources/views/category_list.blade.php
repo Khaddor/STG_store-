@@ -75,19 +75,18 @@
 							</div><!-- End .price-box -->
 
 
-					<form action=" {{route('addToCart')}} " method="POST">
-						@csrf
-							<div class="product-action">
+							<div class="product-action product_data">
 
-								<input type="hidden" name="id" value="{{$product->id}} ">
+								
+								<input type="hidden"   class="product_id" name="id" value="{{$product->id}} ">
+								<input type="hidden"   class="quantity" name="id" value="1">
 							@if ($product->inStock > 0)
-								<button class="btn-icon btn-add-cart"  type="submit"><i class="icon-shopping-cart"></i>ADD TO CART</button>
+								<button class="btn-icon btn-add-cart addToCartBtn"  ><i class="icon-shopping-cart"></i>ADD TO CART</button>
 							@else 
 								<span class="product-label label-sale ">Stock Épuisé</span>
 							@endif
 							
 							</div>
-					</form>
 						</div><!-- End .product-details -->
 					</div>
 	@endforeach
@@ -150,7 +149,7 @@
 															</div><!-- End .product-ratings -->
 														</div><!-- End .product-container -->
 														<div class="price-box">
-															<span class="product-price">$ {{$product->price}} </span>
+															<span class="product-price">{{$product->price}}  DH</span>
 														</div><!-- End .price-box -->
 													</div><!-- End .product-details -->
 												</div>

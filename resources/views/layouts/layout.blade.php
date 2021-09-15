@@ -18,9 +18,6 @@ use App\Controllers\cartController;
 	<title>STG Maroc </title>
 
 
-	<meta name="keywords" content="HTML5 Template" />
-	<meta name="description" content="Porto - Bootstrap eCommerce Template">
-	<meta name="author" content="SW-THEMES">
 		
 	<!-- Favicon -->
 	<link rel="icon" type="image/x-icon" href="{{asset('assets/images/icons/faviicon.ico')}}">
@@ -94,8 +91,8 @@ use App\Controllers\cartController;
 		
 			<!--HEADER ---->
         <header class="header " >
-			<div class="header-top">
-				<div class="container">
+			<div class="header-top " >
+				<div class="container ">
 					<div class="header-left d-none d-sm-block " >
 						<h6 class="telephone mb-0">APPELEZ-NOUS (123) 456 7890</h6>
 
@@ -103,7 +100,7 @@ use App\Controllers\cartController;
 
 					<div class="header-right w-sm-100">
 						<div class="header-dropdown dropdown-expanded mr-auto mr-sm-3">
-							<a href="#">Links</a> 
+							<a href="#">Autres</a> 
 							<div class="header-menu">
 								<ul>
 									@guest
@@ -142,7 +139,7 @@ use App\Controllers\cartController;
 				</div><!-- End .container -->
 			</div><!-- End .header-top -->
 
-			<div class="header-mobile-merge">
+			<div class="header-mobile-merge ">
 				<div class="header-middle header-align-center">
 					<div class="container">
 						<div class="header-left d-none d-lg-block">
@@ -164,18 +161,17 @@ use App\Controllers\cartController;
 						</div><!-- End .header-left -->
 
 						<div class="header-center">
-							<button class="mobile-menu-toggler d-lg-none mr-1 mr-md-3" type="button">
+							<!--<button class="mobile-menu-toggler d-lg-none mr-1 mr-md-3" type="button">
 								<i class="icon-menu"></i>
-							</button>
+							</button>-->
 
 
 							<a href="/" class="llogo">
 								<img src="{{asset('assets/images/logo.png')}}" height="100" width="100" alt="stg Logo">
 
-							<!-- <a href="/" class="logo">
-								<img src="{{asset('assets/images/logo.png')}}" alt="Porto Logo">
+						
 
-							</a> -->
+							</a> 
 						</div><!-- End .headeer-center -->
 
 						<div class="header-right">
@@ -319,46 +315,27 @@ use App\Controllers\cartController;
             @yield('content')
 
 
-<footer class="footer font2" style="
-    background-color: black;
-">
-			<div class="container" style="
-    /* color: white; */
-">
-				<div class="footer-middle" style="
-    margin-left: 10px;
-">
-    	<img src="http://127.0.0.1:8000/assets/images/icons/favicon.ico" height="100" width="100" alt="Logo" style="
-    margin-left: 550px;
-">
+<footer class="footer font2" style="background-color: black;">
+			<div class="container" style="/* color: white; */">
+				<div class="footer-middle" style="margin-left: 10px;">
+    				<img src="http://127.0.0.1:8000/assets/images/icons/favicon.ico" height="100" width="100" alt="Logo" style="margin-left: 550px;">
 					<div class="row" style="margin-left: 10px!important;">
-    
 						<div style="color: white!important;" class="col-lg-2 m-b-5">
-							
+							<div class="widget widget-block">
+								<div class="widget">
+									<h4 class="widget-title" style="color: white;">Points de vente</h4>
 
-							
-<div class="widget widget-block">
-    <div class="widget">
-								<h4 class="widget-title" style="color: white;">Points de vente</h4>
-
-								<ul class="links">
-									<li><a href="/marjane">Marjane</a></li>
-									<li><a href="/orange">Orange</a></li>
-									<li><a href="/electroplanet">Electroplanet</a></li>
-									<li><a href="https://www.jumia.ma/stg/">Jumia</a></li>
-									<li><a href="https://inwi.ma/">Inwi</a></li>
-								</ul>
+									<ul class="links">
+										<li><a href="/marjane">Marjane</a></li>
+										<li><a href="/orange">Orange</a></li>
+										<li><a href="/electroplanet">Electroplanet</a></li>
+										<li><a href="https://www.jumia.ma/stg/">Jumia</a></li>
+										<li><a href="https://inwi.ma/">Inwi</a></li>
+									</ul>
+								</div>	
 							</div>
-								
-							
-							</div>
-
-							
-
 							<div class="row ls-0">
-								
 								<div class="col-sm-6">
-									
 								</div>
 							</div>
 						</div><!-- End .col-lg-5 -->
@@ -376,7 +353,7 @@ use App\Controllers\cartController;
 							</div><!-- End .widget -->
 						</div>
 							<div class="col-lg-3 col-sm-4 m-b-4" style="color: white!important;">
-             		       <div class="widget" style="padding-left: 25px;">
+             		       <div class="widget" >
                         <h4 class="widget-title" style="color: white;">Contactez nous </h4>
                         <ul class="contact-info">
                             <li>
@@ -441,102 +418,7 @@ use App\Controllers\cartController;
 <div class="mobile-menu-container">
     <div class="mobile-menu-wrapper">
         <span class="mobile-menu-close"><i class="icon-cancel"></i></span>
-        <nav class="mobile-nav">
-            <ul class="mobile-menu mb-3 border-0">
-                
-                <!-- <li>
-                    <a href="#">ENG</a>
-                    <ul>
-                        <li><a href="#">ENG</a></li>
-                        <li><a href="#">FRE</a></li>
-                    </ul>
-                </li> -->
-            </ul>
-            <ul class="mobile-menu">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li>
-                    <a href="category.html">Catégories</a>
-                    <ul>
-                        <li><a href="category-banner-full-width.html">Full Width Banner</a></li>
-                        <li><a href="category-banner-boxed-slider.html">Boxed Slider Banner</a></li>
-                        <li><a href="category-banner-boxed-image.html">Boxed Image Banner</a></li>
-                        <li><a href="category-sidebar-left.html">Left Sidebar</a></li>
-                        <li><a href="category-sidebar-right.html">Right Sidebar</a></li>
-                        <li><a href="category-flex-grid.html">Product Flex Grid</a></li>
-                        <li><a href="category-horizontal-filter1.html">Horizontal Filter 1</a></li>
-                        <li><a href="category-horizontal-filter2.html">Horizontal Filter 2</a></li>
-                        <li><a href="#">List Types</a></li>
-                        <li><a href="category-infinite-scroll.html">Ajax Infinite Scroll<span class="tip tip-new">New</span></a></li>
-                        <li><a href="category.html">3 Columns Products</a></li>
-                        <li><a href="category-4col.html">4 Columns Products</a></li>
-                        <li><a href="category-5col.html">5 Columns Products</a></li>
-                        <li><a href="category-6col.html">6 Columns Products</a></li>
-                        <li><a href="category-7col.html">7 Columns Products</a></li>
-                        <li><a href="category-8col.html">8 Columns Products</a></li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="product.html">Products</a>
-                    <ul>
-                        <li>
-                            <a href="#">Variations</a>
-                            <ul>
-                                <li><a href="product.html">Horizontal Thumbs</a></li>
-                                <li><a href="product-full-width.html">Vertical Thumbnails<span class="tip tip-hot">Hot!</span></a></li>
-                                <li><a href="product.html">Inner Zoom</a></li>
-                                <li><a href="product-addcart-sticky.html">Addtocart Sticky</a></li>
-                                <li><a href="product-sidebar-left.html">Accordion Tabs</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Variations</a>
-                            <ul>
-                                <li><a href="product-sticky-tab.html">Sticky Tabs</a></li>
-                                <li><a href="product-simple.html">Simple Product</a></li>
-                                <li><a href="product-sidebar-left.html">With Left Sidebar</a></li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="#">Product Layout Types</a>
-                            <ul>
-                                <li><a href="product.html">Default Layout</a></li>
-                                <li><a href="product-extended-layout.html">Extended Layout</a></li>
-                                <li><a href="product-full-width.html">Full Width Layout</a></li>
-                                <li><a href="product-grid-layout.html">Grid Images Layout</a></li>
-                                <li><a href="product-sticky-both.html">Sticky Both Side Info<span class="tip tip-hot">Hot!</span></a></li>
-                                <li><a href="product-sticky-info.html">Sticky Right Side Info</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">Pages<span class="tip tip-hot">Hot!</span></a>
-                    <ul>
-                        <li><a href="cart">Shopping Cart</a></li>
-                        <li>
-                            <a href="#">Checkout</a>
-                            <ul>
-                                <li><a href="checkout-shipping.html">Checkout Shipping</a></li>
-                                <li><a href="checkout-shipping-2.html">Checkout Shipping 2</a></li>
-                                <li><a href="checkout-review.html">Checkout Review</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="about">About</a></li>
-                        <li><a href="#" class="login-link">Login</a></li>
-                        <li><a href="forgot-password.html">Forgot Password</a></li>
-                    </ul>
-                </li>
-                <li><a href="blog.html">Blog</a>
-                    <ul>
-                        <li><a href="single.html">Blog Post</a></li>
-                    </ul>
-                </li>
-                <li><a href="contact.html">Contact Us</a></li>
-                <li><a href="#">Special Offer!<span class="tip tip-hot">Hot!</span></a></li>
-                <li><a href="https://1.envato.market/DdLk5" target="_blank">Buy Porto!</a></li>
-            </ul>
-        </nav><!-- End .mobile-nav -->
-
+        
         <div class="social-icons">
             <a href="https://www.facebook.com/STGTelecomOfficiel/" class="social-icon" target="_blank"><i class="icon-facebook"></i></a>
             <a href="https://twitter.com/stgtelecom" class="social-icon" target="_blank"><i class="icon-twitter"></i></a>
@@ -545,28 +427,7 @@ use App\Controllers\cartController;
     </div><!-- End .mobile-menu-wrapper -->
 </div><!-- End .mobile-menu-container -->
 
-<!-------------NEWSLETTER-POPUP---------------------
-		<div class="newsletter-popup mfp-hide" id="newsletter-popup-form" style="background: #f1f1f1 no-repeat center/cover url(assets/images/newsletter_popup_bg.jpg)">
-			<div class="newsletter-popup-content">
-				<img src="assets/images/logo-black.png" alt="Logo" class="logo-newsletter">
-				<h2>BE THE FIRST TO KNOW</h2>
-				<p>Subscribe to the Porto eCommerce newsletter to receive timely updates from your favorite products.</p>
-				<form action="#">
-					<div class="input-group">
-						<input type="email" class="form-control" id="newsletter-email" name="newsletter-email" placeholder="Email address" required>
-						<input type="submit" class="btn" value="Go!">
-					</div><!- End .from-group 
-				</form>
-				<div class="newsletter-subscribe">
-					<div class="checkbox">
-						<label>
-							<input type="checkbox" value="1">
-							Don't show this popup again
-						</label>
-					</div>
-				</div>
-			</div><! End .newsletter-popup-content -->
-		<!--</div><!- END .newsletter-popup -->
+
 
 <!-- Add Cart Modal -->
 <div class="modal fade" id="addCartModal" tabindex="-1" role="dialog" aria-labelledby="addCartModal" aria-hidden="true">
@@ -654,4 +515,69 @@ $(function() {
 	$( "#amount" ).val( "DH" + $( "#slider-range" ).slider( "values", 0 ) +
 	  "           -        DH" + $( "#slider-range" ).slider( "values", 1 ) );
 });
+
+
+
+
+
+
+
+
+
+
+
+$(document).ready(function(){
+
+$('.addToCartBtn').click(function(e){
+	e.preventDefault();
+	var product_id = $(this).closest('.product_data').find('.product_id').val();
+	var product_quantity = $(this).closest('.product_data').find('.quantity').val();
+
+	$.ajaxSetup({
+		headers: {
+			'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+		}
+	});
+	
+	var loggedIn = {{ auth()->check() ? 'true' : 'false' }};
+	if (loggedIn){
+		$.ajax({
+			method : "POST",
+			url : "{{route('addToCart')}} ",
+			data : {
+				'product_id' : product_id,
+				'product_quantity' : product_quantity
+			},
+			success : function(response){
+
+			if(response.check == 0){
+				//window.location.reload();
+				swal(response.status,'',"success");
+
+
+				window.setTimeout(function(){
+					window.location = " {{route('home')}} ";
+				},2000);
+			}else{
+				swal(response.status,'',"error");
+			}
+				
+
+			}
+
+		});
+}else{
+	window.location = "{{route('login')}} "
+}
+	
+
+});
+
+
+
+});
+
 </script>
+
+
+	

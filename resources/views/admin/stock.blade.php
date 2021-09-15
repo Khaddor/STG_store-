@@ -3,7 +3,7 @@
 
 @section('content')
     
-<div class="container">
+<div class="container bg-white p-5">
 
     @if (Session::has('success'))
         <div class="alert alert-success" role="alert">

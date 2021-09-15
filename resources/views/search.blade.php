@@ -8,43 +8,20 @@
         <nav class="toolbox">
             <div class="toolbox-left">
                 <div class="toolbox-item toolbox-sort">
-                    <label>Sort By:</label>
-
-                    <div class="select-custom">
-                        <select name="orderby" class="form-control">
-                            <option value="menu_order" selected="selected">Default sorting</option>
-                            <option value="popularity">Sort by popularity</option>
-                            <option value="rating">Sort by average rating</option>
-                            <option value="date">Sort by newness</option>
-                            <option value="price">Sort by price: low to high</option>
-                            <option value="price-desc">Sort by price: high to low</option>
-                        </select>
-                    </div><!-- End .select-custom -->
+                   
 
                     
                 </div><!-- End .toolbox-item -->
             </div><!-- End .toolbox-left -->
 
             <div class="toolbox-right" style="margin-right: 50px;">
-                <div class="toolbox-item toolbox-show">
-                    <label>Show:</label>
-
-                    <div class="select-custom">
-                        <select name="count" class="form-control">
-                            <option value="12">12</option>
-                            <option value="24">24</option>
-                            <option value="36">36</option>
-                        </select>
-                    </div><!-- End .select-custom -->
-                </div><!-- End .toolbox-item -->
+                
 
                 <div class="toolbox-item layout-modes">
-                    <a href="category.html" class="layout-btn btn-grid active" title="Grid">
+                    <a href="#" class="layout-btn btn-grid active" title="Grid">
                         <i class="icon-mode-grid"></i>
                     </a>
-                    <a href="category-list.html" class="layout-btn btn-list" title="List">
-                        <i class="icon-mode-list"></i>
-                    </a>
+                  
                 </div><!-- End .layout-modes -->
             </div><!-- End .toolbox-right -->
         </nav>
@@ -56,18 +33,16 @@
 
         
             <div class="col-5 col-sm-4" style="margin-right: 30px;">
-                <div class="product-default inner-quickview inner-icon">
+                <div class="product-default inner-quickview inner-icon product_data">
                     <figure>
                         <a href="/product/{{$product->id}} ">
                             <img src="{{asset('productsImages/'.$product->image)}}">
                         </a>
-                        
-                        <form action="/cart/{{$product->id}}" method="POST">
-                                        @csrf
+                                        <input type="hidden" class="quantity" value="1">
+                                        <input type="hidden" class="product_id" value=" {{$product->id}} ">
                                         <div class="btn-icon-group">
-                                            <button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>
+                                            <button class="btn-icon btn-add-cart addToCartBtn"   ><i class="icon-shopping-cart"></i></button>
                                         </div>
-                                    </form>
                     </figure>
                     <div class="product-details">
                         <div class="category-wrap">

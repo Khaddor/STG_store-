@@ -10,6 +10,14 @@ use Illuminate\Support\Facades\Auth;
 
 class orderController extends Controller
 {
+
+
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
+
     public function index(){
         
         $id = Auth::user()->id;

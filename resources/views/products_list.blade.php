@@ -1,7 +1,9 @@
 @extends('layouts.layout')
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
+
 <div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
                     
 	<div class="col-lg-6 col-md-12 heading-item x1bleu-desc s30-home-desc">
@@ -82,7 +84,7 @@
 
 							</a>
 						</figure>
-						<div class="product-details">
+						<div class="product-details product_data">
 							<div class="category-list">
 								<a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
 							</div>
@@ -101,13 +103,13 @@
 							</div><!-- End .price-box -->
 
 
-					<form action=" {{route('addToCart')}} " method="POST">
-						@csrf
 							<div class="product-action">
 
-								<input type="hidden" name="id" value="{{$product->id}} ">
+								<input type="hidden" name="id" class="product_id" value="{{$product->id}} ">
+								<input type="hidden" name="quantity" class="quantity" value="1">
+
 							@if ($product->inStock > 0)
-								<button class="btn-icon btn-add-cart"  type="submit"><i class="icon-shopping-cart"></i>ADD TO CART</button>
+								<button class="btn-icon btn-add-cart addToCartBtn"  type="submit"><i class="icon-shopping-cart"></i>ADD TO CART</button>
 							@else 
 								<span class="product-label label-sale ">Stock Épuisé</span>
 							@endif
@@ -176,7 +178,7 @@
 															</div><!-- End .product-ratings -->
 														</div><!-- End .product-container -->
 														<div class="price-box">
-															<span class="product-price">$ {{$product->price}} </span>
+															<span class="product-price"> {{$product->price}} DH </span>
 														</div><!-- End .price-box -->
 													</div><!-- End .product-details -->
 												</div>
@@ -201,5 +203,54 @@
 			<div class="mb-3"></div><!-- margin -->
 		</main><!-- End .main -->
 
+
+		<script>
+			$(document).ready(function(){
+
+				$('.addToCartBtn').click(function(e){
+					e.preventDefault();
+
+					var product_id = $(this).closest('.product_data').find('.product_id').val();
+					var product_quantity = $(this).closest('.product_data').find('.quantity').val();
+
+					$.ajaxSetup({
+						headers: {
+							'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+						}
+					});
+				
+					$.ajax({
+						method : "POST",
+						url : "{{route('addToCart')}} ",
+						data : {
+							'product_id' : product_id,
+							'product_quantity' : product_quantity
+						},
+						success : function(response){
+
+						if(response.check == 0){
+							//window.location.reload();
+							swal(response.status,'',"success");
+
+
+							window.setTimeout(function(){
+								window.location = " {{route('home')}} ";
+							},2000);
+						}else{
+							swal(response.status,'',"error");
+						}
+							
+
+						}
+
+					});
+
+				});
+
+
+
+			});
+
+		</script>
 
 @endsection

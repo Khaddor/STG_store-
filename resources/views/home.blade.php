@@ -54,7 +54,7 @@
 
 		<main class="main">
 
-			<div class="row stg-section-content stg-x1bleu-content" style="background-color: black">
+			<div class="row stg-section-content stg-x1bleu-content" style="background-color:black;">
                     
                     <div class="col-lg-6 col-md-12 heading-item x1bleu-desc s30-home-desc">
                         <div class="inner-heading"style="margin-top: 150px">
@@ -68,7 +68,7 @@
                             </div>
                           <h2 align="center" style="font-weight: 500;background: repeating-linear-gradient(91deg, #0c2b47 0%,#0de394 100%);font-size: 4.5rem;-webkit-text-fill-color: transparent;-webkit-background-clip: text;">Never Lose Sight </h2>
                             <p align="center" style="color: white">Triplez votre expérience</p>
-                            <a href="http://127.0.0.1:8000/product/4" style="margin-left: 238px;" class="btn btn-dark btn-outline btn-xl">Achetez &nbsp maintenant</a>
+                            <a href="http://127.0.0.1:8000/product/4" style="margin-left: 200px;" class="btn btn-dark btn-outline btn-xl">Achetez &nbsp maintenant</a>
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-12 img-item x1bleu-img s30-home-img">
@@ -221,56 +221,6 @@
 
 
 
-			<script>
-				$(document).ready(function(){
-
-					$('.addToCartBtn').click(function(e){
-						e.preventDefault();
-
-						var product_id = $(this).closest('.product_data').find('.product_id').val();
-						var product_quantity = $(this).closest('.product_data').find('.quantity').val();
-
-						$.ajaxSetup({
-							headers: {
-								'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-							}
-						});
-
-					
-						$.ajax({
-							method : "POST",
-							url : "{{route('addToCart')}} ",
-							data : {
-								'product_id' : product_id,
-								'product_quantity' : product_quantity
-							},
-							success : function(response){
-
-							if(response.check == 0){
-								//window.location.reload();
-								swal(response.status,'',"success");
-
-
-								window.setTimeout(function(){
-									window.location = " {{route('home')}} ";
-								},2000);
-							}else{
-								swal(response.status,'',"error");
-							}
-								
-
-							}
-
-						});
-
-					});
-
-
-
-				});
-
-			</script>
-
 
 						</div><!-- End .row -->
 <hr>
@@ -371,7 +321,6 @@
 
 			<div class="mb-3"></div><!-- margin -->
 		</main><!-- End .main -->
-
 
 
 @endsection

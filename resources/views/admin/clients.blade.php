@@ -3,7 +3,7 @@
 @section('content')
     
 
-    <div class="container">
+    <div class="container bg-white p-5">
         <h2 class="mb-3">Clients </h2>
         <table class="table table-striped">
             <thead>

@@ -2,7 +2,9 @@
 
 
 @section('content')
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     
+
 <div class="row">
     <div class="col-lg-9 main-content">
         <nav class="toolbox">
@@ -57,30 +59,29 @@
         @foreach ($products as $key => $product)
 
                 
-                    <div class="col-5 col-sm-4" style="margin-right: 30px;">
+                    <div class="col-5 col-sm-4 product_data" style="margin-right: 30px;">
                         <div class="product-default inner-quickview inner-icon">
                             <figure>
                                 <a href="/product/{{$product->id}} ">
                                     <img src="{{asset('productsImages/'.$product->image)}}">
                                 </a>
-                                
-                                <form action="/cart/{{$product->id}}" method="POST">
-                                                @csrf
+                                                  <input type="hidden" value=" {{$product->id}} " class="product_id">
+                                                    <input type="hidden" value="1" class="quantity">
                                                 <div class="btn-icon-group">
+                                                    
+
                                                 @if ($product->inStock > 0)
-                                                    <button class="btn-icon btn-add-cart"  type="submit" ><i class="icon-shopping-cart"></i></button>
+                                                    <button class="btn-icon btn-add-cart addToCartBtn"   ><i class="icon-shopping-cart"></i></button>
                                                 @else
                                                         <span class="product-label label-sale ">Stock Épuisé</span> 
                                                 @endif
                                                 </div>
-                                            </form>
                             </figure>
                             <div class="product-details">
                                 <div class="category-wrap">
                                     <div class="category-list">
                                         <a href="category/{{$product->category->id}}" class="product-category">{{$product->category->name}}</a>
                                     </div>
-                                    <a href="#" class="btn-icon-wish"><i class="icon-heart"></i></a>
                                 </div>
                                 <h2 class="product-title">
                                     <a href="/product/{{$product->id}} ">  {{$product->name}} </a>
@@ -93,7 +94,7 @@
                                 </div><!-- End .product-container -->
                                 <div class="price-box">
                                     <span class="old-price">$90.00</span>
-                                    <span class="product-price">$ {{$product->price}} </span>
+                                    <span class="product-price"> {{$product->price}} DH </span>
                                 </div><!-- End .price-box -->
                             </div><!-- End .product-details -->
                         </div>
@@ -166,7 +167,7 @@
                                             </div><!-- End .product-ratings -->
                                         </div><!-- End .product-container -->
                                         <div class="price-box">
-                                            <span class="product-price">$ {{$product->price}} </span>
+                                            <span class="product-price">{{$product->price}} DH </span>
                                         </div><!-- End .price-box -->
                                     </div><!-- End .product-details -->
                                 </div>
@@ -186,7 +187,5 @@
     </aside><!-- End .col-lg-3 -->
 </div><!-- End .row -->
 </div><!-- End .container -->
-
-
 
 @endsection
