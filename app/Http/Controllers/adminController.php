@@ -171,6 +171,7 @@ class adminController extends Controller
     public function edit_product(Request $req){
 
         $product = product::find($req->id);
+
         $product->name = $req->name;
         $product->price = $req->price;
         $product->reduction = $req->reduced_price;
@@ -280,7 +281,7 @@ class adminController extends Controller
 
         $pdf = PDF::loadView('admin.myPDF', $data);
     
-        return $pdf->download('itsolutionstuff.pdf');
+        return $pdf->download('facture'.$Corder->id.'.pdf');
     }
 }
 

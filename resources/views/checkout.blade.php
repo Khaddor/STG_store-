@@ -8,7 +8,7 @@
 				<div class="container">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-						<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+						<li class="breadcrumb-item active" aria-current="page">La caisse</li>
 					</ol>
 				</div><!-- End .container -->
 			</nav>
@@ -56,7 +56,7 @@
 											<option value="Tanger">Tanger</option>
 											<option value="Casablanca">Casablanca</option>
 											<option value="Rabat">Rabat</option>
-											<option value="Tetuan">Tetuan</option>
+											<option value="Tetuan">Tétouan</option>
 											<option value="Marrakech">Marrakech</option>
 											<option value="Fes">Fes</option>
 											<option value="Agadir">Agadir</option>

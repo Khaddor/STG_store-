@@ -86,7 +86,7 @@
 										<input class="horizontal-quantity form-control quantity" type="text" name="quantity">
 									</div><!-- End .product-single-qty -->
 									<div class="btn-icon-group">
-										<button class="btn btn-dark add-cart icon-shopping-cart addToCartBtn"  > Add to cart</button>
+										<button class="btn btn-dark add-cart icon-shopping-cart"   type="submit" > Ajouter au panier</button>
 									</div>
 									@else
 										<h3 class="text-danger">Stock Epuisé</h3>

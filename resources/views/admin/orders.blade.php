@@ -36,7 +36,7 @@
                         <div class="alert alert-success"> {{Session::get('success')}} </div>
                     @endif
 
-                      <table class="table table-striped">
+                    <table class="table table-striped">
                                 <thead>
                                 <tr>
                                     <th scope="col"> ID</th>
@@ -112,7 +112,7 @@
                             </tr>
                             @endforeach
 
-                        </table>
+                    </table>
              <div class="toolbox toolbox-pagination float-right">
             {{ $orders->links('vendor.pagination.bootstrap-4') }}
         </div>

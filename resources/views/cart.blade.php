@@ -3,13 +3,14 @@
 
 
 @section('content')
-    
+<script src="{{asset('assets/js/jquery-3.6.0.min.js')}}"></script>
+
 <main class="main">
 			<nav aria-label="breadcrumb" class="breadcrumb-nav">
 				<div class="container">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-						<li class="breadcrumb-item active" aria-current="page">Mon Panier</li>
+						<li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
 					</ol>
 				</div><!-- End .container -->
 			</nav>
@@ -21,10 +22,10 @@
 							<table class="table table-cart">
 								<thead>
 									<tr>
-										<th class="product-col">Produit</th>
-										<th class="price-col">Prix</th>
-										<th class="qty-col">Quantité</th>
-										<th>Total</th>
+										<th class="product-col">{{ __('commerce.product') }}</th>
+										<th class="price-col">Price</th>
+										<th class="qty-col">Qty</th>
+										<th>Subtotal</th>
 										<th>Action</th>
 
 									</tr>
@@ -34,7 +35,7 @@
 							@foreach ($orders as $order)
 							
 								<tbody>
-									<tr class="product-row">
+									<tr class="product-row" data-id="{{ $order->id }}">
 										<td class="product-col">
 											<figure class="product-image-container">
 												<a href="product.html" class="product-image">
@@ -64,6 +65,8 @@
 																		
 									</tr>
 
+
+
 									<tr class="product-action-row">
 										<td colspan="4" class="clearfix">
 
@@ -78,7 +81,29 @@
 									</tr>
 							@endforeach
 								
-									
+							<script type="text/javascript">
+
+								$(".update-cart").change(function (e) {
+										e.preventDefault();
+										
+										var ele = $(this);
+								
+										$.ajax({
+											url: " {{route('update.cart')}} ",
+											method: "PATCH",
+											data: {
+												_token: '{{ csrf_token() }}', 
+												id: ele.parents("tr").attr("data-id"), 
+												quantity: ele.parents("tr").find(".quantity").val()
+											},
+											success: function (response) {
+												//console.log(response)
+												xwindow.location.reload();
+											}
+										});
+									});
+	
+						</script>		
 								</tbody>
 
 								<tfoot>
@@ -86,7 +111,7 @@
 										<td colspan="4" class="clearfix">
 											<div class="float-left">
 
-												<a href="/" class="btn btn-outline-secondary">Continuer vos achats</a>
+												<a href="/" class="btn btn-outline-secondary">Continue Shopping</a>
 
 
 

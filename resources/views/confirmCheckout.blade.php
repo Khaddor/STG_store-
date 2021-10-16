@@ -8,7 +8,7 @@
 				<div class="container">
 					<ol class="breadcrumb">
 						<li class="breadcrumb-item"><a href="index.html"><i class="icon-home"></i></a></li>
-						<li class="breadcrumb-item active" aria-current="page">Checkout</li>
+						<li class="breadcrumb-item active" aria-current="page">La caisse</li>
 					</ol>
 				</div><!-- End .container -->
 			</nav>
@@ -96,7 +96,6 @@
 						<div class="checkout-payment">
 							<h2 class="step-title">Verifier Informations :</h2>
 
-							<h4>Confirmer vos informations</h4>
 							
 							@if (Session::has('success'))
 								<div class="alert alert-success" role="alert">
